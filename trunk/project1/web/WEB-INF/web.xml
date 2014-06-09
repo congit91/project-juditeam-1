@@ -21,6 +21,10 @@
         <servlet-name>UserManagement</servlet-name>
         <servlet-class>controller.servlet.admin.UserManagement</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>controller.servlet.SearchServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Page</servlet-name>
         <url-pattern>/Page</url-pattern>
@@ -32,6 +36,10 @@
     <servlet-mapping>
         <servlet-name>UserManagement</servlet-name>
         <url-pattern>/umanage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/search</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

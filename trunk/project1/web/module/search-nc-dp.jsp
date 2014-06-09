@@ -3,7 +3,7 @@
     Created on : Jun 6, 2014, 6:04:42 PM
     Author     : Welcomes
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -36,9 +36,9 @@
                                 </div>
                                 <div class="col-sm-9" >
                                     <select class="form-control">
-                                        <option>Xã Bình Triều</option>
-                                        <option>Xã Tam Trà</option>
-                                        <option>Xã Tam Mỹ</option>
+                                        <c:forEach items="${dpList}" var="dpList">
+                                            <option value="${dpList.getTenDP()}">${dpList.getTenDP()}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
                             </div>
@@ -50,11 +50,9 @@
                                 </div>
                                 <div class="col-sm-9" >
                                     <select class="form-control">
-                                        <option>Nguyễn Ngọc Duy</option>
-                                        <option>Phạm Đình Công</option>
-                                        <option>Vũ Văn Hải</option>
-                                        <option>Trần Thị Tèo</option>
-                                        <option>Công Tằng Tôn Nữ Ngộ Không</option>
+                                        <c:forEach items="${dpList}" var="dpList">
+                                            <option value="${dpList.getTenDP()}">${dpList.getTenDP()}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
                             </div>  

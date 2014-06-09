@@ -25,18 +25,18 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" action="/project1/contact" method="post">
+                    <form class="form-horizontal" role="form" action="/project1/search?do=tk-vb-cb" method="post">
                         <div class="col-sm-10 col-sm-offset-1">
                             <div class="form-group">
+                                <div class="col-sm-10" >
+                                    <input type="text" name="tenVB" class="form-control" placeholder="Hãy nhập tên tài liệu cần tìm kiếm...">
+                                </div>
                                 <div class="col-sm-2" >
                                     <button type="submit" class="btn btn-primary" name="do">Tìm kiếm</button>
-                                </div>
-                                <div class="col-sm-10" >
-                                    <input type="text" class="form-control" placeholder="Hãy nhập tên tài liệu cần tìm kiếm...">
+                                    <input type="text" name="timkiem" value="TKVBCB" hidden/>
                                 </div>
                             </div>    
                         </div>
-
                     </form>
                 </div>
                 <div class="panel-body">

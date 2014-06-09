@@ -4,6 +4,7 @@
     Author     : Welcomes
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,26 +26,34 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" action="/project1/contact" method="post">
+                    <form class="form-horizontal" role="form" action="/project1/search?do=tk-dp-cb" method="post">
                         <div class="col-sm-10 col-sm-offset-1">
                             <div class="form-group">
-                                <div class="col-sm-2" >
-                                    <button type="submit" class="btn btn-primary" name="do">Tìm kiếm</button>
-                                </div>
                                 <div class="col-sm-10" >
-                                    <select class="form-control">
-                                        <option>Xã Bình Triều</option>
-                                        <option>Xã Tam Trà</option>
-                                        <option>Xã Tam Mỹ</option>
+                                    <select class="form-control" name="diaphuong">
+                                        <c:forEach items="${dpList}" var="dpList">
+                                            <option value="${dpList.getTenDP()}">${dpList.getTenDP()}</option>
+                                        </c:forEach>
                                     </select>
+                                </div>
+                                <div class="col-sm-2" >
+                                    <input type="submit" class="btn btn-primary" name="submit" value="Tìm Kiếm">
+                                    <input type="text" name="timkiem" value="TKDPCB" hidden/>
                                 </div>
                             </div>    
                         </div>
-
                     </form>
                 </div>
                 <div class="panel-body">
-                    Kết Quả In ra ở đây
+                    <p>Kết quả tìm kiếm: </p>
+                    <textarea name="result" style="height:400px; width: 600px; text-align: left">
+        - Người phụ trách: <c:forEach items="${nptList}" var="nptList">${nptList.getHoTen()} - ${nptList.getChucVu()} </c:forEach>
+        - Dân số: ${dp.getSoDan()} người.
+        - Diện tích: ${dp.getDienTich()} ha.
+                        <c:forEach items="${dp.getTcList()}" var="tcList">
+                + ${tcList.getTenTC()}: ${tcList.getNoiDung()}
+                        </c:forEach>
+                    </textarea>
                 </div>
 
             </div>
