@@ -47,6 +47,7 @@ public class DiaPhuongDAO implements DiaPhuongDAOService {
                 dp.setSoDan(rs.getFloat("soDan"));
                 dp.setActive(rs.getInt("isActive"));
                 dp.setTcList(TieuChiDAO.getInstance().findTieuChiByDP(rs.getInt("maDP")));
+                dp.setNptList(NguoiPhuTrachDAO.getInstance().findNguoiPhuTrachByDP(rs.getInt("maDP")));
                 dpList.add(dp);
             }
         } catch (ClassNotFoundException | SQLException e) {
@@ -73,6 +74,7 @@ public class DiaPhuongDAO implements DiaPhuongDAOService {
                 dp.setSoDan(rs.getFloat("soDan"));
                 dp.setActive(rs.getInt("isActive"));
                 dp.setTcList(TieuChiDAO.getInstance().findTieuChiByDP(rs.getInt("maDP")));
+                dp.setNptList(NguoiPhuTrachDAO.getInstance().findNguoiPhuTrachByDP(rs.getInt("maDP")));
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -98,6 +100,7 @@ public class DiaPhuongDAO implements DiaPhuongDAOService {
                 dp.setSoDan(rs.getFloat("soDan"));
                 dp.setActive(rs.getInt("isActive"));
                 dp.setTcList(TieuChiDAO.getInstance().findTieuChiByDP(rs.getInt("maDP")));
+                dp.setNptList(NguoiPhuTrachDAO.getInstance().findNguoiPhuTrachByDP(rs.getInt("maDP")));
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
