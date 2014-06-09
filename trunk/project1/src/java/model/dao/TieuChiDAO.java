@@ -162,8 +162,6 @@ public class TieuChiDAO implements TieuChiDAOService {
                 tc.setMaTC(rs.getInt("maTC"));
                 tc.setTenTC(rs.getString("tenTC"));
                 tc.setNoiDung(rs.getString("noiDung"));
-                DiaPhuong dp = DiaPhuongDAO.getInstance().getDiaPhuongByID(rs.getInt("maDP"));
-                tc.setDiaPhuong(dp);
                 tcList.add(tc);
             }
         } catch (ClassNotFoundException | SQLException e) {

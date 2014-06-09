@@ -6,16 +6,22 @@
 package controller.servlet;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.dao.DiaPhuongDAO;
+import model.dao.service.DiaPhuongDAOService;
+import model.entities.DiaPhuong;
 
 /**
  *
  * @author Welcomes
  */
 public class Page extends HttpServlet {
+
+    DiaPhuongDAOService DP_SERVICE = DiaPhuongDAO.getInstance();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -46,12 +52,16 @@ public class Page extends HttpServlet {
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
                 break;
-                case "search-cb-dp":
+            case "search-cb-dp":
+                List<DiaPhuong> dpList = DP_SERVICE.getDiaPhuongAll();
+                request.setAttribute(util.Constants.DP_LIST, dpList);
                 request.setAttribute(util.Constants.PAGE, "search-cb-dp");
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
                 break;
             case "search-nc-dp":
+                List<DiaPhuong> dpListNC = DP_SERVICE.getDiaPhuongAll();
+                request.setAttribute(util.Constants.DP_LIST, dpListNC);
                 request.setAttribute(util.Constants.PAGE, "search-nc-dp");
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);

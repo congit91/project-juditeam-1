@@ -6,8 +6,11 @@
 
 package util;
 
+import java.util.List;
 import model.dao.TaiKhoanDAO;
+import model.dao.VanBanDAO;
 import model.entities.TaiKhoan;
+import model.entities.VanBan;
 
 /**
  *
@@ -15,9 +18,8 @@ import model.entities.TaiKhoan;
  */
 public class Test {
     public static void test(){
-        TaiKhoanDAO userDAO = new TaiKhoanDAO();
-        TaiKhoan tk = new TaiKhoan(1, "thanhnv", "thanhnv", "Nguyễn Văn Thanh", "thanhnv.itedu@gmail.com", "0982200444", 0);
-        System.out.println(userDAO.createTaiKhoan(tk));
+        List<VanBan> vbList = VanBanDAO.getInstance().getVanBanByTenVB("H");
+        System.out.println(vbList.size());
     }
     public static void main(String[] args) {
         test();

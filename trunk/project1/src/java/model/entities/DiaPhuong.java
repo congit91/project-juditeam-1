@@ -22,6 +22,7 @@ public class DiaPhuong {
     private int active;
     
     private List<TieuChi> tcList = null;
+    private List<NguoiPhuTrach> nptList = null;
 
     public DiaPhuong() {
     }
@@ -98,6 +99,14 @@ public class DiaPhuong {
 
     public void setActive(int active) {
         this.active = active;
+    }
+
+    public List<NguoiPhuTrach> getNptList() {
+        return nptList;
+    }
+
+    public void setNptList(List<NguoiPhuTrach> nptList) {
+        this.nptList = nptList;
     }
 
 }

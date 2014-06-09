@@ -35,7 +35,7 @@ public class VanBanDAO implements VanBanDAOService {
         List<VanBan> vbList = new ArrayList<>();
         try {
             Connection conn = ConnectionFactory.getConnection();
-            String sql = "select * from tbl_tieuchi";
+            String sql = "select * from tbl_vanban";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -61,9 +61,9 @@ public class VanBanDAO implements VanBanDAOService {
         List<VanBan> vbList = new ArrayList<>();
         try {
             Connection conn = ConnectionFactory.getConnection();
-            String sql = "select * from tbl_tieuchi where tenVB = ?";
+            String sql = "select * from tbl_vanban where tenVB like '"+"%"+tenVB+"%"+"'";
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, tenVB);
+            //pstmt.setString(1, tenVB);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 VanBan vb = new VanBan();
@@ -88,7 +88,7 @@ public class VanBanDAO implements VanBanDAOService {
         List<VanBan> vbList = new ArrayList<>();
         try {
             Connection conn = ConnectionFactory.getConnection();
-            String sql = "select * from tbl_tieuchi where loaiVB = ?";
+            String sql = "select * from tbl_vanban where loaiVB = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, loaiVB);
             ResultSet rs = pstmt.executeQuery();
@@ -115,7 +115,7 @@ public class VanBanDAO implements VanBanDAOService {
         VanBan vb = new VanBan();
         try {
             Connection conn = ConnectionFactory.getConnection();
-            String sql = "select * from tbl_tieuchi where maVB = ?";
+            String sql = "select * from tbl_vanban where maVB = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, maVB);
             ResultSet rs = pstmt.executeQuery();
@@ -140,7 +140,7 @@ public class VanBanDAO implements VanBanDAOService {
         List<VanBan> vbList = new ArrayList<>();
         try {
             Connection conn = ConnectionFactory.getConnection();
-            String sql = "select * from tbl_tieuchi where tenVB like '"+"%"+tenVB+"%"+"' and loaiVB like '"+"%"+loaiVB+"%"+"'"
+            String sql = "select * from tbl_vanban where tenVB like '"+"%"+tenVB+"%"+"' and loaiVB like '"+"%"+loaiVB+"%"+"'"
                     + "and noiBanHanh like '"+"%"+noiBanHanh+"%"+"' and ngayBanHanh = ? and noiNhan like '"+"%"+noiNhan+"%"+"'";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setDate(1, ngayBanHanh);
