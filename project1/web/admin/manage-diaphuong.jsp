@@ -13,12 +13,12 @@
         <link href="../css/bootstrap.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <div class="alert alert-danger" style="text-align: center"><b>QUẢN LÝ ĐỊA USER </b></div>
+        <div class="alert alert-info" style="text-align: center"><b>NGƯỜI QUẢN LÝ ĐỊA PHƯƠNG </b></div>
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading">
                 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                    Add New User
+                    Add New
                 </button>
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">

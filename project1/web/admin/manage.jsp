@@ -23,99 +23,136 @@
     </head>
     <body>
 
-        <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                </div>
-                <div class="col-md-12">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quản lý <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/project1/Page?p=search-cb-vb">Quản lý tài khoản</a></li>
-                                <li class="divider"></li>
-                                <li><a href="/project1/Page?p=search-cb-dp">Quản lý người phụ trách</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/project1/Page?p=about">Thống kê</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="/project1/home.jsp">Trang chủ</a></li>
-                        <li><a href="/project1/authen?do=logout"><span class="glyphicon glyphicon-th-large"  >Đăng xuất</span></a></li>
-                    </ul>
-                </div>
-            </div><!-- /.container -->
-        </div><!-- /.navbar -->
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6" style="text-align: center">
-                    <div class="jumbotron"style="background:gray">
+        <div class="container"style="background:#004050">
+            <div class="row" style="padding-top:20px;text-align: center">
+                
+                <div class="col-md-4" style="background:">
+                    <div class="col-md-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <span class="glyphicon glyphicon-lock"></span>
-                                Đăng nhập hệ thống!
+                            <div class="panel-heading" style="background:black;color:white">
+                                <span class="glyphicon glyphicon-user"></span>
+                                QUẢN LÝ USER
                             </div>
                             <div class="panel-body">
-
+                                <a href="/project1/Page?p=manage-user"><img class="img-rounded" src="./images/admin/user.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6" style="text-align: center">
-                    <div class="jumbotron"style="background:gray">
+                  <div class="col-md-4" style="background:">
+                    <div class="col-md-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <span class="glyphicon glyphicon-lock"></span>
-                                Đăng nhập hệ thống!
+                            <div class="panel-heading" style="background:black;color:white">
+                                <span class="glyphicon glyphicon-user"></span>
+                                NGƯỜI QUẢN LÝ ĐỊA PHƯƠNG
                             </div>
                             <div class="panel-body">
-
+                                <a href="/project1/Page?p=manage-diaphuong"><img class="img-rounded" src="./images/admin/diaphuong.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6" style="text-align: center">
-                    <div class="jumbotron"style="background:gray">
+                <div class="col-md-4" style="background:">
+                    <div class="col-md-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <span class="glyphicon glyphicon-lock"></span>
-                                Đăng nhập hệ thống!
+                            <div class="panel-heading" style="background:black;color:white">
+                                <span class="glyphicon glyphicon-user"></span>
+                                QUẢN LÝ VĂN BẢN
                             </div>
                             <div class="panel-body">
-
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-                <div class="col-md-6" style="text-align: center">
-                    <div class="jumbotron"style="background:gray">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <span class="glyphicon glyphicon-lock"></span>
-                                Đăng nhập hệ thống!
-                            </div>
-                            <div class="panel-body">
-
+                                <a href="#"><img class="img-rounded" src="./images/admin/vanban.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
+                <div class="col-md-4" style="background:">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background:black;color:white">
+                                <span class="glyphicon glyphicon-user"></span>
+                                QUẢN LÝ TIÊU CHÍ
+                            </div>
+                            <div class="panel-body">
+                                <a href="#"><img class="img-rounded" src="./images/admin/tieuchi.png" alt="" width="40%"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="background:">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background:black;color:white">
+                                <span class="glyphicon glyphicon-user"></span>
+                                QUẢN LÝ GI DAY 
+                            </div>
+                            <div class="panel-body">
+                                <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="col-md-4" style="background:">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background:black;color:white">
+                                <span class="glyphicon glyphicon-user"></span>
+                                QUẢN LÝ GI DAY 
+                            </div>
+                            <div class="panel-body">
+                                <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="background:">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background:black;color:white">
+                                <span class="glyphicon glyphicon-user"></span>
+                                QUẢN LÝ GI DAY 
+                            </div>
+                            <div class="panel-body">
+                                <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="background:">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background:black;color:white">
+                                <span class="glyphicon glyphicon-user"></span>
+                                QUẢN LÝ GI DAY 
+                            </div>
+                            <div class="panel-body">
+                                <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="background:">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background:black;color:white">
+                                <span class="glyphicon glyphicon-user"></span>
+                                QUẢN LÝ GI DAY 
+                            </div>
+                            <div class="panel-body">
+                                <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
             </div>
-            <footer class="panel panel-success">
-                <p>&copy; Company 2014 &ReverseEquilibrium;Design by JuDi Team</p>
-            </footer>
+        </div>
 
-        </div><!--/.container-->
+
+
 
         <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="../js/bootstrap.min.js"></script>
