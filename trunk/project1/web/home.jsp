@@ -78,20 +78,20 @@
                 <!---------------------------LEFT--------------------------------->
                 <%@include file="module/left_content.jsp" %>
                 <!-----------------------------CONTENT----------------------------->
-                <c:if test="${page == 'about'}">
+                <c:if test="${p == 'about'}">
                     <%@include file="module/about.jsp" %>
                 </c:if>
 
-                <c:if test="${page == 'seach-cb'}">
+                <c:if test="${p == 'seach-cb'}">
                     <%@include file="module/seach-cb.jsp" %>
                 </c:if>
-                <c:if test="${page == 'seach-nc'}">
+                <c:if test="${p == 'seach-nc'}">
                     <%@include file="module/seach-nc.jsp" %>
                 </c:if>
-                <c:if test="${page == 'contact'}">
+                <c:if test="${p == 'contact'}">
                     <%@include file="module/contact.jsp" %>
                 </c:if>
-                <c:if test="${page ==null}">
+                <c:if test="${p ==null}">
                     <%@include file="module/main_content.jsp" %>
                 </c:if>
 
