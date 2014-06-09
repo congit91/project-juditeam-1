@@ -21,7 +21,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="col-sm-2 col-sm-offset-10">
-                        <a href="/project1/Page?p=seach-nc" class="label label-warning">TÌM KIẾM NÂNG CAO</a>  
+                        <a href="/project1/Page?p=search-nc" class="label label-warning">TÌM KIẾM NÂNG CAO</a>  
                     </div>
                 </div>
                 <div class="panel-body">
