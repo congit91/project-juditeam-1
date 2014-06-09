@@ -6,7 +6,6 @@
 package controller.servlet.admin;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -90,7 +89,7 @@ public class UserManagement extends HttpServlet {
         String hoTen = request.getParameter("hoTen");
         String email = request.getParameter("email");
         String sdt = request.getParameter("SDT");
-        boolean trangThaiHD = true;
+        int trangThaiHD = 1;
         TaiKhoan tk = new TaiKhoan(maTK, "", "", hoTen, email, sdt, trangThaiHD);
         if (TK_SERVICE.updateTaiKhoan(tk)) {
             List<TaiKhoan> tkList = TK_SERVICE.getTaiKhoanAll();
@@ -116,7 +115,7 @@ public class UserManagement extends HttpServlet {
         String matkhau = request.getParameter("matkhau");
         String email = request.getParameter("email");
         String sdt = request.getParameter("SDT");
-        boolean trangThaiHD = true;
+        int trangThaiHD = 1;
         TaiKhoan tk = new TaiKhoan(1, tenTK, matkhau, hoTen, email, sdt, trangThaiHD);
         if (TK_SERVICE.createTaiKhoan(tk)) {
             List<TaiKhoan> tkList = TK_SERVICE.getTaiKhoanAll();

@@ -6,7 +6,6 @@
 package controller.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,20 +36,13 @@ public class Page extends HttpServlet {
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
                 break;
-
+            case "search":
+                request.setAttribute(util.Constants.PAGE, "search");
+                request.removeAttribute(util.Constants.MSG_RESULT);
+                request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
+                break;
             case "about":
                 request.setAttribute(util.Constants.PAGE, "about");
-                request.removeAttribute(util.Constants.MSG_RESULT);
-                request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
-                break;
-
-            case "seach-cb":
-                request.setAttribute(util.Constants.PAGE, "seach-cb");
-                request.removeAttribute(util.Constants.MSG_RESULT);
-                request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
-                break;
-            case "seach-nc":
-                request.setAttribute(util.Constants.PAGE, "seach-nc");
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
                 break;
