@@ -27,14 +27,16 @@
                     </button>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <ul class="nav navbar-nav">
 
                             <li class="active"><a href="/project1/home.jsp">Trang chủ</a></li>
                             <li><a href="/project1/Page?p=about">Giới thiệu</a></li>
                             <li><a href="/project1/Page?p=seach-cb">Tìm kiếm</a></li>
                             <li><a href="/project1/Page?p=contact">Liên Hệ</a></li>
-                             <li><a href="/project1/admin.jsp">Quản trị</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/project1/admin.jsp"><span class="glyphicon glyphicon-th-large"  >Quản trị</span></a></li>
                         </ul>
                     </div>
                 </div><!--/.nav-collapse -->
