@@ -25,7 +25,7 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3><span class="glyphicon glyphicon-user"></span>${tk.getMaTK() > 0 ? 'Thay đổi thông tin tài khoản' : 'Thêm mới tài khoản'}</h3>
+                                    <h3><span class="glyphic on glyphicon-user"></span>${tk.getMaTK() > 0 ? 'Thay đổi thông tin tài khoản' : 'Thêm mới tài khoản'}</h3>
                                 </div>
                                 <div class="panel-body">
                                     <form class="form-horizontal" role="form" action="/project1/umanage?id=${tk.getMaTK()}" method="post">
