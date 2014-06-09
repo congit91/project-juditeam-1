@@ -32,11 +32,7 @@
                                     <button type="submit" class="btn btn-primary" name="do">Tìm kiếm</button>
                                 </div>
                                 <div class="col-sm-10" >
-                                    <select class="form-control">
-                                        <option>Xã Bình Triều</option>
-                                        <option>Xã Tam Trà</option>
-                                        <option>Xã Tam Mỹ</option>
-                                    </select>
+                                    <input type="text" class="form-control" placeholder="Hãy nhập tên tài liệu cần tìm kiếm...">
                                 </div>
                             </div>    
                         </div>
