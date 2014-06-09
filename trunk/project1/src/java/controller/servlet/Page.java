@@ -81,6 +81,11 @@ public class Page extends HttpServlet {
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
                 break;
+            case "nav-admin":
+                request.setAttribute(util.Constants.PAGE, "nav-admin");
+                request.removeAttribute(util.Constants.MSG_RESULT);
+                request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+                break;
         }
 
     }
