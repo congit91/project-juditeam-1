@@ -20,65 +20,62 @@
                     <h5><span class="glyphicon glyphicon-search"></span>&nbsp; TÌM KIẾM ĐỊA PHƯƠNG NÂNG CAO</h5>
                 </div>
                 <div class="panel-body">
-                    <div class="col-sm-2 col-sm-offset-10">
+                    <div class="col-sm-3 col-sm-offset-10">
                         <a href="/project1/Page?p=search-cb-dp" class="label label-primary">TÌM KIẾM CƠ BẢN</a>  
                     </div>
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" action="/project1/contact" method="post">
-                        <div class="col-sm-10 col-sm-offset-1">
+                        <div class="col-sm-9 col-sm-offset-1">
+                            
                             <div class="form-group">
-                                <div class="col-sm-2" >
+                                <div class="col-sm-3" >
                                     <label class="label label-info">
-                                        Tên tài liệu
+                                        Địa phương(*)
                                     </label> 
                                 </div>
-                                <div class="col-sm-10" >
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                            </div>    
-                             <div class="form-group">
-                                <div class="col-sm-2" >
-                                    <label class="label label-info">
-                                       Loại
-                                    </label> 
-                                </div>
-                                <div class="col-sm-10" >
-                                    <input type="text" class="form-control" placeholder="">
+                                <div class="col-sm-9" >
+                                    <select class="form-control">
+                                        <option>Xã Bình Triều</option>
+                                        <option>Xã Tam Trà</option>
+                                        <option>Xã Tam Mỹ</option>
+                                    </select>
                                 </div>
                             </div>
-                             <div class="form-group">
-                                <div class="col-sm-2" >
+                            <div class="form-group">
+                                <div class="col-sm-3" >
                                     <label class="label label-info">
-                                       Nơi ban hành
+                                        Người phụ trách(*)
                                     </label> 
                                 </div>
-                                <div class="col-sm-10" >
-                                    <input type="text" class="form-control" placeholder="">
+                                <div class="col-sm-9" >
+                                    <select class="form-control">
+                                        <option>Nguyễn Ngọc Duy</option>
+                                        <option>Phạm Đình Công</option>
+                                        <option>Vũ Văn Hải</option>
+                                        <option>Trần Thị Tèo</option>
+                                        <option>Công Tằng Tôn Nữ Ngộ Không</option>
+                                    </select>
                                 </div>
                             </div>  
-                             <div class="form-group">
-                                <div class="col-sm-2" >
+                            <div class="form-group">
+                                <div class="col-sm-3" >
                                     <label class="label label-info">
-                                       Ngày ban hành
+                                        Tên tiêu chí(*)
                                     </label> 
                                 </div>
-                                <div class="col-sm-10" >
-                                    <input type="text" class="form-control" placeholder="">
+                                <div class="col-sm-9" >
+                                    <select class="form-control">
+                                        <option>Tiêu chí 1</option>
+                                        <option>Tiêu chí 2</option>
+                                        <option>Tiêu chí 3</option>
+                                        <option>Tiêu chí 4</option>
+                                    </select>
                                 </div>
                             </div>  
-                             <div class="form-group">
-                                <div class="col-sm-2" >
-                                    <label class="label label-info">
-                                       Nơi nhận
-                                    </label> 
-                                </div>
-                                <div class="col-sm-10" >
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                            </div> 
-                           <div class="form-group">
-                                <div class="col-sm-2 col-sm-offset-10" >
+
+                            <div class="form-group">
+                                <div class="col-sm-3 col-sm-offset-10" >
                                     <button type="submit" class="btn btn-success" name="do">Tìm kiếm</button>
 
                                 </div>    
