@@ -31,6 +31,9 @@ public class Constants {
     public static final String PAGE = "p";
 
     public static final String CURRENT_USER = "currentUser";
+    
     public static final String TK_LIST = "tkList";
+    public static final String DP_LIST = "dpList";
+    
     public static final String TK = "tk";
 }
