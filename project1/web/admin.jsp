@@ -24,18 +24,19 @@
         <div class="container">
             <div class="row">
                 <c:if test="${p == 'manage'}">
+                    <%@include file="admin/nav-admin.jsp" %>    
                     <%@include file="admin/manage.jsp" %>
                 </c:if>
-                <c:if test="${p == 'nav-admin'}">
-                    <%@include file="admin/nav-admin.jsp" %>
-                </c:if>
                 <c:if test="${p == 'adduser'}">
+                    <%@include file="admin/nav-admin.jsp" %>
                     <%@include file="admin/adduser.jsp" %>
                 </c:if>
                 <c:if test="${p == 'manage-user'}">
+                    <%@include file="admin/nav-admin.jsp" %>
                     <%@include file="admin/manage-users.jsp" %>
                 </c:if>
                 <c:if test="${p == 'manage-diaphuong'}">
+                    <%@include file="admin/nav-admin.jsp" %>
                     <%@include file="admin/manage-diaphuong.jsp" %>
                 </c:if>
                 <c:if test="${p == 'login' || p == null}">
