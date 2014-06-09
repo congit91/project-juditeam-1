@@ -71,6 +71,16 @@ public class Page extends HttpServlet {
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
                 break;
+            case "manage-user":
+                request.setAttribute(util.Constants.PAGE, "manage-user");
+                request.removeAttribute(util.Constants.MSG_RESULT);
+                request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+                break;
+            case "manage-diaphuong":
+                request.setAttribute(util.Constants.PAGE, "manage-diaphuong");
+                request.removeAttribute(util.Constants.MSG_RESULT);
+                request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+                break;
         }
 
     }
