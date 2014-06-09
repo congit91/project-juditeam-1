@@ -17,11 +17,11 @@
         <div class="col-lg-8 col-sm-8 col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h5><span class="glyphicon glyphicon-search"></span>&nbsp; TÌM KIẾM CƠ BẢN</h5>
+                    <h5><span class="glyphicon glyphicon-search"></span>&nbsp; TÌM KIẾM ĐỊA PHƯƠNG CƠ BẢN</h5>
                 </div>
                 <div class="panel-body">
                     <div class="col-sm-2 col-sm-offset-10">
-                        <a href="/project1/Page?p=search-nc" class="label label-warning">TÌM KIẾM NÂNG CAO</a>  
+                        <a href="/project1/Page?p=search-nc-dp" class="label label-warning">TÌM KIẾM NÂNG CAO</a>  
                     </div>
                 </div>
                 <div class="panel-body">

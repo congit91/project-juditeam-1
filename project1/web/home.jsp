@@ -82,12 +82,22 @@
                     <%@include file="module/about.jsp" %>
                 </c:if>
 
-                <c:if test="${p == 'search-cb'}">
-                    <%@include file="module/search-cb.jsp" %>
+                <c:if test="${p == 'search-cb-vb'}">
+                    <%@include file="module/search-cb-vb.jsp" %>
                 </c:if>
-                <c:if test="${p == 'search-nc'}">
-                    <%@include file="module/search-nc.jsp" %>
+                <c:if test="${p == 'search-nc-vb'}">
+                    <%@include file="module/search-nc-vb.jsp" %>
                 </c:if>
+                
+                
+                <c:if test="${p == 'search-cb-dp'}">
+                    <%@include file="module/search-cb-dp.jsp" %>
+                </c:if>
+                <c:if test="${p == 'search-nc-dp'}">
+                    <%@include file="module/search-nc-dp.jsp" %>
+                </c:if>
+                
+                
                 <c:if test="${p == 'contact'}">
                     <%@include file="module/contact.jsp" %>
                 </c:if>
