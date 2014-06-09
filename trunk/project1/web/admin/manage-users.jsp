@@ -13,7 +13,7 @@
         <link href="../css/bootstrap.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <div class="alert alert-danger" style="text-align: center"><b>QUẢN LÝ ĐỊA USER </b></div>
+        <div class="alert alert-danger" style="text-align: center"><b>QUẢN LÝ TÀI KHOẢN NGƯỜI SỬ DỤNG </b></div>
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading">
