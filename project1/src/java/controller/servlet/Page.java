@@ -36,8 +36,13 @@ public class Page extends HttpServlet {
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
                 break;
-            case "search":
-                request.setAttribute(util.Constants.PAGE, "search");
+            case "search-cb":
+                request.setAttribute(util.Constants.PAGE, "search-cb");
+                request.removeAttribute(util.Constants.MSG_RESULT);
+                request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
+                break;
+            case "search-nc":
+                request.setAttribute(util.Constants.PAGE, "search-nc");
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
                 break;

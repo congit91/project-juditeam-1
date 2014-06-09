@@ -32,7 +32,7 @@
 
                             <li class="active"><a href="/project1/home.jsp">Trang chủ</a></li>
                             <li><a href="/project1/Page?p=about">Giới thiệu</a></li>
-                            <li><a href="/project1/Page?p=seach-cb">Tìm kiếm</a></li>
+                            <li><a href="/project1/Page?p=search-cb">Tìm kiếm</a></li>
                             <li><a href="/project1/Page?p=contact">Liên Hệ</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
