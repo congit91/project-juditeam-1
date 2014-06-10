@@ -4,6 +4,7 @@
     Author     : Welcomes
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -40,7 +41,46 @@
                     </form>
                 </div>
                 <div class="panel-body">
-                    Kết Quả In ra ở đây
+                    <c:if test="${vbList != null}">
+                        <table>
+                            <tr>
+                                <td>Mã văn bản</td>
+                                <td>Tên văn bản</td>
+                                <td>Loại văn bản</td>
+                                <td>Nơi ban hành</td>
+                                <td>Ngày ban hành</td>
+                                <td>Nơi nhận</td>
+                                <td></td>
+                            </tr>
+                            <c:forEach items="${vbList}" var="vbList">
+                                <c:if test="${vbList.getActive() == 1}">
+                                    <tr>
+                                        <td>${vbList.getMaVB()}</td>
+                                        <td>${vbList.getTenVB()}</td>
+                                        <td>${vbList.getLoaiVB()}</td>
+                                        <td>${vbList.getNoiBanHanh()}</td>
+                                        <td>${vbList.getNgayBanHanh()}</td>
+                                        <td>${vbList.getNoiNhan()}</td>
+                                        <td><a href="/project1/search?maVB=${vbList.getMaVB()}">Xem</a></td>
+                                    </tr>
+                                </c:if>
+                            </c:forEach>
+                        </table>
+                    </c:if>
+                    <c:if test="${vbList == null && currentVB == null}">
+                        <p>No results</p>
+                    </c:if>
+                    <c:if test="${currentVB != null}">
+                    <p>Kết quả tìm kiếm: </p>
+                    <textarea name="result" style="height:400px; width: 600px; text-align: left" readonly>
+        Tên văn bản: ${currentVB.getTenVB()}
+        Loại văn bản: ${currentVB.getLoaiVB()}
+        Ngày ban hành: ${currentVB.getNgayBanHanh()}
+        Nơi ban hành: ${currentVB.getNoiBanHanh()}
+        Nội dung:
+        ${currentVB.getNoiDung()}
+                    </textarea>
+                    </c:if>
                 </div>
 
             </div>

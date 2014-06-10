@@ -4,6 +4,7 @@
     Author     : Welcomes
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,7 +26,7 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" action="/project1/contact" method="post">
+                    <form class="form-horizontal" role="form" action="/project1/search?do=tk-vb-nc" method="post">
                         <div class="col-sm-10 col-sm-offset-1">
                             <div class="form-group">
                                 <div class="col-sm-2" >
@@ -34,7 +35,7 @@
                                     </label> 
                                 </div>
                                 <div class="col-sm-10" >
-                                    <input type="text" class="form-control" placeholder="">
+                                    <input type="text" name="tenVB" class="form-control" placeholder="">
                                 </div>
                             </div>    
                              <div class="form-group">
@@ -44,7 +45,7 @@
                                     </label> 
                                 </div>
                                 <div class="col-sm-10" >
-                                    <input type="text" class="form-control" placeholder="">
+                                    <input type="text" name="loaiVB" class="form-control" placeholder="">
                                 </div>
                             </div>
                              <div class="form-group">
@@ -54,7 +55,7 @@
                                     </label> 
                                 </div>
                                 <div class="col-sm-10" >
-                                    <input type="text" class="form-control" placeholder="">
+                                    <input type="text" name="noiBanHanh" class="form-control" placeholder="">
                                 </div>
                             </div>  
                              <div class="form-group">
@@ -64,7 +65,7 @@
                                     </label> 
                                 </div>
                                 <div class="col-sm-10" >
-                                    <input type="text" class="form-control" placeholder="">
+                                    <input type="text" name="ngayBanHanh" class="form-control" placeholder="">
                                 </div>
                             </div>  
                              <div class="form-group">
@@ -74,7 +75,7 @@
                                     </label> 
                                 </div>
                                 <div class="col-sm-10" >
-                                    <input type="text" class="form-control" placeholder="">
+                                    <input type="text" name="noiNhan" class="form-control" placeholder="">
                                 </div>
                             </div> 
                            <div class="form-group">
@@ -89,7 +90,47 @@
                     </form>
                 </div>
                 <div class="panel-body">
-                    Kết Quả In ra ở đây
+                    <!--Kết Quả In ra ở đây-->
+                    <c:if test="${vbList != null}">
+                        <table>
+                            <tr>
+                                <td>Mã văn bản</td>
+                                <td>Tên văn bản</td>
+                                <td>Loại văn bản</td>
+                                <td>Nơi ban hành</td>
+                                <td>Ngày ban hành</td>
+                                <td>Nơi nhận</td>
+                                <td></td>
+                            </tr>
+                            <c:forEach items="${vbList}" var="vbList">
+                                <c:if test="${vbList.getActive() == 1}">
+                                    <tr>
+                                        <td>${vbList.getMaVB()}</td>
+                                        <td>${vbList.getTenVB()}</td>
+                                        <td>${vbList.getLoaiVB()}</td>
+                                        <td>${vbList.getNoiBanHanh()}</td>
+                                        <td>${vbList.getNgayBanHanh()}</td>
+                                        <td>${vbList.getNoiNhan()}</td>
+                                        <td><a href="/project1/search?maVB=${vbList.getMaVB()}">Xem</a></td>
+                                    </tr>
+                                </c:if>
+                            </c:forEach>
+                        </table>
+                    </c:if>
+                    <c:if test="${vbList == null && currentVB == null}">
+                        <p>No results</p>
+                    </c:if>
+                    <c:if test="${currentVB != null}">
+                    <p>Kết quả tìm kiếm: </p>
+                    <textarea name="result" style="height:400px; width: 600px; text-align: left" readonly>
+        Tên văn bản: ${currentVB.getTenVB()}
+        Loại văn bản: ${currentVB.getLoaiVB()}
+        Ngày ban hành: ${currentVB.getNgayBanHanh()}
+        Nơi ban hành: ${currentVB.getNoiBanHanh()}
+        Nội dung:
+        ${currentVB.getNoiDung()}
+                    </textarea>
+                    </c:if>
                 </div>
 
             </div>
