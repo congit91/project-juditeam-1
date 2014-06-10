@@ -49,13 +49,13 @@
                         <option value="http://www.dantri.com.vn">Dân trí;</option>
                     </select>
                     &nbsp;
-                    <img width="170" height="" src="images/left/gopy-duthao.jpg" alt=""/>
+                    <img width="100%" height="" src="images/left/gopy-duthao.jpg"  alt=""/>
                     &nbsp;
-                    <img width="170" height="" src="images/left/hethong-tt.jpg" alt=""/>
+                    <img width="100%" height="" src="images/left/hethong-tt.jpg" alt=""/>
                     &nbsp;
-                    <img width="170" height="" src="images/left/tb-moithau" alt=""/>
+                    <img width="100%" height="" src="images/left/tb-moithau" alt=""/>
                     &nbsp;
-                    <img width="170" height="" src="images/left/tttd.jpg" alt=""/>
+                    <img width="100%" height="" src="images/left/tttd.jpg" alt=""/>
                 </div>
             </div>
         </div>
