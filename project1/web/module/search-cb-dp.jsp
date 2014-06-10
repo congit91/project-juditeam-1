@@ -46,7 +46,7 @@
                 </div>
                 <div class="panel-body">
                     <p>Kết quả tìm kiếm: </p>
-                    <textarea name="result" style="height:400px; width: 600px; text-align: left">
+                    <textarea name="result" style="height:400px; width: 600px; text-align: left" readonly>
         - Người phụ trách: <c:forEach items="${nptList}" var="nptList">${nptList.getHoTen()} - ${nptList.getChucVu()} </c:forEach>
         - Dân số: ${dp.getSoDan()} người.
         - Diện tích: ${dp.getDienTich()} ha.
