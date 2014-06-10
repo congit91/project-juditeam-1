@@ -30,11 +30,11 @@
                                 <a href="#"><h6><span class="glyphicon glyphicon-check"></span>&nbsp;Phát triển hạ tầng kinh tế - xã hội</h6></a>           
                                 <a href="#"><h6><span class="glyphicon glyphicon-check"></span>&nbsp;Bộ Nội vụ hướng dẫn thực hiện nội dung</h6></a>           
                                 <a href="#"><h6><span class="glyphicon glyphicon-check"></span>&nbsp;Chuyển dịch cơ cấu, phát triển kinh tế, nâng cao thu nhập</h6></a>           
-                    <img width="170" height="" src="images/right/ad-nongthon.jpg" alt=""/>
+                    <img width="100%" height="" src="images/right/ad-nongthon.jpg" alt=""/>
                     &nbsp;
-                    <img width="170" height="" src="images/right/bomay-dh.jpg" alt=""/>
+                    <img width="100%" height="" src="images/right/bomay-dh.jpg" alt=""/>
                     &nbsp;
-                    <img width="170" height="" src="images/right/botc.jpg" alt=""/>
+                    <img width="100%" height="" src="images/right/botc.jpg" alt=""/>
                     &nbsp;
                    
                 </div>
