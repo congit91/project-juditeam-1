@@ -51,7 +51,7 @@
                     <div class="col-md-12">
                         <div class="panel-body">
                             <div class="col-md-3">
-                                <b class="label label-success" style="font-size:14px">
+                                <b class="label label-success" style="font-size:14px;text-transform: uppercase">
                                     Người phụ trách:
                                 </b>
                             </div>
@@ -64,7 +64,7 @@
                         <div class="col-md-12">
                             <div class="panel-body">
                                 <div class="col-md-3">
-                                    <b class="label label-success" style="font-size:14px">
+                                    <b class="label label-success" style="font-size:14px;;text-transform: uppercase">
                                         Dân số:
                                     </b>
                                 </div>
@@ -76,7 +76,7 @@
                     <div class="col-md-12">
                         <div class="panel-body">
                             <div class="col-md-3">
-                                <b class="label label-success" style="font-size:14px">
+                                <b class="label label-success" style="font-size:14px;;text-transform: uppercase">
                                     Diện tích:
                                 </b>
                             </div>
@@ -89,7 +89,7 @@
                     <div class="col-md-12">
                         <div class="panel-body">
                             <div class="col-md-3">
-                                <b class="label label-warning" style="font-size:14px">
+                                <b class="label label-warning" style="font-size:14px;;text-transform: uppercase">
                                     Nội dung tìm kiếm
                                 </b>
                             </div>
