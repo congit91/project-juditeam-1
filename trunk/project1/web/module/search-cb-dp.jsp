@@ -45,18 +45,75 @@
                     </form>
                 </div>
                 <div class="panel-body">
-                    <p>Kết quả tìm kiếm: </p>
-                    <textarea name="result" style="height:400px; width: 600px; text-align: left" readonly>
-        - Người phụ trách: <c:forEach items="${nptList}" var="nptList">${nptList.getHoTen()} - ${nptList.getChucVu()} </c:forEach>
-        - Dân số: ${dp.getSoDan()} người.
-        - Diện tích: ${dp.getDienTich()} ha.
-                        <c:forEach items="${dp.getTcList()}" var="tcList">
-                + ${tcList.getTenTC()}: ${tcList.getNoiDung()}
-                        </c:forEach>
-                    </textarea>
+                    <div class="col-md-12">
+                        <label>Kết quả tìm kiếm: </label>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <b class="label label-success" style="font-size:14px">
+                                    Người phụ trách:
+                                </b>
+                            </div>
+                            <div class="col-md-9">
+                                <c:forEach items="${nptList}" var="nptList">${nptList.getHoTen()} - ${nptList.getChucVu()} </c:forEach>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="panel-body">
+                                <div class="col-md-3">
+                                    <b class="label label-success" style="font-size:14px">
+                                        Dân số:
+                                    </b>
+                                </div>
+                                <div class="col-md-9">
+                                ${dp.getSoDan()} <i>người</i>.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <b class="label label-success" style="font-size:14px">
+                                    Diện tích:
+                                </b>
+                            </div>
+                            <div class="col-md-9">
+                                ${dp.getDienTich()} <i>ha</i>.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="panel-body">
+                            <div class="col-md-3">
+                                <b class="label label-warning" style="font-size:14px">
+                                    Nội dung tìm kiếm
+                                </b>
+                            </div>
+                            <div class="col-md-9">
+
+                                <div class="panel panel-group" style="border:1px solid #004050; padding: 5px; min-height:40px">
+                                    <p>
+                                        <c:forEach items="${dp.getTcList()}" var="tcList">
+                                            + ${tcList.getTenTC()}: ${tcList.getNoiDung()}
+                                        </c:forEach>  
+                                    </p>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </div>
 
             </div>
+
         </div>
 
 
