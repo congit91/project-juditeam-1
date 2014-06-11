@@ -172,22 +172,31 @@
 
 
                 <div class="row">
-                    <div class="col-lg-5 col-lg-push-5">
-                        <div class="input-group">
-                            <div class="input-group-btn">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                     <div class="col-lg-5 col-lg-push-4">
+                        <div class="col-md-11">
+                        
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                        <span class="caret"></span></button>
 
-                                    <span class="glyphicon glyphicon-search"></span>
-                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">UserName</a></li>
+                                        <li><a href="#">Email</a></li>
+                                        <li><a href="#">Phone</a></li>
+                                    </ul>
+                                </div><!-- /btn-group -->
 
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">UserName</a></li>
-                                    <li><a href="#">Email</a></li>
-                                    <li><a href="#">Phone</a></li>
-                                </ul>
-                            </div><!-- /btn-group -->
-                            <input type="text" class="form-control">
+                                <input type="text" class="form-control">
+
+                            </div><!-- /input-group -->
                         </div><!-- /input-group -->
+                        <div class="col-md-1">
+                            <button type="button" class="btn btn-default dropdown-toggle" style="background:#3e8f3e;color:#ffffff">
+                                Seacher
+                            </button>
+                        </div>
                     </div><!-- /.col-lg-6 -->
                 </div><!-- /.row -->
             </div>
