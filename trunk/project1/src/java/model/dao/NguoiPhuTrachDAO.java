@@ -243,4 +243,21 @@ public class NguoiPhuTrachDAO implements NguoiPhuTrachDAOService {
         return npt;
     }
 
+    @Override
+    public boolean updateNPT_DP(int maNPT, int maDP) {
+        boolean isCheck = false;
+        try {
+            Connection conn = ConnectionFactory.getConnection();
+            String sql = "update tbl_nguoiphutrach set maDP = ? where maNPT = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, maDP);
+            pstmt.setInt(2, maNPT);
+            pstmt.executeUpdate();
+            isCheck = true;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return isCheck;
+    }
+
 }
