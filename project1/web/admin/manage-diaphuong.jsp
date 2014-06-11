@@ -25,21 +25,21 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3><span class="glyphicon glyphicon-user"></span>${tk.getMaTK() > 0 ? 'Thay đổi thông tin tài khoản' : 'Thêm mới tài khoản'}</h3>
+                                    <h3><span class="glyphicon glyphicon-user"></span>${tk.getMaDP() > 0 ? 'Thay đổi thông tin tài khoản' : 'Thêm mới tài khoản'}</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <form class="form-horizontal" role="form" action="/project1/umanage?id=${tk.getMaTK()}" method="post">
+                                    <form class="form-horizontal" role="form" action="/project1/umanage?id=${tk.getMaDP()}" method="post">
                                         <!-- /.UserName -->
                                         <div class="form-group">                                    
                                             <div class="col-sm-12" >
-                                                <input type="text" name="maTK" value="${tk.getMaTK()}" disabled class="form-control" id="inputEmail3">
+                                                <input type="text" name="maTK" value="${tk.getMaDP()}" disabled class="form-control" id="inputEmail3">
                                             </div>
                                         </div>
                                         <!-- /.UserName -->
                                         <div class="form-group">
 
                                             <div class="col-sm-12" >
-                                                <input type="text" name="tenTK" value="${tk.getTenTK()}" ${tk.getMaTK() > 0 ? 'disabled' : ''} class="form-control" id="inputEmail3" placeholder="Tên tài khoản">
+                                                <input type="text" name="tenTK" value="${tk.getTenDP()}" ${tk.getMaDP() > 0 ? 'disabled' : ''} class="form-control" id="inputEmail3" placeholder="Tên tài khoản">
                                             </div>
                                         </div>
                                         <!-- /.Password -->
@@ -72,7 +72,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-12" >
-                                                <input type="submit" ${tk.getMaTK() > 0 ? 'value="Sửa"' : 'value="Thêm mới"'} name="submit" class="btn btn-success"/>
+                                                <input type="submit" ${tk.getMaDP() > 0 ? 'value="Sửa"' : 'value="Thêm mới"'} name="submit" class="btn btn-success"/>
                                                 &nbsp;
                                                 <button type="reset" class="btn btn-warning">Clear</button>
                                             </div>
@@ -86,8 +86,6 @@
 
                     </div>
                 </div>
-
-
                 <div class="row">
                     <div class="col-lg-5 col-lg-push-6">
                         <div class="input-group">
@@ -117,28 +115,28 @@
                                                 </head>-->
                         <thead>
                             <tr>
-                                <th>Mã TK</th>
-                                <th>Tên TK</th>
-                                <th>Mật khẩu</th>
-                                <th>Họ tên</th>
-                                <th>Email</th>
+                                <th>Mã</th>
+                                <th>Tên Xã</th>
                                 <th>Số ĐT</th>
+                                <th>Nơi nhận</th>
+                                <th>Diện tích</th>
+                                <th>Số dân</th>
                                 <th>Lựa chọn</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${requestScope.tkList}" var="tkList">
+                        <c:forEach items="${requestScope.dpList}" var="dpList">
                             <tr>
-                                <td>${tkList.getMaTK()}</td>
-                                <td>${tkList.getTenTK()}</td>
-                                <td><input type="password" name="pwd" value="${tkList.getMatkhau()}" disabled></td>
-                                <td>${tkList.getHoTen()}</td>
-                                <td>${tkList.getEmail()}</td>
-                                <td>${tkList.getSDT()}</td>
+                                <td>${dpList.getMaDP()}</td>
+                                <td>${dpList.getTenDP()}</td>
+                                <td>${dpList.getSDT()}</td>
+                                <td>${dpList.getNoiNhan()}</td>
+                                <td>${dpList.getDienTich()}</td>
+                                <td>${dpList.getSoDan()}</td>
                                 <td>
-                                    <a href="/project1/umanage?do=edit&id=${tkList.getMaTK()}" ><span class="glyphicon glyphicon-wrench"></span></a>&nbsp;&nbsp;
+                                    <a href="/project1/umanage?do=edit&id=${dpList.getMaDP()}" ><span class="glyphicon glyphicon-wrench"></span></a>&nbsp;&nbsp;
 
-                                    <a href="/project1/umanage?do=del&id=${tkList.getMaTK()}" onclick="return confirm('Bạn thực sự muốn xóa: ${tkList.getTenTK()}?')"><span class="glyphicon glyphicon-trash"></span></a>
+                                    <a href="/project1/umanage?do=del&id=${dpList.getMaDP()}" onclick="return confirm('Bạn thực sự muốn xóa: ${dpList.getTenDP()}?')"><span class="glyphicon glyphicon-trash"></span></a>
                                 </td>
                             </tr>  
                         </c:forEach>
