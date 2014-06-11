@@ -130,20 +130,28 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </c:if>
-                                        <c:if test="${vbList.getActive() == 0}">
-                                            <p>Văn bản không tồn tại</p>
-                                        </c:if>
-                                    </c:forEach>
-                                </c:if>
-                            </div>
-                        </div>  
+                                            <!--Xem-->
+                                            <div class="col-md-12">
+                                                <div class="col-md-1 col-md-offset-11">
+                                                    <a href="/project1/search?maVB=${vbList.getMaVB()}"class="label label-success" style="font-size:14px">XEM</a>
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                    </c:if>
+                                    <c:if test="${vbList.getActive() == 0}">
+                                        <p>Văn bản không tồn tại</p>
+                                    </c:if>
+                                </c:forEach>
+                            </c:if>
+                        </div>
+                    </div>  
 
                     <!--End if-->
                     <c:if test="${vbList == null && currentVB == null}">
                         <div class="col-md-12">
                             <div class="panel-body">
-                                <p>No results</p>
+                                <p>Chúc bạn một ngày tốt lành! Hãy nhập từ khóa muốn tìm kiếm</p>
                             </div>
                         </div>
 
