@@ -13,9 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.dao.DiaPhuongDAO;
 import model.dao.NguoiPhuTrachDAO;
+import model.dao.TieuChiDAO;
 import model.dao.VanBanDAO;
 import model.dao.service.DiaPhuongDAOService;
 import model.dao.service.NguoiPhuTrachDAOService;
+import model.dao.service.TieuChiDAOService;
 import model.dao.service.VanBanDAOService;
 import model.entities.DiaPhuong;
 import model.entities.NguoiPhuTrach;
@@ -28,9 +30,10 @@ import model.entities.VanBan;
  */
 public class SearchServlet extends HttpServlet {
 
-    DiaPhuongDAOService DP_SERVICE = DiaPhuongDAO.getInstance();
-    NguoiPhuTrachDAOService NPT_SERVICE = NguoiPhuTrachDAO.getInstance();
-    VanBanDAOService VB_SERVICE = VanBanDAO.getInstance();
+    private final DiaPhuongDAOService DP_SERVICE = DiaPhuongDAO.getInstance();
+    private final NguoiPhuTrachDAOService NPT_SERVICE = NguoiPhuTrachDAO.getInstance();
+    private final VanBanDAOService VB_SERVICE = VanBanDAO.getInstance();
+    private final TieuChiDAOService TC_SERVICE = TieuChiDAO.getInstance();
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -65,7 +68,7 @@ public class SearchServlet extends HttpServlet {
         request.removeAttribute(util.Constants.MSG_RESULT);
         request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
     }
-    
+
     private void searchDP_NC(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -75,13 +78,21 @@ public class SearchServlet extends HttpServlet {
         String tenTC = request.getParameter("tieuChi");
         String[] arrNpt = hotenNPT.split("-");
         int maNPT = Integer.parseInt(arrNpt[0]);
-        
+
         DiaPhuong dp = DP_SERVICE.getDiaPhuongByTenDP(tenDP);
-        NguoiPhuTrach npt = NPT_SERVICE.getNPTByID(maNPT);
+
+        TieuChi tc = TC_SERVICE.findTieuChiByDP(dp.getMaDP(), tenTC);
+        NguoiPhuTrach npt = NPT_SERVICE.findNPTByDP(maNPT, dp.getMaDP());
+        request.setAttribute("tc", tc);
         request.setAttribute("dp", dp);
-        List<DiaPhuong> dpList = DP_SERVICE.getDiaPhuongAll();
-        request.setAttribute(util.Constants.DP_LIST, dpList);
-        request.setAttribute(util.Constants.PAGE, "search-cb-dp");
+        request.setAttribute("npt", npt);
+        List<DiaPhuong> dpListNC = DP_SERVICE.getDiaPhuongAll();
+        List<TieuChi> tcListNC = TC_SERVICE.getTCList();
+        List<NguoiPhuTrach> nptListNC = NPT_SERVICE.getNPTList();
+        request.setAttribute(util.Constants.DP_LIST, dpListNC);
+        request.setAttribute(util.Constants.TC_LIST, tcListNC);
+        request.setAttribute(util.Constants.NPT_LIST, nptListNC);
+        request.setAttribute(util.Constants.PAGE, "search-nc-dp");
         request.removeAttribute(util.Constants.MSG_RESULT);
         request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
     }
@@ -151,7 +162,7 @@ public class SearchServlet extends HttpServlet {
                 searchDP_CB(request, response);
                 break;
             case "tk-dp-nc":
-                searchDP_CB(request, response);
+                searchDP_NC(request, response);
                 break;
             case "tk-vb-cb":
                 searchVB_CB(request, response);

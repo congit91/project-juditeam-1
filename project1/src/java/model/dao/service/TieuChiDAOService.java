@@ -23,8 +23,8 @@ public interface TieuChiDAOService {
      * @param maDP mã địa phương.
      * @return Tiêu chí của địa phương.
      */
-    public List<TieuChi> findTieuChiByDP(int maDP);
-    
+    public List<TieuChi> findAllTieuChiByDP(int maDP);
+    public TieuChi findTieuChiByDP(int maDP, String tenTC);
     public boolean createTC(TieuChi tc);
     public boolean updateTC(TieuChi tc);
     public boolean deteleTC(int maTC);

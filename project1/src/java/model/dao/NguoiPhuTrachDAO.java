@@ -214,4 +214,33 @@ public class NguoiPhuTrachDAO implements NguoiPhuTrachDAOService {
         return isCheck;
     }
 
+    @Override
+    public NguoiPhuTrach findNPTByDP(int maNPT, int maDP) {
+        NguoiPhuTrach npt = new NguoiPhuTrach();
+        try {
+            Connection conn = ConnectionFactory.getConnection();
+            String sql = "select * from tbl_nguoiphutrach where maNPT = ? and maDP = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, maNPT);
+            pstmt.setInt(2, maDP);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                npt.setMaNPT(rs.getInt("maNPT"));
+                npt.setHoTen(rs.getString("hoTen"));
+                npt.setNamSinh(rs.getDate("namSinh"));
+                npt.setQueQuan(rs.getString("queQuan"));
+                npt.setHocVi(rs.getString("hocVi"));
+                npt.setChucVu(rs.getString("chucVu"));
+                npt.setSDT(rs.getString("SDT"));
+                npt.setEmail(rs.getString("email"));
+                DiaPhuong dp = DiaPhuongDAO.getInstance().getDiaPhuongByID(rs.getInt("maDP"));
+                npt.setDiaPhuong(dp);
+                npt.setActive(rs.getInt("isActive"));
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return npt;
+    }
+
 }
