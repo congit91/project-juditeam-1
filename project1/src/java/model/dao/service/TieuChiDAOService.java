@@ -17,14 +17,7 @@ public interface TieuChiDAOService {
     public List<TieuChi> getTCList();
     public TieuChi getTCByName(String tenTC);
     public TieuChi getTCByID(int maTC);
-    
-    /**
-     * Tìm kiếm nâng cao 1 địa phương theo nhiều tiêu chí
-     * @param maDP mã địa phương.
-     * @return Tiêu chí của địa phương.
-     */
-    public List<TieuChi> findAllTieuChiByDP(int maDP);
-    public TieuChi findTieuChiByDP(int maDP, String tenTC);
+
     public boolean createTC(TieuChi tc);
     public boolean updateTC(TieuChi tc);
     public boolean deteleTC(int maTC);

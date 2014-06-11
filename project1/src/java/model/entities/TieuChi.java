@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model.entities;
 
 import java.util.List;
@@ -13,19 +12,18 @@ import java.util.List;
  * @author Admin
  */
 public class TieuChi {
+
     private int maTC;
     private String tenTC;
-    private String noiDung;
-    private DiaPhuong diaPhuong;
+
+    private List<DiaPhuong> dpList = null;
 
     public TieuChi() {
     }
 
-    public TieuChi(int maTC, String tenTC, String noiDung, DiaPhuong diaPhuong) {
+    public TieuChi(int maTC, String tenTC) {
         this.maTC = maTC;
         this.tenTC = tenTC;
-        this.noiDung = noiDung;
-        this.diaPhuong = diaPhuong;
     }
 
     public int getMaTC() {
@@ -44,20 +42,12 @@ public class TieuChi {
         this.tenTC = tenTC;
     }
 
-    public String getNoiDung() {
-        return noiDung;
+    public List<DiaPhuong> getDpList() {
+        return dpList;
     }
 
-    public void setNoiDung(String noiDung) {
-        this.noiDung = noiDung;
+    public void setDpList(List<DiaPhuong> dpList) {
+        this.dpList = dpList;
     }
 
-    public DiaPhuong getDiaPhuong() {
-        return diaPhuong;
-    }
-
-    public void setDiaPhuong(DiaPhuong diaPhuong) {
-        this.diaPhuong = diaPhuong;
-    }
-    
 }
