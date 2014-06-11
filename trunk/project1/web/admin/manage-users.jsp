@@ -106,7 +106,8 @@
                     </div><!-- /.col-lg-6 -->
                 </div><!-- /.row -->
             </div>
-            <div class="panel panel-default">
+            
+             <div class="panel panel-default">
                 <div class="col-md-1" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Mã TK</div>
                 <div class="col-md-1" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Tên TK</div>
                 <div class="col-md-3" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Họ Tên</div>
@@ -115,13 +116,13 @@
                 <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Lựa chọn</div>
             </div>
             <c:forEach items="${tkList}" var="tkList">
-                <div class="panel panel-body">
-                    <div class="col-md-1" style="font-weight:bold">${tkList.getMaTK()}</div>
-                    <div class="col-md-1" >${tkList.getTenTK()}</div>
-                    <div class="col-md-3">${tkList.getHoTen()}</div>
-                    <div class="col-md-3">${tkList.getEmail()}</div>
-                    <div class="col-md-2">${tkList.getSDT()}</div>
-                    <div class="col-md-2">
+                <div class="panel panel-title">
+                    <div class="col-md-1" style="text-transform: inherit;padding:5px">${tkList.getMaTK()}</div>
+                    <div class="col-md-1" style="text-transform: inherit;padding:5px" >${tkList.getTenTK()}</div>
+                    <div class="col-md-3" style="text-transform: inherit;padding:5px">${tkList.getHoTen()}</div>
+                    <div class="col-md-3" style="text-transform: inherit;padding:5px">${tkList.getEmail()}</div>
+                    <div class="col-md-2" style="text-transform: inherit;padding:5px">${tkList.getSDT()}</div>
+                    <div class="col-md-2" style="text-transform: inherit;padding:5px">
                         <!-- Công mi sửa chổ này nghe-->
 
                         <!--Edit-->
