@@ -121,6 +121,26 @@ public class DiaPhuong_TieuChiDAO implements DPTCDAOService {
         }
         return dpList;
     }
+    @Override
+    public List<DiaPhuong_TieuChi> getDPTCByDP(int maDP) {
+        List<DiaPhuong_TieuChi> dpList = new ArrayList<>();
+        try {
+            Connection conn = ConnectionFactory.getConnection();
+            String sql = "select * from tbl_dptc where maDP = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, maDP);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                DiaPhuong_TieuChi dptc = new DiaPhuong_TieuChi();
+                dptc.setTieuChi(TieuChiDAO.getInstance().getTCByID(rs.getInt("maTC")));
+                dptc.setNoiDung(rs.getString("noiDung"));
+                dpList.add(dptc);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return dpList;
+    }
 
     @Override
     public List<TieuChi> getTCByDP(int maDP) {

@@ -60,13 +60,14 @@ public class SearchServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        String result = request.getParameter("timkiem");
         String tenDP = request.getParameter("diaphuong");
         DiaPhuong dp = DP_SERVICE.getDiaPhuongByTenDP(tenDP);
         List<NguoiPhuTrach> nptList = dp.getNptList();
         request.setAttribute("dp", dp);
         List<DiaPhuong> dpList = DP_SERVICE.getDiaPhuongAll();
+        List<DiaPhuong_TieuChi> dptcList = DPTC_SERVICE.getDPTCByDP(dp.getMaDP());
         request.setAttribute("nptList", nptList);
+        request.setAttribute("dptcList", dptcList);
         request.setAttribute(util.Constants.DP_LIST, dpList);
         request.setAttribute(util.Constants.PAGE, "search-cb-dp");
         request.removeAttribute(util.Constants.MSG_RESULT);

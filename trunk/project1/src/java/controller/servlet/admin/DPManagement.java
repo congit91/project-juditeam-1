@@ -47,7 +47,7 @@ public class DPManagement extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String p = request.getParameter("p");
-        switch(p){
+        switch (p) {
             case "manage-diaphuong":
                 List<DiaPhuong> dpListEditTT = DP_SERVICE.getDiaPhuongAll();
                 request.setAttribute(util.Constants.DP_LIST, dpListEditTT);
@@ -95,16 +95,25 @@ public class DPManagement extends HttpServlet {
             NPT_SERVICE.updateNPT_DP(maNPT, dp.getMaDP());
         }
         if (!tenTC.isEmpty() && !noiDung.isEmpty()) {
-            if(DPTC_SERVICE.checkCreate(dp.getMaDP(), tc.getMaTC())){
+            if (DPTC_SERVICE.checkCreate(dp.getMaDP(), tc.getMaTC())) {
                 DiaPhuong_TieuChi dp_tc = DPTC_SERVICE.getDPTCByDPTC(dp.getMaDP(), tc.getMaTC());
                 DiaPhuong_TieuChi dptc = new DiaPhuong_TieuChi(dp_tc.getMaDPTC(), dp, tc, noiDung);
                 DPTC_SERVICE.update(dptc);
-                
-            }else{
+
+            } else {
                 DiaPhuong_TieuChi dptc = new DiaPhuong_TieuChi(1, dp, tc, noiDung);
                 DPTC_SERVICE.create(dptc);
             }
         }
+        List<DiaPhuong> dpListEditTT = DP_SERVICE.getDiaPhuongAll();
+        request.setAttribute(util.Constants.DP_LIST, dpListEditTT);
+        List<TieuChi> tcListDP = TC_SERVICE.getTCList();
+        List<NguoiPhuTrach> nptListDP = NPT_SERVICE.getNPTList();
+        request.setAttribute(util.Constants.TC_LIST, tcListDP);
+        request.setAttribute(util.Constants.NPT_LIST, nptListDP);
+        request.setAttribute(util.Constants.PAGE, "manage-diaphuong");
+        request.removeAttribute(util.Constants.MSG_RESULT);
+        request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
     }
 
     /**

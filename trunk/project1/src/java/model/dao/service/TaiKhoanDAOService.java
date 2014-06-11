@@ -26,6 +26,12 @@ public interface TaiKhoanDAOService {
      * @return danh sach tai khoan
      */
     public List<TaiKhoan> getTaiKhoanByHoTen(String hoTen);
+    /**
+     * Lay danh sach tai khoan theo ho ten
+     * @param tenTK la tên của tài khoản
+     * @return danh sach tai khoan
+     */
+    public List<TaiKhoan> findTaiKhoanByTenTK(String tenTK);
 
     /**
      * Get Tai khoan theo ma TK
