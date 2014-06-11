@@ -88,7 +88,6 @@ public class Page extends HttpServlet {
                 request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
                 break;
             case "manage-user":
-
                 List<TaiKhoan> tkList = TK_SERVICE.getTaiKhoanAll();
                 request.setAttribute(util.Constants.TK_LIST, tkList);
                 request.setAttribute(util.Constants.PAGE, "manage-user");
