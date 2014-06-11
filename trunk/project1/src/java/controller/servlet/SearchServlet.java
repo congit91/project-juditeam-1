@@ -84,13 +84,12 @@ public class SearchServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         String tenVB = request.getParameter("tenVB");
-        String loaiVB = request.getParameter("tenVB");
-        String noiBanHanh = request.getParameter("tenVB");
+        String loaiVB = request.getParameter("loaiVB");
+        String noiBanHanh = request.getParameter("noiBanHanh");
         String ngayBanHanh = request.getParameter("ngayBanHanh");
-        String noiNhan = request.getParameter("tenVB");
-        
+        String noiNhan = request.getParameter("noiNhan");
         List<VanBan> vbList = VB_SERVICE.findVanBanAdvance(tenVB, loaiVB, noiBanHanh, null, noiNhan);
-        request.setAttribute("vbList", vbList);
+        request.setAttribute("vbListNC", vbList);
         request.setAttribute(util.Constants.PAGE, "search-nc-vb");
         request.removeAttribute(util.Constants.MSG_RESULT);
         request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
@@ -101,10 +100,15 @@ public class SearchServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         int maVB = Integer.parseInt(request.getParameter("maVB"));
+        String type = request.getParameter("type");
         VanBan vb = VB_SERVICE.getVanBanByID(maVB);
         request.setAttribute("currentVB", vb);
         request.removeAttribute("vbList");
-        request.setAttribute(util.Constants.PAGE, "search-cb-vb");
+        if (type.equals("vbnc")) {
+            request.setAttribute(util.Constants.PAGE, "search-nc-vb");
+        }else{
+            request.setAttribute(util.Constants.PAGE, "search-cb-vb");
+        }
         request.removeAttribute(util.Constants.MSG_RESULT);
         request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
     }

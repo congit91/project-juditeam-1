@@ -61,7 +61,7 @@ public class VanBanDAO implements VanBanDAOService {
         List<VanBan> vbList = new ArrayList<>();
         try {
             Connection conn = ConnectionFactory.getConnection();
-            String sql = "select * from tbl_vanban where tenVB like '"+"%"+tenVB+"%"+"'";
+            String sql = "select * from tbl_vanban where tenVB like '" + "%" + tenVB + "%" + "'";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             //pstmt.setString(1, tenVB);
             ResultSet rs = pstmt.executeQuery();
@@ -140,10 +140,17 @@ public class VanBanDAO implements VanBanDAOService {
         List<VanBan> vbList = new ArrayList<>();
         try {
             Connection conn = ConnectionFactory.getConnection();
-            String sql = "select * from tbl_vanban where tenVB like '"+"%"+tenVB+"%"+"' and loaiVB like '"+"%"+loaiVB+"%"+"'"
-                    + "and noiBanHanh like '"+"%"+noiBanHanh+"%"+"' and ngayBanHanh = ? and noiNhan like '"+"%"+noiNhan+"%"+"'";
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setDate(1, ngayBanHanh);
+            PreparedStatement pstmt = null;
+            if (ngayBanHanh != null) {
+                String sql = "select * from tbl_vanban where tenVB like '" + "%" + tenVB + "%" + "' and loaiVB like '" + "%" + loaiVB + "%" + "'"
+                        + "and noiBanHanh like '" + "%" + noiBanHanh + "%" + "' and ngayBanHanh = ? and noiNhan like '" + "%" + noiNhan + "%" + "'";
+                pstmt = conn.prepareStatement(sql);
+                pstmt.setDate(1, ngayBanHanh);
+            }else{
+                String sql = "select * from tbl_vanban where tenVB like '" + "%" + tenVB + "%" + "' and loaiVB like '" + "%" + loaiVB + "%" + "'"
+                        + "and noiBanHanh like '" + "%" + noiBanHanh + "%" + "' and noiNhan like '" + "%" + noiNhan + "%" + "'";
+                pstmt = conn.prepareStatement(sql);
+            }
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 VanBan vb = new VanBan();
@@ -216,7 +223,7 @@ public class VanBanDAO implements VanBanDAOService {
         try {
             Connection conn = ConnectionFactory.getConnection();
             String sql = "update tbl_vanban set isActive= 0 where maVB = ?";
-            PreparedStatement pstmt = conn.prepareStatement(sql);            
+            PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, maVB);
             pstmt.executeUpdate();
             isCheck = true;
@@ -232,7 +239,7 @@ public class VanBanDAO implements VanBanDAOService {
         try {
             Connection conn = ConnectionFactory.getConnection();
             String sql = "update tbl_vanban set isActive= 1 where maVB = ?";
-            PreparedStatement pstmt = conn.prepareStatement(sql);            
+            PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, maVB);
             pstmt.executeUpdate();
             isCheck = true;
@@ -248,7 +255,7 @@ public class VanBanDAO implements VanBanDAOService {
         try {
             Connection conn = ConnectionFactory.getConnection();
             String sql = "delete from tbl_vanban where maVB = ?";
-            PreparedStatement pstmt = conn.prepareStatement(sql);            
+            PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, maVB);
             pstmt.executeUpdate();
             isCheck = true;
