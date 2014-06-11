@@ -19,6 +19,7 @@ import model.dao.service.NguoiPhuTrachDAOService;
 import model.dao.service.VanBanDAOService;
 import model.entities.DiaPhuong;
 import model.entities.NguoiPhuTrach;
+import model.entities.TieuChi;
 import model.entities.VanBan;
 
 /**
@@ -56,11 +57,29 @@ public class SearchServlet extends HttpServlet {
         String tenDP = request.getParameter("diaphuong");
         DiaPhuong dp = DP_SERVICE.getDiaPhuongByTenDP(tenDP);
         List<NguoiPhuTrach> nptList = dp.getNptList();
-//        float danSo = dp.getSoDan();
-//        float dienTich = dp.getDienTich();
         request.setAttribute("dp", dp);
         List<DiaPhuong> dpList = DP_SERVICE.getDiaPhuongAll();
         request.setAttribute("nptList", nptList);
+        request.setAttribute(util.Constants.DP_LIST, dpList);
+        request.setAttribute(util.Constants.PAGE, "search-cb-dp");
+        request.removeAttribute(util.Constants.MSG_RESULT);
+        request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
+    }
+    
+    private void searchDP_NC(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String tenDP = request.getParameter("diaPhuong");
+        String hotenNPT = request.getParameter("nguoiPhuTrach");
+        String tenTC = request.getParameter("tieuChi");
+        String[] arrNpt = hotenNPT.split("-");
+        int maNPT = Integer.parseInt(arrNpt[0]);
+        
+        DiaPhuong dp = DP_SERVICE.getDiaPhuongByTenDP(tenDP);
+        NguoiPhuTrach npt = NPT_SERVICE.getNPTByID(maNPT);
+        request.setAttribute("dp", dp);
+        List<DiaPhuong> dpList = DP_SERVICE.getDiaPhuongAll();
         request.setAttribute(util.Constants.DP_LIST, dpList);
         request.setAttribute(util.Constants.PAGE, "search-cb-dp");
         request.removeAttribute(util.Constants.MSG_RESULT);
@@ -106,7 +125,7 @@ public class SearchServlet extends HttpServlet {
         request.removeAttribute("vbList");
         if (type.equals("vbnc")) {
             request.setAttribute(util.Constants.PAGE, "search-nc-vb");
-        }else{
+        } else {
             request.setAttribute(util.Constants.PAGE, "search-cb-vb");
         }
         request.removeAttribute(util.Constants.MSG_RESULT);
@@ -131,12 +150,16 @@ public class SearchServlet extends HttpServlet {
             case "tk-dp-cb":
                 searchDP_CB(request, response);
                 break;
+            case "tk-dp-nc":
+                searchDP_CB(request, response);
+                break;
             case "tk-vb-cb":
                 searchVB_CB(request, response);
                 break;
             case "tk-vb-nc":
                 searchVB_NC(request, response);
                 break;
+
         }
     }
 
