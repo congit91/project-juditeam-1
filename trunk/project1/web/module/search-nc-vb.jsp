@@ -91,100 +91,83 @@
                 </div>
                 <div class="panel-body">
                     <!--Kết Quả In ra ở đây-->
-                    <div class="panel-body" style="background:#bdbdbe;margin:5px">
+                    <div class="panel-body" style="background:;margin:5px">
                         <div class="col-md-12">
                             <div class="panel-body">
                                 <c:if test="${vbListNC != null}">
+                                    <!--Ma Van Ban-->
+                                    <div class="col-md-12" style="background:#28a4c9;font-size:20px">
+                                        <div class="col-md-1">
+                                            <b  style="font-size:12px;text-transform: uppercase">
+                                                Mã 
+                                            </b>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <b  style="font-size:12px;text-transform: uppercase">
+                                                Ngày ban hành
+                                            </b>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <b  style="font-size:12px;text-transform: uppercase">
+                                                Loại văn bản
+                                            </b>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <b  style="font-size:12px;text-transform: uppercase">
+                                                Tên văn bản
+                                            </b>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <b  style="font-size:12px;text-transform: uppercase">
+                                                Nơi ban hành
+                                            </b> 
+                                        </div>
+                                        <div class="col-md-2">
+                                            <b  style="font-size:12px;text-transform: uppercase">
+                                                Nơi Nhận
+                                            </b>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12" style="background:#28a4c9;font-size:20px">
+
+                                    </div>
+
                                     <c:forEach items="${vbListNC}" var="vbList">
                                         <c:if test="${vbList.getActive() == 1}">
-                                            <!--Ma Van Ban-->
-                                            <div class="col-md-6">
-                                                <div class="col-md-4">
-                                                    <b class="label label-default" style="font-size:14px;text-transform: inherit">
-                                                        Mã văn bản
-                                                    </b>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="panel panel-group" style=" padding: 5px; min-height:40px">
-                                                        ${vbList.getMaVB()}
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-1">
+                                                <b  style="font-size:12px;text-transform: inherit">
+                                                    ${vbList.getMaVB()}
+                                                </b>
                                             </div>
-                                            <!--Ngay ban hanh-->
-                                            <div class="col-md-6">
-                                                <div class="col-md-5">
-                                                    <b class="label label-default" style="font-size:14px;text-transform: inherit">
-                                                        Ngày ban hành
-                                                    </b>
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <div class="panel panel-group" style=" padding: 5px; min-height:40px">
-                                                        ${vbList.getNgayBanHanh()}
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-2">
+                                                <b  style="font-size:12px;text-transform: inherit">
+                                                    ${vbList.getNgayBanHanh()}
+                                                </b>
                                             </div>
-
-
-                                            <!--Loai van ban-->
-                                            <div class="col-md-6">
-                                                <div class="col-md-4">
-                                                    <b class="label label-default" style="font-size:14px;text-transform: inherit">
-                                                        Loại văn bản
-                                                    </b>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="panel panel-group" style=" padding: 5px; min-height:40px">
-                                                        ${vbList.getLoaiVB()}
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-2">
+                                                <b  style="font-size:12px;text-transform: inherit">
+                                                    ${vbList.getLoaiVB()}
+                                                </b>
                                             </div>
-                                            <!--Ten van ban-->
-                                            <div class="col-md-6">
-                                                <div class="col-md-4">
-                                                    <b class="label label-default" style="font-size:14px;text-transform: inherit">
-                                                        Tên văn bản
-                                                    </b>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="panel panel-group" style=" padding: 5px; min-height:40px">
-
-                                                        ${vbList.getTenVB()}
-
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-3">
+                                                <b  style="font-size:12px;text-transform: inherit">
+                                                    ${vbList.getTenVB()}
+                                                </b>
                                             </div>
-                                            <!--Noi ban hanh-->
-                                            <div class="col-md-12">
-                                                <div class="col-md-2">
-                                                    <b class="label label-default" style="font-size:14px;text-transform: inherit">
-                                                        Nơi ban hành
-                                                    </b>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="panel panel-group" style=" padding: 5px; min-height:40px">
-                                                        ${vbList.getNoiBanHanh()}
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-2">
+                                                <b  style="font-size:12px;text-transform: inherit">
+                                                    ${vbList.getNoiBanHanh()}
+                                                </b>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <b  style="font-size:12px;text-transform: inherit">
+                                                    ${vbList.getNoiNhan()}
+                                                </b>
                                             </div>
 
-                                            <!--Noi Nhan-->
-                                            <div class="col-md-12">
-                                                <div class="col-md-2">
-                                                    <b class="label label-default" style="font-size:14px;text-transform: inherit">
-                                                        Nơi Nhận
-                                                    </b>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="panel panel-group" style=" padding: 5px; min-height:40px">
-                                                        ${vbList.getNoiNhan()}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--Xem-->
-                                            <div class="col-md-12">
-                                                <div class="col-md-1 col-md-offset-11">
-                                                    <a href="/project1/search?type=vbnc&maVB=${vbList.getMaVB()}"class="label label-success" style="font-size:14px">XEM</a>
-                                                </div>
+                                            <div class="col-md-2 col-md-offset-10">
+                                                <a href="/project1/search?type=vbnc&maVB=${vbList.getMaVB()}" class="panel panel-success" style="background:#28a4c9;padding: 2px">Xem thêm...</a>
                                             </div>
                                         </c:if>
                                     </c:forEach>
@@ -195,7 +178,7 @@
                     <c:if test="${vbList == null && currentVB == null}">
                         <div class="col-md-12">
                             <div class="panel panel-group" style="">
-                                
+
                             </div>
                         </div>
                     </c:if>
@@ -207,19 +190,19 @@
                         <div class="panel-body">
                             <div class="col-md-2 bg-success"style="padding:5px;font-weight:bold">Tên văn bản:</div>         
                             <div class="col-md-10 bg-info"style="padding:5px;background:">${currentVB.getTenVB()}</div>         
-                            
+
                             <div class="col-md-2 bg-success"style="padding:5px;font-weight:bold">Loại văn bản:</div>         
                             <div class="col-md-10 bg-info"style="padding:5px;background:">${currentVB.getLoaiVB()}</div>         
-                            
+
                             <div class="col-md-2 bg-success"style="padding:5px;font-weight:bold">Ngày ban hành</div>         
                             <div class="col-md-10 bg-info"style="padding:5px;background:">${currentVB.getNgayBanHanh()}</div>         
-                            
+
                             <div class="col-md-2 bg-success"style="padding:5px;font-weight:bold">Nơi ban hành</div>         
                             <div class="col-md-10 bg-info"style="padding:5px;background:">${currentVB.getNoiBanHanh()}</div>         
-                            
+
                             <div class="col-md-12 bg-primary"style="padding:5px;font-weight:bold">Nội dung</div>         
                             <div class="col-md-12 bg-info"style="padding:5px;background:"><p> ${currentVB.getNoiDung()}</p></div>         
-                            
+
                         </div>
                     </c:if>
                 </div>
