@@ -149,7 +149,7 @@ public class TieuChiDAO implements TieuChiDAOService {
     }
 
     @Override
-    public List<TieuChi> findTieuChiByDP(int maDP) {
+    public List<TieuChi> findAllTieuChiByDP(int maDP) {
         List<TieuChi> tcList = new ArrayList<>();
         try {
             Connection conn = ConnectionFactory.getConnection();
@@ -168,6 +168,27 @@ public class TieuChiDAO implements TieuChiDAOService {
             e.printStackTrace();
         }
         return tcList;
+    }
+
+    @Override
+    public TieuChi findTieuChiByDP(int maDP, String tenTC) {
+        TieuChi tc = new TieuChi();
+        try {
+            Connection conn = ConnectionFactory.getConnection();
+            String sql = "select * from tbl_tieuchi where maDP = ? and tenTC = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, maDP);
+            pstmt.setString(2, tenTC);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                tc.setMaTC(rs.getInt("maTC"));
+                tc.setTenTC(rs.getString("tenTC"));
+                tc.setNoiDung(rs.getString("noiDung"));
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return tc;
     }
 
 }

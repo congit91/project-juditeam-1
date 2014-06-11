@@ -28,6 +28,8 @@ public interface NguoiPhuTrachDAOService {
      */
     public List<NguoiPhuTrach> findNguoiPhuTrachByDP(int maDP);
 
+    public NguoiPhuTrach findNPTByDP(int maNPT, int maDP);
+
     public boolean createNPT(NguoiPhuTrach npt);
 
     public boolean updateNPT(NguoiPhuTrach npt);
