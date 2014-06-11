@@ -6,8 +6,6 @@
 package controller.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -67,8 +65,6 @@ public class Authentication extends HttpServlet {
             session.setAttribute(util.Constants.CURRENT_USER, tk);
             session.setMaxInactiveInterval(30 * 60);
             request.setAttribute(util.Constants.PAGE, "manage");
-            List<TaiKhoan> tkList = TK_SERVICE.getTaiKhoanAll();
-            request.setAttribute(util.Constants.TK_LIST, tkList);
             request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
         } else {
             request.setAttribute(util.Constants.PAGE, "login");
