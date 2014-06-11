@@ -109,6 +109,9 @@
                     </div><!-- /.col-lg-6 -->
                 </div><!-- /.row -->
             </div>
+            <div class="panel-heading">
+                
+            </div>
             <div class="table-responsive">
                 <form name="formAdmin" action="" method="post">
                     <table class="table table-striped"> 
