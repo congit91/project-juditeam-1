@@ -27,7 +27,7 @@
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" action="/project1/search?do=tk-dp-nc" method="post">
                         <div class="col-sm-9 col-sm-offset-1">
-                            
+
                             <div class="form-group">
                                 <div class="col-sm-3" >
                                     <label class="label label-info">
@@ -83,7 +83,26 @@
                     </form>
                 </div>
                 <div class="panel-body">
-                    Kết Quả In ra ở đây
+                    <!--                    Kết Quả In ra ở đây-->
+                    <c:if test="${npt.getMaNPT() < 1 && tc.getMaTC() < 1}">
+                        <p>No results</p>
+                    </c:if>
+                    <c:if test="${npt.getMaNPT() > 0 || tc.getMaTC() > 0}">
+                        <p>Kết quả tìm kiếm: </p>
+                    </c:if>
+                    <c:if test="${npt.getMaNPT() > 0}">
+                        <textarea style="width: 400px">
+                            Mã người phụ trách: ${npt.getMaNPT()}
+                            Họ tên: ${npt.getHoTen()}
+                            Chức vụ: ${npt.getChucVu()}
+                            Học vị: ${npt.getHocVi()}
+                        </textarea><br/>
+                    </c:if>
+                    <c:if test="${tc.getMaTC() > 0}">
+                        <textarea style="width: 400px">
+                            ${tc.getTenTC()}: ${tc.getNoiDung()}
+                        </textarea>
+                    </c:if>
                 </div>
 
             </div>
