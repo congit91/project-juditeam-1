@@ -44,83 +44,87 @@
                         </div>
                     </form>
                 </div>
+                <c:if test="${dp != null}">
+                    <div class="panel-body" style="background:#bdbdbe;margin:5px">
 
-                <div class="panel-body" style="background:#bdbdbe;margin:5px">
-                    <div class="col-md-12">
-                        <div class="panel-body">
-                            <div class="col-md-12">
-                                <b class="label label-default" style="font-size:14px;text-transform: inherit">
-                                    Người phụ trách:
-                                </b>
+                        <div class="col-md-12">
+                            <div class="panel-body">
+
+                                <div class="col-md-12">
+                                    <b class="label label-default" style="font-size:14px;text-transform: inherit">
+                                        Người phụ trách:
+                                    </b>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="panel panel-group" style=" padding: 5px; min-height:40px">
+                                        <c:forEach items="${nptList}" var="nptList">${nptList.getHoTen()} - ${nptList.getChucVu()} </c:forEach>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                             <div class="col-md-12">
-                                <div class="panel panel-group" style=" padding: 5px; min-height:40px">
-                                    <c:forEach items="${nptList}" var="nptList">${nptList.getHoTen()} - ${nptList.getChucVu()} </c:forEach>
+                                <div class="panel-body">
+                                    <div class="col-md-12">
+                                        <b class="label label-default" style="font-size:14px;;text-transform: inherit">
+                                            Dân số:
+                                        </b>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="panel panel-group" style=" padding: 5px; min-height:40px">
+                                        ${dp.getSoDan()} <i>người</i>.
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="panel-body">
                                 <div class="col-md-12">
                                     <b class="label label-default" style="font-size:14px;;text-transform: inherit">
-                                        Dân số:
+                                        Diện tích:
                                     </b>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="panel panel-group" style=" padding: 5px; min-height:40px">
-                                    ${dp.getSoDan()} <i>người</i>.
+                                        ${dp.getDienTich()} <i>ha</i>.
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="panel-body">
-                            <div class="col-md-12">
-                                <b class="label label-default" style="font-size:14px;;text-transform: inherit">
-                                    Diện tích:
-                                </b>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="panel panel-group" style=" padding: 5px; min-height:40px">
-                                    ${dp.getDienTich()} <i>ha</i>.
+
+                        <div class="col-md-12">
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    <b class="label label-default" style="font-size:14px;;text-transform: inherit">
+                                        Nội dung tìm kiếm
+                                    </b>
                                 </div>
+                                <br>
+                                <div class="col-md-12 panel panel-default" style=" padding: 5px; min-height:40px">
+                                    <!--Start-->
+                                    <c:forEach items="${dp.getTcList()}" var="tcList">
+                                        <div class="col-md-3" style="font-weight: bolder">
+                                            <p>
 
+                                                ${tcList.getTenTC()}:
+                                            </p>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <p>
+                                                ${tcList.getNoiDung()}
+
+                                            </p>
+                                        </div>
+                                    </c:forEach>  
+                                    <!--End-->
+
+                                </div>
                             </div>
                         </div>
+
                     </div>
-
-                    <div class="col-md-12">
-                        <div class="panel-body">
-                            <div class="col-md-12">
-                                <b class="label label-default" style="font-size:14px;;text-transform: inherit">
-                                    Nội dung tìm kiếm
-                                </b>
-                            </div>
-                            <br>
-                            <div class="col-md-12 panel panel-default" style=" padding: 5px; min-height:40px">
-                                <!--Start-->
-                                <c:forEach items="${dp.getTcList()}" var="tcList">
-                                    <div class="col-md-3" style="font-weight: bolder">
-                                        <p>
-
-                                            ${tcList.getTenTC()}:
-                                        </p>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <p>
-                                            ${tcList.getNoiDung()}
-
-                                        </p>
-                                    </div>
-                                </c:forEach>  
-                                <!--End-->
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </c:if>
             </div>
 
         </div>
