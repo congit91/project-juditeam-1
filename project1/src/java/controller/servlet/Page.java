@@ -47,6 +47,7 @@ public class Page extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String page = request.getParameter("p");
         switch (page) {
             case "contact":
@@ -103,6 +104,17 @@ public class Page extends HttpServlet {
                 break;
             case "nav-admin":
                 request.setAttribute(util.Constants.PAGE, "nav-admin");
+                request.removeAttribute(util.Constants.MSG_RESULT);
+                request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+                break;
+            case "them-tt-dp":
+                List<DiaPhuong> dpListEditTT = DP_SERVICE.getDiaPhuongAll();
+                request.setAttribute(util.Constants.DP_LIST, dpListEditTT);
+                List<TieuChi> tcListDP = TC_SERVICE.getTCList();
+                List<NguoiPhuTrach> nptListDP = NPT_SERVICE.getNPTList();
+                request.setAttribute(util.Constants.TC_LIST, tcListDP);
+                request.setAttribute(util.Constants.NPT_LIST, nptListDP);
+                request.setAttribute(util.Constants.PAGE, "them-tt-dp");
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
                 break;

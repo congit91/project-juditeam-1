@@ -33,6 +33,8 @@ public interface NguoiPhuTrachDAOService {
     public boolean createNPT(NguoiPhuTrach npt);
 
     public boolean updateNPT(NguoiPhuTrach npt);
+    
+    public boolean updateNPT_DP(int maNPT, int maDP);
 
     public boolean deteleNPT(int maNPT);
 }

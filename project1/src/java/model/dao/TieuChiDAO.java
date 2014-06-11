@@ -102,10 +102,11 @@ public class TieuChiDAO implements TieuChiDAOService {
         boolean isCheck = false;
         try {
             Connection conn = ConnectionFactory.getConnection();
-            String sql = "insert into tbl_tieuchi(tenTC, noiDung) values(?,?)";
+            String sql = "insert into tbl_tieuchi(tenTC, noiDung, maDP) values(?,?,?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, tc.getTenTC());
             pstmt.setString(2, tc.getNoiDung());
+            pstmt.setInt(3, tc.getDiaPhuong().getMaDP());
             pstmt.executeUpdate();
             isCheck = true;
         } catch (SQLException | ClassNotFoundException e) {
@@ -119,11 +120,12 @@ public class TieuChiDAO implements TieuChiDAOService {
         boolean isCheck = false;
         try {
             Connection conn = ConnectionFactory.getConnection();
-            String sql = "update tbl_tieuchi set tenTC = ?, noiDung = ? where maTC = ?";
+            String sql = "update tbl_tieuchi set tenTC = ?, noiDung = ?, maDP = ? where maTC = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, tc.getTenTC());
             pstmt.setString(2, tc.getNoiDung());
-            pstmt.setInt(3, tc.getMaTC());
+            pstmt.setInt(3, tc.getDiaPhuong().getMaDP());
+            pstmt.setInt(4, tc.getMaTC());
             pstmt.executeUpdate();
             isCheck = true;
         } catch (SQLException | ClassNotFoundException e) {
