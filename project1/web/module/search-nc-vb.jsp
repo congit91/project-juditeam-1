@@ -91,7 +91,7 @@
                 </div>
                 <div class="panel-body">
                     <!--Kết Quả In ra ở đây-->
-                    <c:if test="${vbList != null}">
+                    <c:if test="${vbListNC != null}">
                         <table>
                             <tr>
                                 <td>Mã văn bản</td>
@@ -102,7 +102,7 @@
                                 <td>Nơi nhận</td>
                                 <td></td>
                             </tr>
-                            <c:forEach items="${vbList}" var="vbList">
+                            <c:forEach items="${vbListNC}" var="vbList">
                                 <c:if test="${vbList.getActive() == 1}">
                                     <tr>
                                         <td>${vbList.getMaVB()}</td>
@@ -111,7 +111,7 @@
                                         <td>${vbList.getNoiBanHanh()}</td>
                                         <td>${vbList.getNgayBanHanh()}</td>
                                         <td>${vbList.getNoiNhan()}</td>
-                                        <td><a href="/project1/search?maVB=${vbList.getMaVB()}">Xem</a></td>
+                                        <td><a href="/project1/search?type=vbnc&maVB=${vbList.getMaVB()}">Xem</a></td>
                                     </tr>
                                 </c:if>
                             </c:forEach>
