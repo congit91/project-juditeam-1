@@ -26,13 +26,13 @@
                 </div>
                 <div class="col-md-12">
                     <ul class="nav navbar-nav">
-                        <li><a  class="active"href="/project1/Page?p=manage">Administrator</a></li>
+                        <li><a  class="active" href="/project1/umanage?p=manage">Administrator</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quản lý <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/project1/Page?p=manage-user">Quản lý tài khoản</a></li>
+                                <li><a href="/project1/umanage?p=manage-user">Quản lý tài khoản</a></li>
                                 <li class="divider"></li>
-                                <li><a href="/project1/Page?p=manage-diaphuong">Quản lý người phụ trách</a></li>
+                                <li><a href="/project1/dpmanage?p=manage-diaphuong">Quản lý địa phương</a></li>
                             </ul>
                         </li>
                         <li><a href="/project1/Page?p=about">Thống kê</a></li>

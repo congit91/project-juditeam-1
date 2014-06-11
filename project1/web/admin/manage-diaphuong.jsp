@@ -200,7 +200,7 @@
                         </div><!-- /input-group -->
                         <div class="col-md-1">
                             <button type="button" class="btn btn-default dropdown-toggle" style="background:#3e8f3e;color:#ffffff">
-                                Seacher
+                                Search
                             </button>
                         </div>
                     </div><!-- /.col-lg-6 -->
@@ -248,10 +248,10 @@
 
                                                     <div class="form-group">
                                                         <div class="col-sm-2" >
-                                                            <label class="label label-primary" style="padding: 5px;font-size:13px">Tên xã</label>
+                                                            <label class="label label-primary" style="padding: 5px;font-size:13px">Mã ĐP</label>
                                                         </div>
                                                         <div class="col-sm-10" >
-                                                            <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
+                                                            <input type="text" name="maDP" value="${dpList.getMaDP()}"  class="form-control" id="inputEmail3">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
