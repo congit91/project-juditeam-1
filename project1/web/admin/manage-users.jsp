@@ -107,12 +107,12 @@
                 </div><!-- /.row -->
             </div>
             <div class="panel panel-default">
-                <div class="col-md-1" style="background: #428bca;font-weight:bold;text-transform: uppercase;color:#ffffff">Mã TK</div>
-                <div class="col-md-1" style="background: #428bca;font-weight:bold;text-transform: uppercase;color:#ffffff">Tên TK</div>
-                <div class="col-md-3" style="background: #428bca;font-weight:bold;text-transform: uppercase;color:#ffffff">Họ Tên</div>
-                <div class="col-md-3" style="background: #428bca;font-weight:bold;text-transform: uppercase;color:#ffffff">Email</div>
-                <div class="col-md-2" style="background: #428bca;font-weight:bold;text-transform: uppercase;color:#ffffff">Điện Thoại</div>
-                <div class="col-md-2" style="background: #428bca;font-weight:bold;text-transform: uppercase;color:#ffffff">Lựa chọn</div>
+                <div class="col-md-1" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Mã TK</div>
+                <div class="col-md-1" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Tên TK</div>
+                <div class="col-md-3" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Họ Tên</div>
+                <div class="col-md-3" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Email</div>
+                <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Điện Thoại</div>
+                <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Lựa chọn</div>
             </div>
             <c:forEach items="${tkList}" var="tkList">
                 <div class="panel panel-body">
