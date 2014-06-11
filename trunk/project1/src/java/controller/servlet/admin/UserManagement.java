@@ -37,16 +37,30 @@ public class UserManagement extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("do");
-        switch (action) {
-            case "edit":
-                doEdit(request, response);
-                break;
-            case "add":
-                doAddnew(request, response);
-                break;
-            case "del":
-                doDel(request, response);
-                break;
+        if (action != null) {
+            switch (action) {
+                case "edit":
+                    doEdit(request, response);
+                    break;
+                case "add":
+                    doAddnew(request, response);
+                    break;
+                case "del":
+                    doDel(request, response);
+                    break;
+            }
+        }
+        String p = request.getParameter("p");
+        if (p != null) {
+            switch (p) {
+                case "manage-user":
+                    List<TaiKhoan> tkList = TK_SERVICE.getTaiKhoanAll();
+                    request.setAttribute(util.Constants.TK_LIST, tkList);
+                    request.setAttribute(util.Constants.PAGE, "manage-user");
+                    request.removeAttribute(util.Constants.MSG_RESULT);
+                    request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+                    break;
+            }
         }
     }
 
@@ -127,6 +141,7 @@ public class UserManagement extends HttpServlet {
             request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
         }
     }
+
     private void doDel(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int maTK = Integer.parseInt(request.getParameter("id"));
@@ -140,6 +155,7 @@ public class UserManagement extends HttpServlet {
             request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
         }
     }
+
     /**
      * Returns a short description of the servlet.
      *
