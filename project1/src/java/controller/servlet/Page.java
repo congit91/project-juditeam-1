@@ -13,12 +13,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.dao.DiaPhuongDAO;
 import model.dao.NguoiPhuTrachDAO;
+import model.dao.TaiKhoanDAO;
 import model.dao.TieuChiDAO;
 import model.dao.service.DiaPhuongDAOService;
 import model.dao.service.NguoiPhuTrachDAOService;
+import model.dao.service.TaiKhoanDAOService;
 import model.dao.service.TieuChiDAOService;
 import model.entities.DiaPhuong;
 import model.entities.NguoiPhuTrach;
+import model.entities.TaiKhoan;
 import model.entities.TieuChi;
 
 /**
@@ -27,10 +30,11 @@ import model.entities.TieuChi;
  */
 public class Page extends HttpServlet {
 
+    private final TaiKhoanDAOService TK_SERVICE = TaiKhoanDAO.getInstance();
     private final DiaPhuongDAOService DP_SERVICE = DiaPhuongDAO.getInstance();
     private final TieuChiDAOService TC_SERVICE = TieuChiDAO.getInstance();
     private final NguoiPhuTrachDAOService NPT_SERVICE = NguoiPhuTrachDAO.getInstance();
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -84,6 +88,9 @@ public class Page extends HttpServlet {
                 request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
                 break;
             case "manage-user":
+
+                List<TaiKhoan> tkList = TK_SERVICE.getTaiKhoanAll();
+                request.setAttribute(util.Constants.TK_LIST, tkList);
                 request.setAttribute(util.Constants.PAGE, "manage-user");
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
