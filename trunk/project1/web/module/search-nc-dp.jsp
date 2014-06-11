@@ -35,7 +35,7 @@
                                     </label> 
                                 </div>
                                 <div class="col-sm-9" >
-                                    <select class="form-control" name="diaPhuong">
+                                    <select class="form-control" name="diaPhuong" onchange="">
                                         <c:forEach items="${dpList}" var="dpList">
                                             <option value="${dpList.getTenDP()}">${dpList.getTenDP()}</option>
                                         </c:forEach>
