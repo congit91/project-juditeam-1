@@ -17,7 +17,7 @@
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading">
-                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#1myModal">
+                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#1myModal">
                     Create User
                 </button>
                 <div class="modal fade" id="1myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
