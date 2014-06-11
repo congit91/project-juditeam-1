@@ -94,7 +94,7 @@ public class UserManagement extends HttpServlet {
         if (TK_SERVICE.updateTaiKhoan(tk)) {
             List<TaiKhoan> tkList = TK_SERVICE.getTaiKhoanAll();
             request.setAttribute(util.Constants.TK_LIST, tkList);
-            request.setAttribute(util.Constants.PAGE, "manage");
+            request.setAttribute(util.Constants.PAGE, "manage-user");
             request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
         } else {
             request.setAttribute(util.Constants.PAGE, "adduser");
@@ -120,7 +120,7 @@ public class UserManagement extends HttpServlet {
         if (TK_SERVICE.createTaiKhoan(tk)) {
             List<TaiKhoan> tkList = TK_SERVICE.getTaiKhoanAll();
             request.setAttribute(util.Constants.TK_LIST, tkList);
-            request.setAttribute(util.Constants.PAGE, "manage");
+            request.setAttribute(util.Constants.PAGE, "manage-user");
             request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
         } else {
             request.setAttribute(util.Constants.PAGE, "adduser");
@@ -133,10 +133,10 @@ public class UserManagement extends HttpServlet {
         if (TK_SERVICE.deleteTaiKhoan(maTK)) {
             List<TaiKhoan> tkList = TK_SERVICE.getTaiKhoanAll();
             request.setAttribute(util.Constants.TK_LIST, tkList);
-            request.setAttribute(util.Constants.PAGE, "manage");
+            request.setAttribute(util.Constants.PAGE, "manage-user");
             request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
         } else {
-            request.setAttribute(util.Constants.PAGE, "manage");
+            request.setAttribute(util.Constants.PAGE, "manage-user");
             request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
         }
     }
