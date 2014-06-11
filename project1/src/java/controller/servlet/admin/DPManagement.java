@@ -6,17 +6,22 @@
 package controller.servlet.admin;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.dao.DiaPhuongDAO;
+import model.dao.DiaPhuong_TieuChiDAO;
 import model.dao.NguoiPhuTrachDAO;
 import model.dao.TieuChiDAO;
+import model.dao.service.DPTCDAOService;
 import model.dao.service.DiaPhuongDAOService;
 import model.dao.service.NguoiPhuTrachDAOService;
 import model.dao.service.TieuChiDAOService;
 import model.entities.DiaPhuong;
+import model.entities.DiaPhuong_TieuChi;
+import model.entities.NguoiPhuTrach;
 import model.entities.TieuChi;
 
 /**
@@ -28,6 +33,7 @@ public class DPManagement extends HttpServlet {
     private final DiaPhuongDAOService DP_SERVICE = DiaPhuongDAO.getInstance();
     private final NguoiPhuTrachDAOService NPT_SERVICE = NguoiPhuTrachDAO.getInstance();
     private final TieuChiDAOService TC_SERVICE = TieuChiDAO.getInstance();
+    private final DPTCDAOService DPTC_SERVICE = DiaPhuong_TieuChiDAO.getInstance();
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -40,7 +46,20 @@ public class DPManagement extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        String p = request.getParameter("p");
+        switch(p){
+            case "manage-diaphuong":
+                List<DiaPhuong> dpListEditTT = DP_SERVICE.getDiaPhuongAll();
+                request.setAttribute(util.Constants.DP_LIST, dpListEditTT);
+                List<TieuChi> tcListDP = TC_SERVICE.getTCList();
+                List<NguoiPhuTrach> nptListDP = NPT_SERVICE.getNPTList();
+                request.setAttribute(util.Constants.TC_LIST, tcListDP);
+                request.setAttribute(util.Constants.NPT_LIST, nptListDP);
+                request.setAttribute(util.Constants.PAGE, "manage-diaphuong");
+                request.removeAttribute(util.Constants.MSG_RESULT);
+                request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+                break;
+        }
     }
 
     /**
@@ -68,15 +87,23 @@ public class DPManagement extends HttpServlet {
             String[] arr = infoNPT.split("-");
             maNPT = Integer.parseInt(arr[0]);
         }
-        String tenTC = request.getParameter("tenTC");
+        String tenTC = request.getParameter("tieuChi");
         String noiDung = request.getParameter("noiDung");
-
+        TieuChi tc = TieuChiDAO.getInstance().getTCByName(tenTC);
         DiaPhuong dp = DP_SERVICE.getDiaPhuongByTenDP(tenDP);
         if (maNPT > 0) {
             NPT_SERVICE.updateNPT_DP(maNPT, dp.getMaDP());
         }
         if (!tenTC.isEmpty() && !noiDung.isEmpty()) {
-            
+            if(DPTC_SERVICE.checkCreate(dp.getMaDP(), tc.getMaTC())){
+                DiaPhuong_TieuChi dp_tc = DPTC_SERVICE.getDPTCByDPTC(dp.getMaDP(), tc.getMaTC());
+                DiaPhuong_TieuChi dptc = new DiaPhuong_TieuChi(dp_tc.getMaDPTC(), dp, tc, noiDung);
+                DPTC_SERVICE.update(dptc);
+                
+            }else{
+                DiaPhuong_TieuChi dptc = new DiaPhuong_TieuChi(1, dp, tc, noiDung);
+                DPTC_SERVICE.create(dptc);
+            }
         }
     }
 

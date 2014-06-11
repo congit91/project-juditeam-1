@@ -170,11 +170,9 @@ public class DiaPhuong_TieuChiDAO implements DPTCDAOService {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, dptc.getDiaPhuong().getMaDP());
             pstmt.setInt(2, dptc.getTieuChi().getMaTC());
-            pstmt.setString(3, dptc.getNoiDung());
-            ResultSet rs = pstmt.executeQuery();
-            if (rs != null) {
-                isCheck = rs.next();
-            }
+            pstmt.setString(3, dptc.getNoiDung());            
+            pstmt.executeUpdate();
+            isCheck = true;
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }
@@ -192,10 +190,8 @@ public class DiaPhuong_TieuChiDAO implements DPTCDAOService {
             pstmt.setInt(2, dptc.getTieuChi().getMaTC());
             pstmt.setString(3, dptc.getNoiDung());
             pstmt.setInt(4, dptc.getMaDPTC());
-            ResultSet rs = pstmt.executeQuery();
-            if (rs != null) {
-                isCheck = rs.next();
-            }
+            pstmt.executeUpdate();
+            isCheck = true;
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }
@@ -210,10 +206,8 @@ public class DiaPhuong_TieuChiDAO implements DPTCDAOService {
             String sql = "delete from tbl_dptc where maDPTC = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, dptc.getMaDPTC());
-            ResultSet rs = pstmt.executeQuery();
-            if (rs != null) {
-                isCheck = rs.next();
-            }
+            pstmt.executeUpdate();
+            isCheck = true;
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
         }
