@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-md-12">
                     <ul class="nav navbar-nav">
-                        <li><a  class="active"href="/project1/admin.jsp">Administrator</a></li>
+                        <li><a  class="active"href="/project1/Page?p=manage">Administrator</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quản lý <b class="caret"></b></a>
                             <ul class="dropdown-menu">
