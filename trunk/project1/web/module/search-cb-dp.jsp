@@ -44,7 +44,7 @@
                         </div>
                     </form>
                 </div>
-                
+
                 <div class="panel-body" style="background:#bdbdbe;margin:5px">
                     <div class="col-md-12">
                         <div class="panel-body">
@@ -99,22 +99,28 @@
                                 </b>
                             </div>
                             <br>
-                            <div class="col-md-12">
+                            <div class="col-md-12 panel panel-default" style=" padding: 5px; min-height:40px">
+                                <!--Start-->
+                                <c:forEach items="${dp.getTcList()}" var="tcList">
+                                    <div class="col-md-3" style="font-weight: bolder">
+                                        <p>
 
-                                <div class="panel panel-default" style=" padding: 5px; min-height:40px">
-                                    <p>
-                                        <c:forEach items="${dp.getTcList()}" var="tcList">
-                                            + ${tcList.getTenTC()}: ${tcList.getNoiDung()}
-                                        </c:forEach>  
-                                    </p>
-                                </div>
+                                            ${tcList.getTenTC()}:
+                                        </p>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <p>
+                                            ${tcList.getNoiDung()}
 
+                                        </p>
+                                    </div>
+                                </c:forEach>  
+                                <!--End-->
 
                             </div>
                         </div>
                     </div>
                 </div>
-</te>
             </div>
 
         </div>
