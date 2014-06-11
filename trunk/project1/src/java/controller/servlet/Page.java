@@ -95,6 +95,8 @@ public class Page extends HttpServlet {
                 request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
                 break;
             case "manage-diaphuong":
+                List<DiaPhuong> dpListManage = DP_SERVICE.getDiaPhuongAll();
+                request.setAttribute(util.Constants.DP_LIST, dpListManage);
                 request.setAttribute(util.Constants.PAGE, "manage-diaphuong");
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
