@@ -84,24 +84,30 @@
                 </div>
                 <div class="panel-body">
                     <!--                    Kết Quả In ra ở đây-->
+                    
                     <c:if test="${npt.getMaNPT() < 1 && tc.getMaTC() < 1}">
                         <p>No results</p>
                     </c:if>
+                        
                     <c:if test="${npt.getMaNPT() > 0 || tc.getMaTC() > 0}">
-                        <p>Kết quả tìm kiếm: </p>
+                        <div class="panel panel-info" style="background-color: #269abc;padding: 5px;color:white">
+                            Kết quả tìm kiếm
+                        </div>
                     </c:if>
                     <c:if test="${npt.getMaNPT() > 0}">
-                        <textarea style="width: 400px">
-                            Mã người phụ trách: ${npt.getMaNPT()}
-                            Họ tên: ${npt.getHoTen()}
-                            Chức vụ: ${npt.getChucVu()}
-                            Học vị: ${npt.getHocVi()}
-                        </textarea><br/>
+                        <div class="col-md-3 panel panel-primary">Mã người phụ trách</div>
+                        <div class="col-md-9 panel panel-primary">${npt.getMaNPT()}</div>
+                        <div class="col-md-3 panel panel-primary">Họ tên</div>
+                        <div class="col-md-9 panel panel-primary">${npt.getHoTen()}</div>
+                        <div class="col-md-3 panel panel-primary">Chức vụ</div>
+                        <div class="col-md-9 panel panel-primary">${npt.getChucVu()}</div>
+                        <div class="col-md-3 panel panel-primary">Học vị</div>
+                        <div class="col-md-9 panel panel-primary">${npt.getHocVi()}</div>
+                       
                     </c:if>
                     <c:if test="${tc.getMaTC() > 0}">
-                        <textarea style="width: 400px">
-                            ${tc.getTenTC()}: ${tc.getNoiDung()}
-                        </textarea>
+                       <div class="col-md-3 panel panel-primary"> ${tc.getTenTC()}</div>
+                       <div class="col-md-12 panel panel-primary"><p>${tc.getNoiDung()}</p></div>
                     </c:if>
                 </div>
 
