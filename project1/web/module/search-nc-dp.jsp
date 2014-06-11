@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" action="/project1/contact" method="post">
+                    <form class="form-horizontal" role="form" action="/project1/search?do=tk-dp-nc" method="post">
                         <div class="col-sm-9 col-sm-offset-1">
                             
                             <div class="form-group">
@@ -35,7 +35,7 @@
                                     </label> 
                                 </div>
                                 <div class="col-sm-9" >
-                                    <select class="form-control">
+                                    <select class="form-control" name="diaPhuong">
                                         <c:forEach items="${dpList}" var="dpList">
                                             <option value="${dpList.getTenDP()}">${dpList.getTenDP()}</option>
                                         </c:forEach>
@@ -49,9 +49,9 @@
                                     </label> 
                                 </div>
                                 <div class="col-sm-9" >
-                                    <select class="form-control">
-                                        <c:forEach items="${dpList}" var="dpList">
-                                            <option value="${dpList.getTenDP()}">${dpList.getTenDP()}</option>
+                                    <select class="form-control" name="nguoiPhuTrach">
+                                        <c:forEach items="${nptList}" var="nptList">
+                                            <option value="${nptList.getMaNPT()}-${nptList.getHoTen()}">${nptList.getMaNPT()}-${nptList.getHoTen()}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -63,11 +63,10 @@
                                     </label> 
                                 </div>
                                 <div class="col-sm-9" >
-                                    <select class="form-control">
-                                        <option>Tiêu chí 1</option>
-                                        <option>Tiêu chí 2</option>
-                                        <option>Tiêu chí 3</option>
-                                        <option>Tiêu chí 4</option>
+                                    <select class="form-control" name="tieuChi">
+                                        <c:forEach items="${tcList}" var="tcList">
+                                            <option value="${tcList.getTenTC()}">${tcList.getTenTC()}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
                             </div>  
