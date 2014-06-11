@@ -38,47 +38,47 @@
                                     <input type="text" name="tenVB" class="form-control" placeholder="">
                                 </div>
                             </div>    
-                             <div class="form-group">
+                            <div class="form-group">
                                 <div class="col-sm-2" >
                                     <label class="label label-info">
-                                       Loại
+                                        Loại
                                     </label> 
                                 </div>
                                 <div class="col-sm-10" >
                                     <input type="text" name="loaiVB" class="form-control" placeholder="">
                                 </div>
                             </div>
-                             <div class="form-group">
+                            <div class="form-group">
                                 <div class="col-sm-2" >
                                     <label class="label label-info">
-                                       Nơi ban hành
+                                        Nơi ban hành
                                     </label> 
                                 </div>
                                 <div class="col-sm-10" >
                                     <input type="text" name="noiBanHanh" class="form-control" placeholder="">
                                 </div>
                             </div>  
-                             <div class="form-group">
+                            <div class="form-group">
                                 <div class="col-sm-2" >
                                     <label class="label label-info">
-                                       Ngày ban hành
+                                        Ngày ban hành
                                     </label> 
                                 </div>
                                 <div class="col-sm-10" >
                                     <input type="text" name="ngayBanHanh" class="form-control" placeholder="">
                                 </div>
                             </div>  
-                             <div class="form-group">
+                            <div class="form-group">
                                 <div class="col-sm-2" >
                                     <label class="label label-info">
-                                       Nơi nhận
+                                        Nơi nhận
                                     </label> 
                                 </div>
                                 <div class="col-sm-10" >
                                     <input type="text" name="noiNhan" class="form-control" placeholder="">
                                 </div>
                             </div> 
-                           <div class="form-group">
+                            <div class="form-group">
                                 <div class="col-sm-2 col-sm-offset-10" >
                                     <button type="submit" class="btn btn-success" name="do">Tìm kiếm</button>
 
@@ -91,45 +91,136 @@
                 </div>
                 <div class="panel-body">
                     <!--Kết Quả In ra ở đây-->
-                    <c:if test="${vbListNC != null}">
-                        <table>
-                            <tr>
-                                <td>Mã văn bản</td>
-                                <td>Tên văn bản</td>
-                                <td>Loại văn bản</td>
-                                <td>Nơi ban hành</td>
-                                <td>Ngày ban hành</td>
-                                <td>Nơi nhận</td>
-                                <td></td>
-                            </tr>
-                            <c:forEach items="${vbListNC}" var="vbList">
-                                <c:if test="${vbList.getActive() == 1}">
-                                    <tr>
-                                        <td>${vbList.getMaVB()}</td>
-                                        <td>${vbList.getTenVB()}</td>
-                                        <td>${vbList.getLoaiVB()}</td>
-                                        <td>${vbList.getNoiBanHanh()}</td>
-                                        <td>${vbList.getNgayBanHanh()}</td>
-                                        <td>${vbList.getNoiNhan()}</td>
-                                        <td><a href="/project1/search?type=vbnc&maVB=${vbList.getMaVB()}">Xem</a></td>
-                                    </tr>
+                    <div class="panel-body" style="background:#bdbdbe;margin:5px">
+                        <div class="col-md-12">
+                            <div class="panel-body">
+                                <c:if test="${vbListNC != null}">
+                                    <c:forEach items="${vbListNC}" var="vbList">
+                                        <c:if test="${vbList.getActive() == 1}">
+                                            <!--Ma Van Ban-->
+                                            <div class="col-md-6">
+                                                <div class="col-md-4">
+                                                    <b class="label label-default" style="font-size:14px;text-transform: inherit">
+                                                        Mã văn bản
+                                                    </b>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="panel panel-group" style=" padding: 5px; min-height:40px">
+                                                        ${vbList.getMaVB()}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Ngay ban hanh-->
+                                            <div class="col-md-6">
+                                                <div class="col-md-5">
+                                                    <b class="label label-default" style="font-size:14px;text-transform: inherit">
+                                                        Ngày ban hành
+                                                    </b>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div class="panel panel-group" style=" padding: 5px; min-height:40px">
+                                                        ${vbList.getNgayBanHanh()}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <!--Loai van ban-->
+                                            <div class="col-md-6">
+                                                <div class="col-md-4">
+                                                    <b class="label label-default" style="font-size:14px;text-transform: inherit">
+                                                        Loại văn bản
+                                                    </b>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="panel panel-group" style=" padding: 5px; min-height:40px">
+                                                        ${vbList.getLoaiVB()}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Ten van ban-->
+                                            <div class="col-md-6">
+                                                <div class="col-md-4">
+                                                    <b class="label label-default" style="font-size:14px;text-transform: inherit">
+                                                        Tên văn bản
+                                                    </b>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="panel panel-group" style=" padding: 5px; min-height:40px">
+
+                                                        ${vbList.getTenVB()}
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Noi ban hanh-->
+                                            <div class="col-md-12">
+                                                <div class="col-md-2">
+                                                    <b class="label label-default" style="font-size:14px;text-transform: inherit">
+                                                        Nơi ban hành
+                                                    </b>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="panel panel-group" style=" padding: 5px; min-height:40px">
+                                                        ${vbList.getNoiBanHanh()}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Noi Nhan-->
+                                            <div class="col-md-12">
+                                                <div class="col-md-2">
+                                                    <b class="label label-default" style="font-size:14px;text-transform: inherit">
+                                                        Nơi Nhận
+                                                    </b>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="panel panel-group" style=" padding: 5px; min-height:40px">
+                                                        ${vbList.getNoiNhan()}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Xem-->
+                                            <div class="col-md-12">
+                                                <div class="col-md-1 col-md-offset-11">
+                                                    <a href="/project1/search?type=vbnc&maVB=${vbList.getMaVB()}"class="label label-success" style="font-size:14px">XEM</a>
+                                                </div>
+                                            </div>
+                                        </c:if>
+                                    </c:forEach>
                                 </c:if>
-                            </c:forEach>
-                        </table>
-                    </c:if>
+                            </div>
+                        </div>
+                    </div>
                     <c:if test="${vbList == null && currentVB == null}">
-                        <p>No results</p>
+                        <div class="col-md-12">
+                            <div class="panel panel-group" style="">
+                                
+                            </div>
+                        </div>
                     </c:if>
+
                     <c:if test="${currentVB != null}">
-                    <p>Kết quả tìm kiếm: </p>
-                    <textarea name="result" style="height:400px; width: 600px; text-align: left" readonly>
-        Tên văn bản: ${currentVB.getTenVB()}
-        Loại văn bản: ${currentVB.getLoaiVB()}
-        Ngày ban hành: ${currentVB.getNgayBanHanh()}
-        Nơi ban hành: ${currentVB.getNoiBanHanh()}
-        Nội dung:
-        ${currentVB.getNoiDung()}
-                    </textarea>
+                        <div class="panel panel-info" style="background-color: #269abc;padding: 5px;color:white">
+                            Kết quả tìm kiếm
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-2 bg-success"style="padding:5px;font-weight:bold">Tên văn bản:</div>         
+                            <div class="col-md-10 bg-info"style="padding:5px;background:">${currentVB.getTenVB()}</div>         
+                            
+                            <div class="col-md-2 bg-success"style="padding:5px;font-weight:bold">Loại văn bản:</div>         
+                            <div class="col-md-10 bg-info"style="padding:5px;background:">${currentVB.getLoaiVB()}</div>         
+                            
+                            <div class="col-md-2 bg-success"style="padding:5px;font-weight:bold">Ngày ban hành</div>         
+                            <div class="col-md-10 bg-info"style="padding:5px;background:">${currentVB.getNgayBanHanh()}</div>         
+                            
+                            <div class="col-md-2 bg-success"style="padding:5px;font-weight:bold">Nơi ban hành</div>         
+                            <div class="col-md-10 bg-info"style="padding:5px;background:">${currentVB.getNoiBanHanh()}</div>         
+                            
+                            <div class="col-md-12 bg-primary"style="padding:5px;font-weight:bold">Nội dung</div>         
+                            <div class="col-md-12 bg-info"style="padding:5px;background:"><p> ${currentVB.getNoiDung()}</p></div>         
+                            
+                        </div>
                     </c:if>
                 </div>
 
