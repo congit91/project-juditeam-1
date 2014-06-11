@@ -76,8 +76,7 @@ public class DPManagement extends HttpServlet {
             NPT_SERVICE.updateNPT_DP(maNPT, dp.getMaDP());
         }
         if (!tenTC.isEmpty() && !noiDung.isEmpty()) {
-            TieuChi tc = new TieuChi(1, tenTC, noiDung, dp);
-            TC_SERVICE.createTC(tc);
+            
         }
     }
 

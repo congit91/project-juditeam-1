@@ -42,9 +42,7 @@ public class TieuChiDAO implements TieuChiDAOService {
                 TieuChi tc = new TieuChi();
                 tc.setMaTC(rs.getInt("maTC"));
                 tc.setTenTC(rs.getString("tenTC"));
-                tc.setNoiDung(rs.getString("noiDung"));
-                DiaPhuong dp = DiaPhuongDAO.getInstance().getDiaPhuongByID(rs.getInt("maDP"));
-                tc.setDiaPhuong(dp);
+                tc.setDpList(DiaPhuong_TieuChiDAO.getInstance().getDPByTC(rs.getInt("maTC")));
                 tcList.add(tc);
             }
         } catch (ClassNotFoundException | SQLException e) {
@@ -65,9 +63,7 @@ public class TieuChiDAO implements TieuChiDAOService {
             while (rs.next()) {
                 tc.setMaTC(rs.getInt("maTC"));
                 tc.setTenTC(rs.getString("tenTC"));
-                tc.setNoiDung(rs.getString("noiDung"));
-                DiaPhuong dp = DiaPhuongDAO.getInstance().getDiaPhuongByID(rs.getInt("maDP"));
-                tc.setDiaPhuong(dp);
+                tc.setDpList(DiaPhuong_TieuChiDAO.getInstance().getDPByTC(rs.getInt("maTC")));
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -87,9 +83,7 @@ public class TieuChiDAO implements TieuChiDAOService {
             while (rs.next()) {
                 tc.setMaTC(rs.getInt("maTC"));
                 tc.setTenTC(rs.getString("tenTC"));
-                tc.setNoiDung(rs.getString("noiDung"));
-                DiaPhuong dp = DiaPhuongDAO.getInstance().getDiaPhuongByID(rs.getInt("maDP"));
-                tc.setDiaPhuong(dp);
+                tc.setDpList(DiaPhuong_TieuChiDAO.getInstance().getDPByTC(rs.getInt("maTC")));
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -102,11 +96,9 @@ public class TieuChiDAO implements TieuChiDAOService {
         boolean isCheck = false;
         try {
             Connection conn = ConnectionFactory.getConnection();
-            String sql = "insert into tbl_tieuchi(tenTC, noiDung, maDP) values(?,?,?)";
+            String sql = "insert into tbl_tieuchi(tenTC) values(?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, tc.getTenTC());
-            pstmt.setString(2, tc.getNoiDung());
-            pstmt.setInt(3, tc.getDiaPhuong().getMaDP());
             pstmt.executeUpdate();
             isCheck = true;
         } catch (SQLException | ClassNotFoundException e) {
@@ -120,12 +112,10 @@ public class TieuChiDAO implements TieuChiDAOService {
         boolean isCheck = false;
         try {
             Connection conn = ConnectionFactory.getConnection();
-            String sql = "update tbl_tieuchi set tenTC = ?, noiDung = ?, maDP = ? where maTC = ?";
+            String sql = "update tbl_tieuchi set tenTC = ? where maTC = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, tc.getTenTC());
-            pstmt.setString(2, tc.getNoiDung());
-            pstmt.setInt(3, tc.getDiaPhuong().getMaDP());
-            pstmt.setInt(4, tc.getMaTC());
+            pstmt.setInt(2, tc.getMaTC());
             pstmt.executeUpdate();
             isCheck = true;
         } catch (SQLException | ClassNotFoundException e) {
@@ -148,49 +138,6 @@ public class TieuChiDAO implements TieuChiDAOService {
             e.printStackTrace();
         }
         return isCheck;
-    }
-
-    @Override
-    public List<TieuChi> findAllTieuChiByDP(int maDP) {
-        List<TieuChi> tcList = new ArrayList<>();
-        try {
-            Connection conn = ConnectionFactory.getConnection();
-            String sql = "select * from tbl_tieuchi where maDP = ?";
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, maDP);
-            ResultSet rs = pstmt.executeQuery();
-            while (rs.next()) {
-                TieuChi tc = new TieuChi();
-                tc.setMaTC(rs.getInt("maTC"));
-                tc.setTenTC(rs.getString("tenTC"));
-                tc.setNoiDung(rs.getString("noiDung"));
-                tcList.add(tc);
-            }
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-        return tcList;
-    }
-
-    @Override
-    public TieuChi findTieuChiByDP(int maDP, String tenTC) {
-        TieuChi tc = new TieuChi();
-        try {
-            Connection conn = ConnectionFactory.getConnection();
-            String sql = "select * from tbl_tieuchi where maDP = ? and tenTC = ?";
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, maDP);
-            pstmt.setString(2, tenTC);
-            ResultSet rs = pstmt.executeQuery();
-            while (rs.next()) {
-                tc.setMaTC(rs.getInt("maTC"));
-                tc.setTenTC(rs.getString("tenTC"));
-                tc.setNoiDung(rs.getString("noiDung"));
-            }
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-        return tc;
     }
 
 }

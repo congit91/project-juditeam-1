@@ -12,14 +12,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.dao.DiaPhuongDAO;
+import model.dao.DiaPhuong_TieuChiDAO;
 import model.dao.NguoiPhuTrachDAO;
 import model.dao.TieuChiDAO;
 import model.dao.VanBanDAO;
+import model.dao.service.DPTCDAOService;
 import model.dao.service.DiaPhuongDAOService;
 import model.dao.service.NguoiPhuTrachDAOService;
 import model.dao.service.TieuChiDAOService;
 import model.dao.service.VanBanDAOService;
 import model.entities.DiaPhuong;
+import model.entities.DiaPhuong_TieuChi;
 import model.entities.NguoiPhuTrach;
 import model.entities.TieuChi;
 import model.entities.VanBan;
@@ -34,6 +37,7 @@ public class SearchServlet extends HttpServlet {
     private final NguoiPhuTrachDAOService NPT_SERVICE = NguoiPhuTrachDAO.getInstance();
     private final VanBanDAOService VB_SERVICE = VanBanDAO.getInstance();
     private final TieuChiDAOService TC_SERVICE = TieuChiDAO.getInstance();
+    private final DPTCDAOService DPTC_SERVICE = DiaPhuong_TieuChiDAO.getInstance();
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -80,11 +84,10 @@ public class SearchServlet extends HttpServlet {
         int maNPT = Integer.parseInt(arrNpt[0]);
 
         DiaPhuong dp = DP_SERVICE.getDiaPhuongByTenDP(tenDP);
-
-        TieuChi tc = TC_SERVICE.findTieuChiByDP(dp.getMaDP(), tenTC);
+        TieuChi tc = TC_SERVICE.getTCByName(tenTC);
+        DiaPhuong_TieuChi dptc = DPTC_SERVICE.getDPTCByDPTC(dp.getMaDP(), tc.getMaTC());
         NguoiPhuTrach npt = NPT_SERVICE.findNPTByDP(maNPT, dp.getMaDP());
-        request.setAttribute("tc", tc);
-        request.setAttribute("dp", dp);
+        request.setAttribute("dptc", dptc);
         request.setAttribute("npt", npt);
         List<DiaPhuong> dpListNC = DP_SERVICE.getDiaPhuongAll();
         List<TieuChi> tcListNC = TC_SERVICE.getTCList();
