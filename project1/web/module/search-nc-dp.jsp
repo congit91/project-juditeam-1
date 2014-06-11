@@ -85,7 +85,7 @@
                 <div class="panel-body">
                     <!--                    Kết Quả In ra ở đây-->
                     
-                    <c:if test="${npt.getMaNPT() < 1 && tc.getMaTC() < 1}">
+                    <c:if test="${npt.getMaNPT() < 1 && dptc.getMaDPTC() < 1}">
                         <p>No results</p>
                     </c:if>
                         
@@ -105,9 +105,9 @@
                         <div class="col-md-9 panel panel-primary">${npt.getHocVi()}</div>
                        
                     </c:if>
-                    <c:if test="${tc.getMaTC() > 0}">
-                       <div class="col-md-3 panel panel-primary"> ${tc.getTenTC()}</div>
-                       <div class="col-md-12 panel panel-primary"><p>${tc.getNoiDung()}</p></div>
+                    <c:if test="${tc.getMaDPTC() > 0}">
+                       <div class="col-md-3 panel panel-primary"> ${dptc.getTieuChi().getTenTC()}</div>
+                       <div class="col-md-12 panel panel-primary"><p>${dptc.getNoiDung()}</p></div>
                     </c:if>
                 </div>
 
