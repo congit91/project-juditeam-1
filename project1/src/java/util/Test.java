@@ -18,7 +18,7 @@ import model.entities.VanBan;
  */
 public class Test {
     public static void test(){
-        List<VanBan> vbList = VanBanDAO.getInstance().getVanBanByTenVB("H");
+        List<VanBan> vbList = VanBanDAO.getInstance().findVanBanAdvance("H", "H", "", null, "");
         System.out.println(vbList.size());
     }
     public static void main(String[] args) {
