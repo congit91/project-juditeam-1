@@ -12,8 +12,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.dao.DiaPhuongDAO;
+import model.dao.NguoiPhuTrachDAO;
+import model.dao.TieuChiDAO;
 import model.dao.service.DiaPhuongDAOService;
+import model.dao.service.NguoiPhuTrachDAOService;
+import model.dao.service.TieuChiDAOService;
 import model.entities.DiaPhuong;
+import model.entities.NguoiPhuTrach;
+import model.entities.TieuChi;
 
 /**
  *
@@ -21,8 +27,10 @@ import model.entities.DiaPhuong;
  */
 public class Page extends HttpServlet {
 
-    DiaPhuongDAOService DP_SERVICE = DiaPhuongDAO.getInstance();
-
+    private final DiaPhuongDAOService DP_SERVICE = DiaPhuongDAO.getInstance();
+    private final TieuChiDAOService TC_SERVICE = TieuChiDAO.getInstance();
+    private final NguoiPhuTrachDAOService NPT_SERVICE = NguoiPhuTrachDAO.getInstance();
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -61,7 +69,11 @@ public class Page extends HttpServlet {
                 break;
             case "search-nc-dp":
                 List<DiaPhuong> dpListNC = DP_SERVICE.getDiaPhuongAll();
+                List<TieuChi> tcListNC = TC_SERVICE.getTCList();
+                List<NguoiPhuTrach> nptListNC = NPT_SERVICE.getNPTList();
                 request.setAttribute(util.Constants.DP_LIST, dpListNC);
+                request.setAttribute(util.Constants.TC_LIST, tcListNC);
+                request.setAttribute(util.Constants.NPT_LIST, nptListNC);
                 request.setAttribute(util.Constants.PAGE, "search-nc-dp");
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
