@@ -45,7 +45,7 @@
                     </form>
                 </div>
                 
-                <div class="panel-body" style="background:#333333;margin:5px">
+                <div class="panel-body" style="background:#bdbdbe;margin:5px">
                     <div class="col-md-12">
                         <div class="panel-body">
                             <div class="col-md-12">
