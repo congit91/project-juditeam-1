@@ -18,7 +18,7 @@
             <!-- Default panel contents -->
             <div class="panel-heading">
                 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                    Add New User
+                    Create User
                 </button>
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
