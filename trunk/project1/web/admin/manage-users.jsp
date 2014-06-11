@@ -18,7 +18,7 @@
             <!-- Default panel contents -->
             <div class="panel-heading">
                 <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#1myModal">
-                    Create User
+                    Tạo mới tài khoản
                 </button>
                 <div class="modal fade" id="1myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -88,30 +88,26 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-5 col-lg-push-6">
-                        <div class="col-md-11">
-                        
-                            <div class="input-group">
-                                <div class="input-group-btn">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                        <span class="glyphicon glyphicon-search"></span>
-                                        <span class="caret"></span></button>
+                        <form action="/project1/umanage?do=search" method="post">
+                            <div class="col-md-11">
 
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">UserName</a></li>
-                                        <li><a href="#">Email</a></li>
-                                        <li><a href="#">Phone</a></li>
-                                    </ul>
-                                </div><!-- /btn-group -->
+                                <div class="input-group">
 
-                                <input type="text" class="form-control">
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                            <span class="caret"></span></button>
 
+                                    </div><!-- /btn-group -->
+
+                                    <input type="text" name="userName" class="form-control" placeholder="Nhập tên tài khoản muốn tìm...">
+
+                                </div><!-- /input-group -->
                             </div><!-- /input-group -->
-                        </div><!-- /input-group -->
-                        <div class="col-md-1">
-                            <button type="button" class="btn btn-default dropdown-toggle" style="background:#3e8f3e;color:#ffffff">
-                                Seacher
-                            </button>
-                        </div>
+                            <div class="col-md-1">
+                                <input type="submit" name="submit" value="Tìm kiếm" class="btn btn-default dropdown-toggle" style="background:#3e8f3e;color:#ffffff">
+                            </div>
+                        </form>
                     </div><!-- /.col-lg-6 -->
                 </div><!-- /.row -->
             </div>

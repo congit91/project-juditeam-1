@@ -103,16 +103,15 @@
                                 <br>
                                 <div class="col-md-12 panel panel-default" style=" padding: 5px; min-height:40px">
                                     <!--Start-->
-                                    <c:forEach items="${dp.getTcList()}" var="tcList">
+                                    <c:forEach items="${dptcList}" var="dptcList">
                                         <div class="col-md-3" style="font-weight: bolder">
                                             <p>
-
-                                                ${tcList.getTenTC()}:
+                                                ${dptcList.getTieuChi().getTenTC()}:
                                             </p>
                                         </div>
                                         <div class="col-md-9">
                                             <p>
-                                                ${tcList.getNoiDung()}
+                                                ${dptcList.getNoiDung()}
 
                                             </p>
                                         </div>
