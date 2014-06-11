@@ -18,17 +18,17 @@
             <!-- Default panel contents -->
             <div class="panel-heading">
                 <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-                    Add New
+                    Tạo mới
                 </button>
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3><span class="glyphicon glyphicon-user"></span>${tk.getMaDP() > 0 ? 'Thay đổi thông tin tài khoản' : 'Thêm mới tài khoản'}</h3>
+                                    <h3><span class="glyphicon glyphicon-user"></span>Thêm mới địa phương</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <form class="form-horizontal" role="form" action="/project1/umanage?id=${tk.getMaDP()}" method="post">
+                                    <form class="form-horizontal" role="form" action="/project1/dpmanage" method="post">
                                         <!-- /.UserName -->
                                         <div class="form-group">                                    
                                             <div class="col-sm-12" >
@@ -86,6 +86,9 @@
 
                     </div>
                 </div>
+                <a class="btn btn-primary btn-sm" data-toggle="diaPhuong" data-target="#myDiaPhuong" href="/project1/Page?p=them-tt-dp" >
+                    Thêm thông tin địa phương
+                </a>
                 <div class="row">
                     <div class="col-lg-5 col-lg-push-6">
                         <div class="input-group">

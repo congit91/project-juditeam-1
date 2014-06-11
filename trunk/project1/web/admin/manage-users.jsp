@@ -3,7 +3,7 @@
     Created on : Jun 9, 2014, 10:20:07 AM
     Author     : Welcomes
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,54 +25,54 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3><span class="glyphic on glyphicon-user"></span>${tk.getMaTK() > 0 ? 'Thay đổi thông tin tài khoản' : 'Thêm mới tài khoản'}</h3>
+                                    <h3><span class="glyphic on glyphicon-user"></span>Tạo mới tài khoản</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <form class="form-horizontal" role="form" action="/project1/umanage?id=${tk.getMaTK()}" method="post">
+                                    <form class="form-horizontal" role="form" action="/project1/umanage" method="post">
                                         <!-- /.UserName -->
                                         <div class="form-group">                                    
                                             <div class="col-sm-12" >
-                                                <input type="text" name="maTK" value="${tk.getMaTK()}" disabled class="form-control" id="inputEmail3">
+                                                <input type="text" name="maTK" disabled class="form-control" id="inputEmail3">
                                             </div>
                                         </div>
                                         <!-- /.UserName -->
                                         <div class="form-group">
 
                                             <div class="col-sm-12" >
-                                                <input type="text" name="tenTK" value="${tk.getTenTK()}" ${tk.getMaTK() > 0 ? 'disabled' : ''} class="form-control" id="inputEmail3" placeholder="Tên tài khoản">
+                                                <input type="text" name="tenTK" class="form-control" id="inputEmail3" placeholder="Tên tài khoản">
                                             </div>
                                         </div>
                                         <!-- /.Password -->
                                         <div class="form-group">
 
                                             <div class="col-sm-12" >
-                                                <input type="password" name="matkhau" value="${tk.getMatkhau()}" class="form-control" id="inputEmail3" placeholder="Mật khẩu">
+                                                <input type="password" name="matkhau" class="form-control" id="inputEmail3" placeholder="Mật khẩu">
                                             </div>
                                         </div>
                                         <!-- /.FullName -->
                                         <div class="form-group">
 
                                             <div class="col-sm-12" >
-                                                <input type="text" name="hoTen" value="${tk.getHoTen()}" class="form-control" id="inputEmail3" placeholder="Họ và tên">
+                                                <input type="text" name="hoTen" class="form-control" id="inputEmail3" placeholder="Họ và tên">
                                             </div>
                                         </div>
                                         <!-- /.Email -->
                                         <div class="form-group">
 
                                             <div class="col-sm-12" >
-                                                <input type="email" name="email" value="${tk.getEmail()}" class="form-control" id="inputEmail3" placeholder="Email">
+                                                <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
                                             </div>
                                         </div>
                                         <!-- /.Phone -->
                                         <div class="form-group">
 
                                             <div class="col-sm-12" >
-                                                <input type="text" name="SDT" value="${tk.getSDT()}" class="form-control" id="inputEmail3" placeholder="Số điện thoại">
+                                                <input type="text" name="SDT" class="form-control" id="inputEmail3" placeholder="Số điện thoại">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-12" >
-                                                <input type="submit" ${tk.getMaTK() > 0 ? 'value="Sửa"' : 'value="Thêm mới"'} name="submit" class="btn btn-success"/>
+                                                <input type="submit" value="Thêm mới" name="submit" class="btn btn-success"/>
                                                 &nbsp;
                                                 <button type="reset" class="btn btn-warning">Clear</button>
                                             </div>
@@ -114,85 +114,84 @@
                 <div class="col-md-2" style="background: #428bca;font-weight:bold;text-transform: uppercase;color:#ffffff">Điện Thoại</div>
                 <div class="col-md-2" style="background: #428bca;font-weight:bold;text-transform: uppercase;color:#ffffff">Lựa chọn</div>
             </div>
-            <c:forEach items="${requestScope.tkList}" var="tkList">
+            <c:forEach items="${tkList}" var="tkList">
                 <div class="panel panel-body">
-                    <div class="col-md-1"style="font-weight:bold">${tkList.getMaTK()}</div>
+                    <div class="col-md-1" style="font-weight:bold">${tkList.getMaTK()}</div>
                     <div class="col-md-1" >${tkList.getTenTK()}</div>
                     <div class="col-md-3">${tkList.getHoTen()}</div>
                     <div class="col-md-3">${tkList.getEmail()}</div>
                     <div class="col-md-2">${tkList.getSDT()}</div>
                     <div class="col-md-2">
                         <!-- Công mi sửa chổ này nghe-->
-                        
+
                         <!--Edit-->
                         <div class="col-md-6">
                             <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
                                 <span class="glyphicon glyphicon-wrench"></span>
                             </button>
-
                             <!-- Modal -->
                             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
-                                   <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3><span class="glyphic on glyphicon-user"></span>${tkList.getMaTK() > 0 ? 'Thay đổi thông tin tài khoản' : 'Thêm mới tài khoản'}</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <form class="form-horizontal" role="form" action="/project1/umanage?id=${tkList.getMaTK()}" method="post">
-                                        <!-- /.UserName -->
-                                        <div class="form-group">                                    
-                                            <div class="col-sm-12" >
-                                                <input type="text" name="maTK" value="${tkList.getMaTK()}" disabled class="form-control" id="inputEmail3">
+                                    <div class="col-lg-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3><span class="glyphic on glyphicon-user"></span>Thay đổi thông tin tài khoản</h3>
                                             </div>
-                                        </div>
-                                        <!-- /.UserName -->
-                                        <div class="form-group">
+                                            <div class="panel-body">
+                                                <form class="form-horizontal" role="form" action="/project1/umanage?id=${tkList.getMaTK()}" method="post">
+                                                    <!-- /.UserName -->
+                                                    <div class="form-group">                                    
+                                                        <div class="col-sm-12" >
+                                                            <input type="text" name="maTK" value="${tkList.getMaTK()}" disabled class="form-control" id="inputEmail3">
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.UserName -->
+                                                    <div class="form-group">
 
-                                            <div class="col-sm-12" >
-                                                <input type="text" name="tenTK" value="${tkList.getTenTK()}" ${tkList.getMaTK() > 0 ? 'disabled' : ''} class="form-control" id="inputEmail3" placeholder="Tên tài khoản">
-                                            </div>
-                                        </div>
-                                        <!-- /.Password -->
-                                        <div class="form-group">
+                                                        <div class="col-sm-12" >
+                                                            <input type="text" name="tenTK" value="${tkList.getTenTK()}" ${tkList.getMaTK() > 0 ? 'disabled' : ''} class="form-control" id="inputEmail3" placeholder="Tên tài khoản">
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.Password -->
+                                                    <div class="form-group">
 
-                                            <div class="col-sm-12" >
-                                                <input type="password" name="matkhau" value="${tkList.getMatkhau()}" class="form-control" id="inputEmail3" placeholder="Mật khẩu">
-                                            </div>
-                                        </div>
-                                        <!-- /.FullName -->
-                                        <div class="form-group">
+                                                        <div class="col-sm-12" >
+                                                            <input type="password" name="matkhau" value="${tkList.getMatkhau()}" class="form-control" id="inputEmail3" placeholder="Mật khẩu">
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.FullName -->
+                                                    <div class="form-group">
 
-                                            <div class="col-sm-12" >
-                                                <input type="text" name="hoTen" value="${tkList.getHoTen()}" class="form-control" id="inputEmail3" placeholder="Họ và tên">
-                                            </div>
-                                        </div>
-                                        <!-- /.Email -->
-                                        <div class="form-group">
+                                                        <div class="col-sm-12" >
+                                                            <input type="text" name="hoTen" value="${tkList.getHoTen()}" class="form-control" id="inputEmail3" placeholder="Họ và tên">
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.Email -->
+                                                    <div class="form-group">
 
-                                            <div class="col-sm-12" >
-                                                <input type="email" name="email" value="${tkList.getEmail()}" class="form-control" id="inputEmail3" placeholder="Email">
-                                            </div>
-                                        </div>
-                                        <!-- /.Phone -->
-                                        <div class="form-group">
+                                                        <div class="col-sm-12" >
+                                                            <input type="email" name="email" value="${tkList.getEmail()}" class="form-control" id="inputEmail3" placeholder="Email">
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.Phone -->
+                                                    <div class="form-group">
 
-                                            <div class="col-sm-12" >
-                                                <input type="text" name="SDT" value="${tkList.getSDT()}" class="form-control" id="inputEmail3" placeholder="Số điện thoại">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-12" >
-                                                <input type="submit" ${tkList.getMaTK() > 0 ? 'value="Sửa"' : 'value="Thêm mới"'} name="submit" class="btn btn-success"/>
-                                                &nbsp;
-                                                <button type="reset" class="btn btn-warning">Clear</button>
-                                            </div>
-                                        </div>
+                                                        <div class="col-sm-12" >
+                                                            <input type="text" name="SDT" value="${tkList.getSDT()}" class="form-control" id="inputEmail3" placeholder="Số điện thoại">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-12" >
+                                                            <input type="submit" ${tkList.getMaTK() > 0 ? 'value="Sửa"' : 'value="Thêm mới"'} name="submit" class="btn btn-success"/>
+                                                            &nbsp;
+                                                            <button type="reset" class="btn btn-warning">Clear</button>
+                                                        </div>
+                                                    </div>
 
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -200,10 +199,6 @@
                         <div class="col-md-6">
                             <a href="/project1/umanage?do=del&id=${tkList.getMaTK()}" onclick="return confirm('Bạn thực sự muốn xóa: ${tkList.getTenTK()}?')" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-trash"></span></a>
                         </div>
-
-
-
-
                     </div>
                 </div>                               
             </c:forEach>                             
