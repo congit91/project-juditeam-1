@@ -191,47 +191,117 @@
                     </div><!-- /.col-lg-6 -->
                 </div><!-- /.row -->
             </div>
-            <div class="panel-heading">
 
-            </div>
-            <div class="table-responsive">
-                <form name="formAdmin" action="" method="post">
-                    <table class="table table-striped"> 
-                        <!--                        <head>
-                                                <form class="navbar-form navbar-left" role="search">
-                                                </form>
-                                                </head>-->
-                        <thead>
-                            <tr>
-                                <th>Mã</th>
-                                <th>Tên Xã</th>
-                                <th>Số ĐT</th>
-                                <th>Nơi nhận</th>
-                                <th>Diện tích</th>
-                                <th>Số dân</th>
-                                <th>Lựa chọn</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach items="${requestScope.dpList}" var="dpList">
-                            <tr>
-                                <td>${dpList.getMaDP()}</td>
-                                <td>${dpList.getTenDP()}</td>
-                                <td>${dpList.getSDT()}</td>
-                                <td>${dpList.getNoiNhan()}</td>
-                                <td>${dpList.getDienTich()}</td>
-                                <td>${dpList.getSoDan()}</td>
-                                <td>
-                                    <a href="/project1/umanage?do=edit&id=${dpList.getMaDP()}" ><span class="glyphicon glyphicon-wrench"></span></a>&nbsp;&nbsp;
 
-                                    <a href="/project1/umanage?do=del&id=${dpList.getMaDP()}" onclick="return confirm('Bạn thực sự muốn xóa: ${dpList.getTenDP()}?')"><span class="glyphicon glyphicon-trash"></span></a>
-                                </td>
-                            </tr>  
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                </form>
+
+            <!---Ket qua -->
+
+            <div class="panel panel-default">
+                <div class="col-md-1" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Mã</div>
+                <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Tên Xã</div>
+                <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Số ĐT</div>
+                <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Nơi nhận</div>
+                <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Diện tích</div>
+                <div class="col-md-1" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Số dân</div>
+                <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Lựa chọn</div>
             </div>
+            <c:forEach items="${requestScope.dpList}" var="dpList">
+                <div class="panel panel-title">
+                    <div class="col-md-1" style="text-transform: inherit;padding:5px">${dpList.getMaDP()}</div>
+                    <div class="col-md-2" style="text-transform:inherit;padding:5px">${dpList.getTenDP()}</div>
+                    <div class="col-md-2" style="text-transform: inherit;padding:5px">${dpList.getSDT()}</div>
+                    <div class="col-md-2" style="text-transform: inherit;padding:5px">${dpList.getNoiNhan()}</div>
+                    <div class="col-md-2" style="text-transform: inherit;padding:5px">${dpList.getDienTich()}</div>
+                    <div class="col-md-1" style="text-transform: inherit;padding:5px">${dpList.getSoDan()}</div>
+                    <div class="col-md-2" style="text-transform: inherit;padding:5px">
+
+                        <div class="col-md-6">
+                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#2myModal">
+                                <span class="glyphicon glyphicon-wrench"></span>
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="2myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="col-lg-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3><span class="glyphic on glyphicon-user"></span>Sửa thông tin địa phương</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <form class="form-horizontal" role="form" action="/project1/dpmanage" method="post">
+                                            <!-- TÊN XÃ -->
+
+                                            <div class="form-group">
+                                                <div class="col-sm-2" >
+                                                    <label class="label label-primary" style="padding: 5px;font-size:13px">Tên xã</label>
+                                                </div>
+                                                <div class="col-sm-10" >
+                                                    <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-2" >
+                                                    <label class="label label-primary" style="padding: 5px;font-size:13px">Tên xã</label>
+                                                </div>
+                                                <div class="col-sm-10" >
+                                                    <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-2" >
+                                                    <label class="label label-primary" style="padding: 5px;font-size:13px">Số điện thoại</label>
+                                                </div>
+                                                <div class="col-sm-10" >
+                                                    <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-2" >
+                                                    <label class="label label-primary" style="padding: 5px;font-size:13px">Nơi nhận</label>
+                                                </div>
+                                                <div class="col-sm-10" >
+                                                    <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-2" >
+                                                    <label class="label label-primary" style="padding: 5px;font-size:13px">Diện tích</label>
+                                                </div>
+                                                <div class="col-sm-10" >
+                                                    <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-2" >
+                                                    <label class="label label-primary" style="padding: 5px;font-size:13px">Số dân</label>
+                                                </div>
+                                                <div class="col-sm-10" >
+                                                    <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
+                                                </div>
+                                            </div>                                     
+                                            <div class="form-group">
+                                                <div class="col-sm-6 col-sm-offset-6" >
+                                                    <input type="submit" value="Submit"name="submit" class="btn btn-primary"/>
+                                                    &nbsp;
+                                                    <button type="reset" class="btn btn-warning">Clear</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <a href="/project1/umanage?do=del&id=${tkList.getMaTK()}" onclick="return confirm('Bạn thực sự muốn xóa: ${tkList.getTenTK()}?')" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-trash"></span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </c:forEach>
         </div>
     </body>
 </html>
