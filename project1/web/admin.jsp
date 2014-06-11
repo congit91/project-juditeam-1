@@ -39,10 +39,6 @@
                     <%@include file="admin/nav-admin.jsp" %>
                     <%@include file="admin/manage-diaphuong.jsp" %>
                 </c:if>
-                <c:if test="${p == 'them-tt-dp'}">
-                    <%@include file="admin/nav-admin.jsp" %>
-                    <%@include file="admin/them-tt-dp.jsp" %>
-                </c:if>
                 <c:if test="${p == 'login' || p == null}">
                     <%@include file="admin/login.jsp" %>
                 </c:if>

@@ -34,7 +34,7 @@
                                 QUẢN LÝ USER
                             </div>
                             <div class="panel-body">
-                                <a href="/project1/Page?p=manage-user"><img class="img-rounded" src="./images/admin/user.png" alt="" width="40%"/></a>
+                                <a href="/project1/umanage?p=manage-user"><img class="img-rounded" src="./images/admin/user.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
@@ -44,10 +44,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" style="background:black;color:white">
                                 <span class="glyphicon glyphicon-user"></span>
-                                NGƯỜI QUẢN LÝ ĐỊA PHƯƠNG
+                                QUẢN LÝ ĐỊA PHƯƠNG
                             </div>
                             <div class="panel-body">
-                                <a href="/project1/Page?p=manage-diaphuong"><img class="img-rounded" src="./images/admin/diaphuong.png" alt="" width="40%"/></a>
+                                <a href="/project1/dpmanage?p=manage-diaphuong"><img class="img-rounded" src="./images/admin/diaphuong.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>

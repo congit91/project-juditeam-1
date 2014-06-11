@@ -43,7 +43,7 @@
                             <li><a href="/project1/Page?p=contact">Liên Hệ</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/project1/admin.jsp"><span class="glyphicon glyphicon-th-large"  >Quản trị</span></a></li>
+                            <li><a href="/project1/admin.jsp"><span class="glyphicon glyphicon-th-large" >Quản trị</span></a></li>
                         </ul>
                     </div>
                 </div><!--/.nav-collapse -->
