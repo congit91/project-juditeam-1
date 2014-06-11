@@ -60,6 +60,11 @@ public class UserManagement extends HttpServlet {
                     request.removeAttribute(util.Constants.MSG_RESULT);
                     request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
                     break;
+                case "manage":
+                    request.setAttribute(util.Constants.PAGE, "manage");
+                    request.removeAttribute(util.Constants.MSG_RESULT);
+                    request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+                    break;
             }
         }
     }
@@ -85,6 +90,9 @@ public class UserManagement extends HttpServlet {
             case "Thêm mới":
                 addUser(request, response);
                 break;
+            case "Tìm kiếm":
+                search(request, response);
+                break;
         }
     }
 
@@ -94,6 +102,16 @@ public class UserManagement extends HttpServlet {
         TaiKhoan tk = TK_SERVICE.getTaiKhoanByID(maTK);
         request.setAttribute(util.Constants.TK, tk);
         request.setAttribute(util.Constants.PAGE, "adduser");
+        request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+    }
+
+    private void search(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String userName = request.getParameter("userName");
+        List<TaiKhoan> tkList = TK_SERVICE.findTaiKhoanByTenTK(userName);
+        request.setAttribute(util.Constants.TK_LIST, tkList);
+        request.setAttribute(util.Constants.PAGE, "manage-user");
+        request.removeAttribute(util.Constants.MSG_RESULT);
         request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
     }
 

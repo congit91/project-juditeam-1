@@ -21,6 +21,7 @@ public interface DPTCDAOService {
     public DiaPhuong_TieuChi getDPTCByDPTC(int maDP, int maTC);
     public List<DiaPhuong> getDPByTC(int matc);
     public List<TieuChi> getTCByDP(int madp);
+    public List<DiaPhuong_TieuChi> getDPTCByDP(int maDP);
     
     public boolean checkCreate(int maDP, int maTC);
     public boolean create(DiaPhuong_TieuChi dptc);

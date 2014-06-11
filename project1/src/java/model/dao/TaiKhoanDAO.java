@@ -278,4 +278,29 @@ public class TaiKhoanDAO implements TaiKhoanDAOService {
         }
         return isCheck;
     }
+
+    @Override
+    public List<TaiKhoan> findTaiKhoanByTenTK(String tenTK) {
+        List<TaiKhoan> tkList = new ArrayList<>();
+        try {
+            Connection conn = ConnectionFactory.getConnection();
+            String sql = "select * from tbl_taikhoan where tenTK like '" + "%" + tenTK + "%" + "'";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                TaiKhoan tk = new TaiKhoan();
+                tk.setMaTK(rs.getInt("maTK"));
+                tk.setTenTK(rs.getString("tenTK"));
+                tk.setMatkhau(rs.getString("matkhau"));
+                tk.setHoTen(rs.getString("hoTen"));
+                tk.setEmail(rs.getString("email"));
+                tk.setSDT(rs.getString("SDT"));
+                tk.setTrangThaiHD(rs.getInt("trangThaiHD"));
+                tkList.add(tk);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return tkList;
+    }
 }
