@@ -17,80 +17,154 @@
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading">
-                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-                    Tạo mới
-                </button>
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3><span class="glyphicon glyphicon-user"></span>Thêm mới địa phương</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <form class="form-horizontal" role="form" action="/project1/dpmanage" method="post">
-                                        <!-- /.UserName -->
-                                        <div class="form-group">                                    
-                                            <div class="col-sm-12" >
-                                                <input type="text" name="maTK" value="${tk.getMaDP()}" disabled class="form-control" id="inputEmail3">
+                <div class="col-md-1">
+                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+                        Tạo mới
+                    </button>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3><span class="glyphicon glyphicon-user"></span>Thêm mới địa phương</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form class="form-horizontal" role="form" action="/project1/dpmanage" method="post">
+                                            <!-- /.UserName -->
+                                            <div class="form-group">                                    
+                                                <div class="col-sm-12" >
+                                                    <input type="text" name="maTK" value="${tk.getMaDP()}" disabled class="form-control" id="inputEmail3">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <!-- /.UserName -->
-                                        <div class="form-group">
+                                            <!-- /.UserName -->
+                                            <div class="form-group">
 
-                                            <div class="col-sm-12" >
-                                                <input type="text" name="tenTK" value="${tk.getTenDP()}" ${tk.getMaDP() > 0 ? 'disabled' : ''} class="form-control" id="inputEmail3" placeholder="Tên tài khoản">
+                                                <div class="col-sm-12" >
+                                                    <input type="text" name="tenTK" value="${tk.getTenDP()}" ${tk.getMaDP() > 0 ? 'disabled' : ''} class="form-control" id="inputEmail3" placeholder="Tên tài khoản">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <!-- /.Password -->
-                                        <div class="form-group">
+                                            <!-- /.Password -->
+                                            <div class="form-group">
 
-                                            <div class="col-sm-12" >
-                                                <input type="password" name="matkhau" value="${tk.getMatkhau()}" class="form-control" id="inputEmail3" placeholder="Mật khẩu">
+                                                <div class="col-sm-12" >
+                                                    <input type="password" name="matkhau" value="${tk.getMatkhau()}" class="form-control" id="inputEmail3" placeholder="Mật khẩu">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <!-- /.FullName -->
-                                        <div class="form-group">
+                                            <!-- /.FullName -->
+                                            <div class="form-group">
 
-                                            <div class="col-sm-12" >
-                                                <input type="text" name="hoTen" value="${tk.getHoTen()}" class="form-control" id="inputEmail3" placeholder="Họ và tên">
+                                                <div class="col-sm-12" >
+                                                    <input type="text" name="hoTen" value="${tk.getHoTen()}" class="form-control" id="inputEmail3" placeholder="Họ và tên">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <!-- /.Email -->
-                                        <div class="form-group">
+                                            <!-- /.Email -->
+                                            <div class="form-group">
 
-                                            <div class="col-sm-12" >
-                                                <input type="email" name="email" value="${tk.getEmail()}" class="form-control" id="inputEmail3" placeholder="Email">
+                                                <div class="col-sm-12" >
+                                                    <input type="email" name="email" value="${tk.getEmail()}" class="form-control" id="inputEmail3" placeholder="Email">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <!-- /.Phone -->
-                                        <div class="form-group">
+                                            <!-- /.Phone -->
+                                            <div class="form-group">
 
-                                            <div class="col-sm-12" >
-                                                <input type="text" name="SDT" value="${tk.getSDT()}" class="form-control" id="inputEmail3" placeholder="Số điện thoại">
+                                                <div class="col-sm-12" >
+                                                    <input type="text" name="SDT" value="${tk.getSDT()}" class="form-control" id="inputEmail3" placeholder="Số điện thoại">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-12" >
-                                                <input type="submit" ${tk.getMaDP() > 0 ? 'value="Sửa"' : 'value="Thêm mới"'} name="submit" class="btn btn-success"/>
-                                                &nbsp;
-                                                <button type="reset" class="btn btn-warning">Clear</button>
+                                            <div class="form-group">
+                                                <div class="col-sm-12" >
+                                                    <input type="submit" ${tk.getMaDP() > 0 ? 'value="Sửa"' : 'value="Thêm mới"'} name="submit" class="btn btn-success"/>
+                                                    &nbsp;
+                                                    <button type="reset" class="btn btn-warning">Clear</button>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
+
                 </div>
-                <a class="btn btn-primary btn-sm" data-toggle="diaPhuong" data-target="#myDiaPhuong" href="/project1/Page?p=them-tt-dp" >
-                    Thêm thông tin địa phương
-                </a>
+                <div class="col-md-1">
+                    <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#1myModal">
+                        Thêm thông tin địa phương
+                    </button>
+                    <div class="modal fade" id="1myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3><span class="glyphicon glyphicon-th"></span>&nbsp;Thêm thông tin địa phương</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form class="form-horizontal" role="form" action="/project1/umanage?id=${tkList.getMaTK()}" method="post">
+                                            <!--Địa phương-->
+                                            <div class="form-group">
+                                                <div class="col-sm-3" >
+                                                    <label class="label label-info" style="padding: 5px;font-size:13px">Địa phương</label>
+                                                </div>
+                                                <div class="col-sm-9" >
+                                                   <select class="form-control" name="diaphuong">
+                                                        <c:forEach items="${dpList}" var="dpList">
+                                                            <option value="${dpList.getTenDP()}">${dpList.getTenDP()}</option>
+                                                        </c:forEach>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!--Người phụ trách-->
+                                            <div class="form-group">
+                                                <div class="col-sm-3" >
+                                                    <label class="label label-info" style="padding: 5px;font-size:13px">Người phụ trách</label>
+                                                </div>
+                                                <div class="col-sm-9" >
+                                                    <select class="form-control" name="diaphuong">
+                                                        <c:forEach items="${dpList}" var="dpList">
+                                                            <option value="${dpList.getTenDP()}">${dpList.getTenDP()}</option>
+                                                        </c:forEach>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!--Tiêu chí-->
+                                            <div class="form-group">
+                                                <div class="col-sm-3" >
+                                                    <label class="label label-info" style="padding: 5px;font-size:13px">Tiêu chí</label>
+                                                </div>
+                                                <div class="col-sm-9" >
+                                                    <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
+                                                </div>
+                                            </div>
+                                            <!--Nội Dung-->
+                                            <div class="form-group">
+                                                <div class="col-sm-3" >
+                                                    <label class="label label-info" style="padding: 5px;font-size:13px">Nội dung</label>
+                                                </div>
+                                                <div class="col-sm-9" >
+                                                    <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-sm-6 col-sm-offset-6" >
+                                                    <input type="submit" value="Thêm mới"name="submit" class="btn btn-success"/>
+                                                    &nbsp;
+                                                    <button type="reset" class="btn btn-warning">Clear</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
                 <div class="row">
-                    <div class="col-lg-5 col-lg-push-6">
+                    <div class="col-lg-5 col-lg-push-5">
                         <div class="input-group">
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -110,7 +184,7 @@
                 </div><!-- /.row -->
             </div>
             <div class="panel-heading">
-                
+
             </div>
             <div class="table-responsive">
                 <form name="formAdmin" action="" method="post">
