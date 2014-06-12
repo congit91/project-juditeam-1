@@ -34,18 +34,18 @@
 
                                             <div class="form-group">
                                                 <div class="col-sm-2" >
-                                                    <label class="label label-primary" style="padding: 5px;font-size:13px">Tên xã</label>
+                                                    <label class="label label-primary" style="padding: 5px;font-size:13px">Mã ĐP</label>
                                                 </div>
                                                 <div class="col-sm-10" >
-                                                    <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
+                                                    <input type="text" name="maDP" value=""  class="form-control" id="inputEmail3">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-sm-2" >
-                                                    <label class="label label-primary" style="padding: 5px;font-size:13px">Tên xã</label>
+                                                    <label class="label label-primary" style="padding: 5px;font-size:13px">Tên ĐP</label>
                                                 </div>
                                                 <div class="col-sm-10" >
-                                                    <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
+                                                    <input type="text" name="tenDP" value=""  class="form-control" id="inputEmail3">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -53,7 +53,7 @@
                                                     <label class="label label-primary" style="padding: 5px;font-size:13px">Số điện thoại</label>
                                                 </div>
                                                 <div class="col-sm-10" >
-                                                    <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
+                                                    <input type="text" name="SDT" value=""  class="form-control" id="inputEmail3">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -61,7 +61,7 @@
                                                     <label class="label label-primary" style="padding: 5px;font-size:13px">Nơi nhận</label>
                                                 </div>
                                                 <div class="col-sm-10" >
-                                                    <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
+                                                    <input type="text" name="noiNhan" value=""  class="form-control" id="inputEmail3">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -69,7 +69,7 @@
                                                     <label class="label label-primary" style="padding: 5px;font-size:13px">Diện tích</label>
                                                 </div>
                                                 <div class="col-sm-10" >
-                                                    <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
+                                                    <input type="text" name="dienTich" value=""  class="form-control" id="inputEmail3">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -77,12 +77,12 @@
                                                     <label class="label label-primary" style="padding: 5px;font-size:13px">Số dân</label>
                                                 </div>
                                                 <div class="col-sm-10" >
-                                                    <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
+                                                    <input type="text" name="soDan" value=""  class="form-control" id="inputEmail3">
                                                 </div>
                                             </div>                                     
                                             <div class="form-group">
                                                 <div class="col-sm-6 col-sm-offset-6" >
-                                                    <input type="submit" value="Thêm mới"name="submit" class="btn btn-primary"/>
+                                                    <input type="submit" value="Thêm mới" name="submit" class="btn btn-primary"/>
                                                     &nbsp;
                                                     <button type="reset" class="btn btn-warning">Clear</button>
                                                 </div>
@@ -161,7 +161,7 @@
 
                                             <div class="form-group">
                                                 <div class="col-sm-6 col-sm-offset-6" >
-                                                    <input type="submit" value="Thêm mới" name="submit" class="btn btn-success"/>
+                                                    <input type="submit" value="Thêm thông tin" name="submit" class="btn btn-success"/>
                                                     &nbsp;
                                                     <button type="reset" class="btn btn-warning">Clear</button>
                                                 </div>
@@ -179,30 +179,26 @@
 
                 <div class="row">
                      <div class="col-lg-5 col-lg-push-4">
-                        <div class="col-md-11">
-                        
-                            <div class="input-group">
-                                <div class="input-group-btn">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                        <span class="glyphicon glyphicon-search"></span>
-                                        <span class="caret"></span></button>
+                        <form action="/project1/dpmanage?do=search" method="post">
+                            <div class="col-md-11">
 
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">UserName</a></li>
-                                        <li><a href="#">Email</a></li>
-                                        <li><a href="#">Phone</a></li>
-                                    </ul>
-                                </div><!-- /btn-group -->
+                                <div class="input-group">
 
-                                <input type="text" class="form-control">
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                            <span class="caret"></span></button>
 
+                                    </div><!-- /btn-group -->
+
+                                    <input type="text" name="tenDP" class="form-control" placeholder="Nhập tên xã muốn tìm...">
+
+                                </div><!-- /input-group -->
                             </div><!-- /input-group -->
-                        </div><!-- /input-group -->
-                        <div class="col-md-1">
-                            <button type="button" class="btn btn-default dropdown-toggle" style="background:#3e8f3e;color:#ffffff">
-                                Search
-                            </button>
-                        </div>
+                            <div class="col-md-1">
+                                <input type="submit" name="submit" value="Tìm kiếm" class="btn btn-default dropdown-toggle" style="background:#3e8f3e;color:#ffffff">
+                            </div>
+                        </form>
                     </div><!-- /.col-lg-6 -->
                 </div><!-- /.row -->
             </div>
