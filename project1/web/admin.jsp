@@ -34,6 +34,10 @@
                     <%@include file="admin/nav-admin.jsp" %>
                     <%@include file="admin/adduser.jsp" %>
                 </c:if>
+                <c:if test="${p == 'adddoc'}">
+                    <%@include file="admin/nav-admin.jsp" %>
+                    <%@include file="admin/adddocu.jsp" %>
+                </c:if>
                 <c:if test="${p == 'manage-user'}">
                     <%@include file="admin/nav-admin.jsp" %>
                     <%@include file="admin/manage-users.jsp" %>
