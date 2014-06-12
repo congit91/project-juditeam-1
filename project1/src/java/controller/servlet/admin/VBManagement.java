@@ -6,7 +6,6 @@
 package controller.servlet.admin;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.dao.VanBanDAO;
 import model.dao.service.VanBanDAOService;
-import model.entities.TaiKhoan;
 import model.entities.VanBan;
 
 /**
@@ -62,7 +60,7 @@ public class VBManagement extends HttpServlet {
                     request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
                     break;
                 case "del":
-                    del(request, response);
+                    doDel(request, response);
                     break;
             }
         }
@@ -89,28 +87,9 @@ public class VBManagement extends HttpServlet {
             case "Thêm mới":
                 addNew(request, response);
                 break;
-            case "Xóa":
-                del(request, response);
-                break;
 //            case "Tìm kiếm":
 //                search(request, response);
 //                break;
-        }
-    }
-
-    private void del(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        int maVB = Integer.parseInt(request.getParameter("id"));
-        if (VB_SERVICE.deleteVanBan(maVB)) {
-            List<VanBan> vbList = VB_SERVICE.getVanBanAll();
-            request.setAttribute(util.Constants.VB_LIST, vbList);
-            request.setAttribute(util.Constants.PAGE, "manage-document");
-            request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
-
-        } else {
-            request.setAttribute(util.Constants.PAGE, "manage-vanban");
-            request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
         }
     }
 
@@ -156,6 +135,20 @@ public class VBManagement extends HttpServlet {
             request.setAttribute("msgResult", "Bạn vừa sửa văn bản thành công!");
         } else {
             request.setAttribute("msgResult", "Sửa văn bản thất bại!");
+        }
+        List<VanBan> vbList = VB_SERVICE.getVanBanAll();
+        request.setAttribute("vbList", vbList);
+        request.setAttribute(util.Constants.PAGE, "manage-document");
+        request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+    }
+
+    private void doDel(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int maVB = Integer.parseInt(request.getParameter("id"));
+        if (VB_SERVICE.deleteVanBan(maVB)) {
+            request.setAttribute("msgResult", "Bạn đã xóa văn bản thành công");
+        } else {
+            request.setAttribute("msgResult", "Bạn đã xóa văn bản thất bại thất bại");
         }
         List<VanBan> vbList = VB_SERVICE.getVanBanAll();
         request.setAttribute("vbList", vbList);
