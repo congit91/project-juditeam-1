@@ -23,6 +23,9 @@
         
         <div class="container">
             <div class="row">
+                <c:if test="${msgResult != null}">
+                    <p>${msgResult}</p>
+                </c:if>
                 <c:if test="${p == 'manage'}">
                     <%@include file="admin/nav-admin.jsp" %>    
                     <%@include file="admin/manage.jsp" %>

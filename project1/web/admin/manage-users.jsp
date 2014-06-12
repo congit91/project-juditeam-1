@@ -17,75 +17,9 @@
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading">
-                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#1myModal">
+                <a href="/project1/umanage?do=add" class="btn btn-primary btn-sm" >
                     Tạo mới tài khoản
-                </button>
-                <div class="modal fade" id="1myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3><span class="glyphic on glyphicon-user"></span>Tạo mới tài khoản</h3>
-                                </div>
-                                <div class="panel-body">
-                                    <form class="form-horizontal" role="form" action="/project1/umanage" method="post">
-                                        <!-- /.UserName -->
-                                        <div class="form-group">                                    
-                                            <div class="col-sm-12" >
-                                                <input type="text" name="maTK" disabled class="form-control" id="inputEmail3">
-                                            </div>
-                                        </div>
-                                        <!-- /.UserName -->
-                                        <div class="form-group">
-
-                                            <div class="col-sm-12" >
-                                                <input type="text" name="tenTK" class="form-control" id="inputEmail3" placeholder="Tên tài khoản">
-                                            </div>
-                                        </div>
-                                        <!-- /.Password -->
-                                        <div class="form-group">
-
-                                            <div class="col-sm-12" >
-                                                <input type="password" name="matkhau" class="form-control" id="inputEmail3" placeholder="Mật khẩu">
-                                            </div>
-                                        </div>
-                                        <!-- /.FullName -->
-                                        <div class="form-group">
-
-                                            <div class="col-sm-12" >
-                                                <input type="text" name="hoTen" class="form-control" id="inputEmail3" placeholder="Họ và tên">
-                                            </div>
-                                        </div>
-                                        <!-- /.Email -->
-                                        <div class="form-group">
-
-                                            <div class="col-sm-12" >
-                                                <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                            </div>
-                                        </div>
-                                        <!-- /.Phone -->
-                                        <div class="form-group">
-
-                                            <div class="col-sm-12" >
-                                                <input type="text" name="SDT" class="form-control" id="inputEmail3" placeholder="Số điện thoại">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-12" >
-                                                <input type="submit" value="Thêm mới" name="submit" class="btn btn-success"/>
-                                                &nbsp;
-                                                <button type="reset" class="btn btn-warning">Clear</button>
-                                            </div>
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
+                </a>               
                 <div class="row">
                     <div class="col-lg-5 col-lg-push-6">
                         <form action="/project1/umanage?do=search" method="post">
@@ -132,74 +66,9 @@
 
                         <!--Edit-->
                         <div class="col-md-6">
-                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+                            <a href="/project1/umanage?do=edit&id=${tkList.getMaTK()}" class="btn btn-primary btn-sm" >
                                 <span class="glyphicon glyphicon-wrench"></span>
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="col-lg-12">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                <h3><span class="glyphic on glyphicon-user"></span>Thay đổi thông tin tài khoản</h3>
-                                            </div>
-                                            <div class="panel-body">
-                                                <form class="form-horizontal" role="form" action="/project1/umanage?id=${tkList.getMaTK()}" method="post">
-                                                    <!-- /.UserName -->
-                                                    <div class="form-group">                                    
-                                                        <div class="col-sm-12" >
-                                                            <input type="text" name="maTK" value="${tkList.getMaTK()}" disabled class="form-control" id="inputEmail3">
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.UserName -->
-                                                    <div class="form-group">
-
-                                                        <div class="col-sm-12" >
-                                                            <input type="text" name="tenTK" value="${tkList.getTenTK()}" ${tkList.getMaTK() > 0 ? 'disabled' : ''} class="form-control" id="inputEmail3" placeholder="Tên tài khoản">
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.Password -->
-                                                    <div class="form-group">
-
-                                                        <div class="col-sm-12" >
-                                                            <input type="password" name="matkhau" value="${tkList.getMatkhau()}" class="form-control" id="inputEmail3" placeholder="Mật khẩu">
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.FullName -->
-                                                    <div class="form-group">
-
-                                                        <div class="col-sm-12" >
-                                                            <input type="text" name="hoTen" value="${tkList.getHoTen()}" class="form-control" id="inputEmail3" placeholder="Họ và tên">
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.Email -->
-                                                    <div class="form-group">
-
-                                                        <div class="col-sm-12" >
-                                                            <input type="email" name="email" value="${tkList.getEmail()}" class="form-control" id="inputEmail3" placeholder="Email">
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.Phone -->
-                                                    <div class="form-group">
-
-                                                        <div class="col-sm-12" >
-                                                            <input type="text" name="SDT" value="${tkList.getSDT()}" class="form-control" id="inputEmail3" placeholder="Số điện thoại">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-12" >
-                                                            <input type="submit" ${tkList.getMaTK() > 0 ? 'value="Sửa"' : 'value="Thêm mới"'} name="submit" class="btn btn-success"/>
-                                                            &nbsp;
-                                                            <button type="reset" class="btn btn-warning">Clear</button>
-                                                        </div>
-                                                    </div>
-
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                         <!--Delete-->
                         <div class="col-md-6">
