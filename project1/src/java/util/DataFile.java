@@ -27,8 +27,7 @@ public class DataFile {
     public static void loadFile(){
         FileInputStream fstream = null;
         try {
-            fstream = new FileInputStream(Constants.STORAGE_PATH
-                    + Constants.DATA_FILE);
+            fstream = new FileInputStream("config/config.txt");
             // Get the object of DataInputStream
             DataInputStream in = new DataInputStream(fstream);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -65,6 +64,5 @@ public class DataFile {
             } catch (Exception ex) {
             }
         }
-        System.out.println(fstream);
     }
 }

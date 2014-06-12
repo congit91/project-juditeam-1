@@ -228,4 +228,22 @@ public class DiaPhuongDAO implements DiaPhuongDAOService {
         return isCheck;
     }
 
+    @Override
+    public boolean checkNewDP(String tenDP) {
+        boolean isCheck = false;
+        try {
+            Connection conn = ConnectionFactory.getConnection();
+            String sql = "select * from tbl_diaphuong where tenDP = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, tenDP);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs != null) {
+                isCheck = rs.next();
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            ex.printStackTrace();
+        }
+        return isCheck;
+    }
+
 }
