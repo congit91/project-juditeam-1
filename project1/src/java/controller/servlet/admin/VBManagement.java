@@ -47,13 +47,11 @@ public class VBManagement extends HttpServlet {
                     request.removeAttribute(util.Constants.MSG_RESULT);
                     request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
                     break;
-            }
-        }
-        String action = request.getParameter("do");
-        if (action != null) {
-            switch (action) {
                 case "add":
-                    
+                    request.setAttribute(util.Constants.PAGE, "adddoc");
+                    request.removeAttribute(util.Constants.MSG_RESULT);
+                    request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+                    break;
             }
         }
     }
@@ -100,7 +98,7 @@ public class VBManagement extends HttpServlet {
         VanBan vb = new VanBan(1, tenVB, loaiVB, noiBanHanh, ngayBanHanh, noiNhan, noiDung, 1);
         if (VB_SERVICE.createVanBan(vb)) {
             request.setAttribute("msgResult", "Bạn vừa tạo mới một văn bản thành công!");
-        }else{
+        } else {
             request.setAttribute("msgResult", "Tạo mới văn bản thất bại!");
         }
         List<VanBan> vbList = VB_SERVICE.getVanBanAll();
@@ -124,7 +122,7 @@ public class VBManagement extends HttpServlet {
         VanBan vb = new VanBan(1, tenVB, loaiVB, noiBanHanh, ngayBanHanh, noiNhan, noiDung, 1);
         if (VB_SERVICE.updateVanBan(vb)) {
             request.setAttribute("msgResult", "Bạn vừa sửa văn bản thành công!");
-        }else{
+        } else {
             request.setAttribute("msgResult", "Sửa văn bản thất bại!");
         }
         List<VanBan> vbList = VB_SERVICE.getVanBanAll();
@@ -132,6 +130,7 @@ public class VBManagement extends HttpServlet {
         request.setAttribute(util.Constants.PAGE, "manage-document");
         request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
     }
+
     /**
      * Returns a short description of the servlet.
      *
