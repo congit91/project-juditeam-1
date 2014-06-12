@@ -64,7 +64,7 @@
                     <div class="col-md-2" style="text-transform: inherit;padding:5px">${vbList.getNoiBanHanh()}</div>
                     <div class="col-md-2" style="text-transform: inherit;padding:5px">${vbList.getNgayBanHanh()}</div>
                     <div class="col-md-3" style="text-transform: inherit;padding:5px">
-                            ${vbList.getNoiDung()} 
+                            <p>${vbList.getNoiDung()}</p>
                     </div>
                     <div class="col-md-1" style="text-transform: inherit;padding:5px">
                         <!--Edit-->
