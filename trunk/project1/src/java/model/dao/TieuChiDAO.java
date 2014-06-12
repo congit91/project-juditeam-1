@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.dao.service.TieuChiDAOService;
-import model.entities.DiaPhuong;
 import model.entities.TieuChi;
 
 /**
@@ -42,7 +41,6 @@ public class TieuChiDAO implements TieuChiDAOService {
                 TieuChi tc = new TieuChi();
                 tc.setMaTC(rs.getInt("maTC"));
                 tc.setTenTC(rs.getString("tenTC"));
-                tc.setDpList(DiaPhuong_TieuChiDAO.getInstance().getDPByTC(rs.getInt("maTC")));
                 tcList.add(tc);
             }
         } catch (ClassNotFoundException | SQLException e) {
@@ -56,14 +54,14 @@ public class TieuChiDAO implements TieuChiDAOService {
         TieuChi tc = new TieuChi();
         try {
             Connection conn = ConnectionFactory.getConnection();
-            String sql = "select * from tbl_tieuchi where tenTC = ?";
+            String sql = "select * from tbl_tieuchi where UPPER(tenTC) = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, tenTC);
+            pstmt.setString(1, tenTC.toUpperCase());
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 tc.setMaTC(rs.getInt("maTC"));
                 tc.setTenTC(rs.getString("tenTC"));
-                tc.setDpList(DiaPhuong_TieuChiDAO.getInstance().getDPByTC(rs.getInt("maTC")));
+                
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -83,7 +81,7 @@ public class TieuChiDAO implements TieuChiDAOService {
             while (rs.next()) {
                 tc.setMaTC(rs.getInt("maTC"));
                 tc.setTenTC(rs.getString("tenTC"));
-                tc.setDpList(DiaPhuong_TieuChiDAO.getInstance().getDPByTC(rs.getInt("maTC")));
+                
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

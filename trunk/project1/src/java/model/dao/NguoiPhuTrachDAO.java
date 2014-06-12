@@ -15,7 +15,6 @@ import java.util.List;
 import model.dao.service.NguoiPhuTrachDAOService;
 import model.entities.DiaPhuong;
 import model.entities.NguoiPhuTrach;
-import model.entities.NguoiPhuTrach;
 
 /**
  *
@@ -66,9 +65,9 @@ public class NguoiPhuTrachDAO implements NguoiPhuTrachDAOService {
         List<NguoiPhuTrach> nptList = new ArrayList<>();
         try {
             Connection conn = ConnectionFactory.getConnection();
-            String sql = "select * from tbl_nguoiphutrach where hoTen = ?";
+            String sql = "select * from tbl_nguoiphutrach where UPPER(hoTen) = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, tenNPT);
+            pstmt.setString(1, tenNPT.toUpperCase());
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 NguoiPhuTrach npt = new NguoiPhuTrach();

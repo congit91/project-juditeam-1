@@ -7,9 +7,17 @@
 package util;
 
 import java.util.List;
+import model.dao.DiaPhuongDAO;
+import model.dao.DiaPhuong_TieuChiDAO;
+import model.dao.NguoiPhuTrachDAO;
 import model.dao.TaiKhoanDAO;
+import model.dao.TieuChiDAO;
 import model.dao.VanBanDAO;
+import model.dao.service.DPTCDAOService;
+import model.entities.DiaPhuong;
+import model.entities.NguoiPhuTrach;
 import model.entities.TaiKhoan;
+import model.entities.TieuChi;
 import model.entities.VanBan;
 
 /**
@@ -18,8 +26,17 @@ import model.entities.VanBan;
  */
 public class Test {
     public static void test(){
-        List<VanBan> vbList = VanBanDAO.getInstance().findVanBanAdvance("H", "H", "", null, "");
-        System.out.println(vbList.size());
+//        TieuChi tc = TieuChiDAO.getInstance().getTCByName("Tiêu cHí giao thông");
+//        System.out.println(tc.getTenTC());
+//        DiaPhuong dp = DiaPhuongDAO.getInstance().getDiaPhuongByTenDP("xã bình triều");
+//        List<NguoiPhuTrach> nptList = dp.getNptList();
+//        System.out.println(nptList.get(0).getDiaPhuong().getTenDP());
+        NguoiPhuTrach npt = NguoiPhuTrachDAO.getInstance().getNPTByID(1);
+        System.out.println(npt.getDiaPhuong().getTenDP());
+//        System.out.println(npt.getChucVu());
+        TieuChi tc = TieuChiDAO.getInstance().getTCByID(11);
+        System.out.println(DiaPhuong_TieuChiDAO.getInstance().getDPByTC(tc.getMaTC()).get(0).getTenDP());
+        
     }
     public static void main(String[] args) {
         test();

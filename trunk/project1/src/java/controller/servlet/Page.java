@@ -21,7 +21,6 @@ import model.dao.service.TaiKhoanDAOService;
 import model.dao.service.TieuChiDAOService;
 import model.entities.DiaPhuong;
 import model.entities.NguoiPhuTrach;
-import model.entities.TaiKhoan;
 import model.entities.TieuChi;
 
 /**
@@ -73,12 +72,6 @@ public class Page extends HttpServlet {
                 request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
                 break;
             case "search-nc-dp":
-                List<DiaPhuong> dpListNC = DP_SERVICE.getDiaPhuongAll();
-                List<TieuChi> tcListNC = TC_SERVICE.getTCList();
-                List<NguoiPhuTrach> nptListNC = NPT_SERVICE.getNPTList();
-                request.setAttribute(util.Constants.DP_LIST, dpListNC);
-                request.setAttribute(util.Constants.TC_LIST, tcListNC);
-                request.setAttribute(util.Constants.NPT_LIST, nptListNC);
                 request.setAttribute(util.Constants.PAGE, "search-nc-dp");
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);

@@ -61,9 +61,9 @@ public class DiaPhuongDAO implements DiaPhuongDAOService {
         DiaPhuong dp = new DiaPhuong();
         try {
             Connection conn = ConnectionFactory.getConnection();
-            String sql = "select * from tbl_diaphuong where tenDP = ?";
+            String sql = "select * from tbl_diaphuong where UPPER(tenDP) = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, tenDP);
+            pstmt.setString(1, tenDP.toUpperCase());
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 dp.setMaDP(rs.getInt("maDP"));
@@ -87,7 +87,7 @@ public class DiaPhuongDAO implements DiaPhuongDAOService {
         DiaPhuong dp = new DiaPhuong();
         try {
             Connection conn = ConnectionFactory.getConnection();
-            String sql = "select * from tbl_diaphuong where tenDP = ?";
+            String sql = "select * from tbl_diaphuong where maDP = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, maDP);
             ResultSet rs = pstmt.executeQuery();
