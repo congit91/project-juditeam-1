@@ -99,12 +99,12 @@ public class SearchServlet extends HttpServlet {
             npt = null;
         }
         if (!tenDP.equals("") && hotenNPT.equals("")) {
+            dp = DP_SERVICE.getDiaPhuongByTenDP(tenDP);
             if (tenTC.equals("")) {
-                dp = DP_SERVICE.getDiaPhuongByTenDP(tenDP);
                 tcList = DPTC_SERVICE.getDPTCByDP(dp.getMaDP());
             } else {
                 tc = TC_SERVICE.getTCByName(tenTC);
-                if (dp != null) {
+                if (tc.getMaTC() > 0) {
                     dptc = DPTC_SERVICE.getDPTCByDPTC(dp.getMaDP(), tc.getMaTC());
                 }
             }

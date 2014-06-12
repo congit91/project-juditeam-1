@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model.dao.service;
 
 import java.util.List;
@@ -14,14 +13,17 @@ import model.entities.DiaPhuong;
  * @author Admin
  */
 public interface DiaPhuongDAOService {
+
     /**
      * get All DiaPhuong from DB
+     *
      * @return DiaPhuong List by the dp's status
      */
     public List<DiaPhuong> getDiaPhuongAll();
 
     /**
      * Lay danh sach dia phuong theo ho ten
+     *
      * @param tenDP la ho ten cua dia phuong
      * @return danh sach dia phuong
      */
@@ -29,14 +31,17 @@ public interface DiaPhuongDAOService {
 
     /**
      * Get dia phuong theo ma DP
+     *
      * @param maDP Ma dia phuong
      * @return DiaPhuong by maDP
      */
     public DiaPhuong getDiaPhuongByID(int maDP);
-    
+
+    public boolean checkNewDP(String tenDP);
 
     /**
      * Create new DiaPhuong
+     *
      * @param dp is a Object DiaPhuong
      * @return true if create DiaPhuong successful. false if failed!
      */
@@ -44,6 +49,7 @@ public interface DiaPhuongDAOService {
 
     /**
      * Update dp's profile by DiaPhuong
+     *
      * @param dp is a Object DiaPhuong
      * @return true if update Profile of DiaPhuong successful. false if failed!
      */
@@ -72,5 +78,6 @@ public interface DiaPhuongDAOService {
      * @return true if delete The dp's status successful. false if failed!
      */
     public boolean deleteDiaPhuong(int maDP);
+
     public List<DiaPhuong> fintDiaPhuongByTen(String tenDP);
 }

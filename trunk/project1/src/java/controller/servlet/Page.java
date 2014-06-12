@@ -20,8 +20,6 @@ import model.dao.service.NguoiPhuTrachDAOService;
 import model.dao.service.TaiKhoanDAOService;
 import model.dao.service.TieuChiDAOService;
 import model.entities.DiaPhuong;
-import model.entities.NguoiPhuTrach;
-import model.entities.TieuChi;
 
 /**
  *
@@ -63,11 +61,6 @@ public class Page extends HttpServlet {
                 request.setAttribute(util.Constants.PAGE, "search-nc-vb");
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
-                break;
-            case "manage-document":
-                request.setAttribute(util.Constants.PAGE, "manage-document");
-                request.removeAttribute(util.Constants.MSG_RESULT);
-                request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
                 break;
             case "search-cb-dp":
                 List<DiaPhuong> dpList = DP_SERVICE.getDiaPhuongAll();
