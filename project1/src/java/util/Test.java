@@ -28,15 +28,14 @@ public class Test {
     public static void test(){
 //        TieuChi tc = TieuChiDAO.getInstance().getTCByName("Tiêu cHí giao thông");
 //        System.out.println(tc.getTenTC());
-//        DiaPhuong dp = DiaPhuongDAO.getInstance().getDiaPhuongByTenDP("xã bình triều");
-//        List<NguoiPhuTrach> nptList = dp.getNptList();
+        DiaPhuong dp = DiaPhuongDAO.getInstance().getDiaPhuongByTenDP("xã bình triều");
+        List<TieuChi> nptList = dp.getTcList();
+        System.out.println(nptList.size());
 //        System.out.println(nptList.get(0).getDiaPhuong().getTenDP());
-        NguoiPhuTrach npt = NguoiPhuTrachDAO.getInstance().getNPTByID(1);
-        System.out.println(npt.getDiaPhuong().getTenDP());
+//        NguoiPhuTrach npt = NguoiPhuTrachDAO.getInstance().getNPTByID(1);
+//        System.out.println(npt.getDiaPhuong().getTenDP());
 //        System.out.println(npt.getChucVu());
-        TieuChi tc = TieuChiDAO.getInstance().getTCByID(11);
-        System.out.println(DiaPhuong_TieuChiDAO.getInstance().getDPByTC(tc.getMaTC()).get(0).getTenDP());
-        
+
     }
     public static void main(String[] args) {
         test();

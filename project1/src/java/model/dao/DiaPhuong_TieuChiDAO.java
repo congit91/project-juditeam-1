@@ -234,4 +234,9 @@ public class DiaPhuong_TieuChiDAO implements DPTCDAOService {
         return isCheck;
     }
 
+    @Override
+    public List<DiaPhuong_TieuChi> getDPTCByTC(int maTC) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

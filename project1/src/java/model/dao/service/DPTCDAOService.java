@@ -22,7 +22,7 @@ public interface DPTCDAOService {
     public List<DiaPhuong> getDPByTC(int matc);
     public List<TieuChi> getTCByDP(int madp);
     public List<DiaPhuong_TieuChi> getDPTCByDP(int maDP);
-    
+    public List<DiaPhuong_TieuChi> getDPTCByTC(int maTC);
     public boolean checkCreate(int maDP, int maTC);
     public boolean create(DiaPhuong_TieuChi dptc);
     public boolean update(DiaPhuong_TieuChi dptc);
