@@ -34,6 +34,7 @@ public class Constants {
     
     public static final String TK_LIST = "tkList";
     public static final String DP_LIST = "dpList";
+    public static final String VB_LIST = "vbList";
     public static final String TC_LIST = "tcList";
     public static final String NPT_LIST = "nptList";
     
