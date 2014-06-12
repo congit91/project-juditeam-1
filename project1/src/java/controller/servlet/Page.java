@@ -64,6 +64,11 @@ public class Page extends HttpServlet {
                 request.removeAttribute(util.Constants.MSG_RESULT);
                 request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
                 break;
+            case "manage-document":
+                request.setAttribute(util.Constants.PAGE, "manage-document");
+                request.removeAttribute(util.Constants.MSG_RESULT);
+                request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+                break;
             case "search-cb-dp":
                 List<DiaPhuong> dpList = DP_SERVICE.getDiaPhuongAll();
                 request.setAttribute(util.Constants.DP_LIST, dpList);
