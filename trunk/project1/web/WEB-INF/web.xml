@@ -8,7 +8,8 @@
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/umanage</url-pattern>
         <url-pattern>/dpmanage</url-pattern>
-        <url-pattern>/admin/*</url-pattern>        
+        <url-pattern>/vbmanage</url-pattern>
+        <url-pattern>/admin/*</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>Page</servlet-name>
@@ -30,6 +31,10 @@
         <servlet-name>DPManagement</servlet-name>
         <servlet-class>controller.servlet.admin.DPManagement</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VBManagement</servlet-name>
+        <servlet-class>controller.servlet.admin.VBManagement</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Page</servlet-name>
         <url-pattern>/Page</url-pattern>
@@ -49,6 +54,10 @@
     <servlet-mapping>
         <servlet-name>DPManagement</servlet-name>
         <url-pattern>/dpmanage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VBManagement</servlet-name>
+        <url-pattern>/vbmanage</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

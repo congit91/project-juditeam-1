@@ -20,7 +20,7 @@
         </style>
     </head>
     <body>
-        
+
         <div class="container">
             <div class="row">
                 <c:if test="${msgResult != null}">
@@ -41,6 +41,10 @@
                 <c:if test="${p == 'manage-diaphuong'}">
                     <%@include file="admin/nav-admin.jsp" %>
                     <%@include file="admin/manage-diaphuong.jsp" %>
+                </c:if>
+                <c:if test="${p == 'manage-document'}">
+                    <%@include file="admin/nav-admin.jsp" %>
+                    <%@include file="admin/manage-document.jsp" %>
                 </c:if>
                 <c:if test="${p == 'login' || p == null}">
                     <%@include file="admin/login.jsp" %>
