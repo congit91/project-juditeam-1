@@ -3,7 +3,7 @@
     Created on : Jun 9, 2014, 10:20:07 AM
     Author     : Welcomes
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -129,9 +129,9 @@
                                                 </div>
                                                 <div class="col-sm-9" >
                                                     <select class="form-control" name="nguoiPhuTrach">
-                                                        <c:forEach items="${nptList}" var="nptList">
-                                                            <c:if test="${nptList.getDiaPhuong().getMaDP() > 0}">
-                                                                <option value="${nptList.getMaNPT()}-${nptList.getHoTen()}">${nptList.getMaNPT()}-${nptList.getHoTen()}</option>
+                                                        <c:forEach items="${nptList}" var="npt">
+                                                            <c:if test="${npt.getDiaPhuong().getMaDP() < 1}">
+                                                                <option value="${npt.getMaNPT()}-${npt.getHoTen()}">${npt.getMaNPT()}-${npt.getHoTen()}</option>
                                                             </c:if>
                                                         </c:forEach>
                                                     </select>
