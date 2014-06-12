@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row">
                 <c:if test="${msgResult != null}">
-                    <p>${msgResult}</p>
+                    <p style="color: red; font-weight: bold">${msgResult}</p>
                 </c:if>
                 <c:if test="${p == 'manage'}">
                     <%@include file="admin/nav-admin.jsp" %>    

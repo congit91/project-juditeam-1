@@ -18,7 +18,7 @@
             <!-- Default panel contents -->
             <div class="panel-heading">
                 <a href="/project1/vbmanage?p=add" class="btn btn-primary btn-sm" >
-                    Tạo mới tài khoản
+                    Tạo mới văn bản.
                 </a>               
                 <div class="row">
                     <div class="col-lg-5 col-lg-push-6">
