@@ -52,6 +52,14 @@ public class VBManagement extends HttpServlet {
                     request.removeAttribute(util.Constants.MSG_RESULT);
                     request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
                     break;
+                case "edit":
+                    int maVB = Integer.parseInt(request.getParameter("id"));
+                    VanBan vb = VB_SERVICE.getVanBanByID(maVB);
+                    request.setAttribute(util.Constants.PAGE, "adddoc");
+                    request.setAttribute("vb", vb);
+                    request.removeAttribute(util.Constants.MSG_RESULT);
+                    request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+                    break;
             }
         }
     }
@@ -72,8 +80,8 @@ public class VBManagement extends HttpServlet {
         String submit = request.getParameter("submit");
         switch (submit) {
             case "Sửa":
-//                editUser(request, response);
-//                break;
+                updateVB(request, response);
+                break;
             case "Thêm mới":
                 addNew(request, response);
                 break;
@@ -111,15 +119,16 @@ public class VBManagement extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        int maVB = Integer.parseInt(request.getParameter("id"));
         String tenVB = request.getParameter("tenVB");
         String loaiVB = request.getParameter("loaiVB");
         String noiBanHanh = request.getParameter("noiBanHanh");
         String ngay = request.getParameter("ngayBanHanh");
         String noiNhan = request.getParameter("noiNhan");
         String noiDung = request.getParameter("noiDung");
-        String[] date = ngay.split("/");
+        String[] date = ngay.split("-");
         java.sql.Date ngayBanHanh = util.Support.convertToDate(date[0], date[1], date[2]);
-        VanBan vb = new VanBan(1, tenVB, loaiVB, noiBanHanh, ngayBanHanh, noiNhan, noiDung, 1);
+        VanBan vb = new VanBan(maVB, tenVB, loaiVB, noiBanHanh, ngayBanHanh, noiNhan, noiDung, 1);
         if (VB_SERVICE.updateVanBan(vb)) {
             request.setAttribute("msgResult", "Bạn vừa sửa văn bản thành công!");
         } else {
