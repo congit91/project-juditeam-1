@@ -35,11 +35,7 @@
                                     </label> 
                                 </div>
                                 <div class="col-sm-9" >
-                                    <select class="form-control" name="diaPhuong" onchange="">
-                                        <c:forEach items="${dpList}" var="dpList">
-                                            <option value="${dpList.getTenDP()}">${dpList.getTenDP()}</option>
-                                        </c:forEach>
-                                    </select>
+                                    <input type="text" class="form-control" name="diaPhuong"/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -49,11 +45,7 @@
                                     </label> 
                                 </div>
                                 <div class="col-sm-9" >
-                                    <select class="form-control" name="nguoiPhuTrach">
-                                        <c:forEach items="${nptList}" var="nptList">
-                                            <option value="${nptList.getMaNPT()}-${nptList.getHoTen()}">${nptList.getMaNPT()}-${nptList.getHoTen()}</option>
-                                        </c:forEach>
-                                    </select>
+                                    <input type="text" class="form-control" name="nguoiPhuTrach"/>
                                 </div>
                             </div>  
                             <div class="form-group">
@@ -63,11 +55,7 @@
                                     </label> 
                                 </div>
                                 <div class="col-sm-9" >
-                                    <select class="form-control" name="tieuChi">
-                                        <c:forEach items="${tcList}" var="tcList">
-                                            <option value="${tcList.getTenTC()}">${tcList.getTenTC()}</option>
-                                        </c:forEach>
-                                    </select>
+                                    <input type="text" class="form-control" name="tieuChi"/>
                                 </div>
                             </div>  
 
@@ -84,31 +72,46 @@
                 </div>
                 <div class="panel-body">
                     <!--                    Kết Quả In ra ở đây-->
-                    
-                    <c:if test="${npt.getMaNPT() < 1 && dptc.getMaDPTC() < 1}">
+
+                    <c:if test="${dptc == null && dp == null && nptList==null}">
                         <p>No results</p>
                     </c:if>
-                        
-                    <c:if test="${npt.getMaNPT() > 0 || tc.getMaTC() > 0}">
+
+                    <c:if test="${!(dptc == null && dp == null && nptList==null)}">
                         <div class="panel panel-info" style="background-color: #269abc;padding: 5px;color:white">
                             Kết quả tìm kiếm
                         </div>
                     </c:if>
-                    <c:if test="${npt.getMaNPT() > 0}">
-                        <div class="col-md-3 panel panel-primary">Mã người phụ trách</div>
-                        <div class="col-md-9 panel panel-primary">${npt.getMaNPT()}</div>
-                        <div class="col-md-3 panel panel-primary">Họ tên</div>
-                        <div class="col-md-9 panel panel-primary">${npt.getHoTen()}</div>
-                        <div class="col-md-3 panel panel-primary">Chức vụ</div>
-                        <div class="col-md-9 panel panel-primary">${npt.getChucVu()}</div>
-                        <div class="col-md-3 panel panel-primary">Học vị</div>
-                        <div class="col-md-9 panel panel-primary">${npt.getHocVi()}</div>
-                       
+                    <c:if test="${dp != null}">
+                        <c:forEach items="${dp.getNptList()}" var="npt">
+                            <div class="col-md-3 panel panel-primary">Mã người phụ trách</div>
+                            <div class="col-md-9 panel panel-primary">${npt.getMaNPT()}</div>
+                            <div class="col-md-3 panel panel-primary">Họ tên</div>
+                            <div class="col-md-9 panel panel-primary">${npt.getHoTen()}</div>
+                            <div class="col-md-3 panel panel-primary">Chức vụ</div>
+                            <div class="col-md-9 panel panel-primary">${npt.getChucVu()}</div>
+                            <div class="col-md-3 panel panel-primary">Học vị</div>
+                            <div class="col-md-9 panel panel-primary">${npt.getHocVi()}</div>
+                        </c:forEach>
                     </c:if>
-                    <c:if test="${dptc.getMaDPTC() > 0}">
-                       <div class="col-md-3 panel panel-primary"> ${dptc.getTieuChi().getTenTC()}</div>
-                       <div class="col-md-12 panel panel-primary"><p>${dptc.getNoiDung()}</p></div>
+                    <c:if test="${nptList != null}">
+                        <c:forEach items="${nptList}" var="npt">
+                            <div class="col-md-3 panel panel-primary">Mã người phụ trách</div>
+                            <div class="col-md-9 panel panel-primary">${npt.getMaNPT()}</div>
+                            <div class="col-md-3 panel panel-primary">Họ tên</div>
+                            <div class="col-md-9 panel panel-primary">${npt.getHoTen()}</div>
+                            <div class="col-md-3 panel panel-primary">Chức vụ</div>
+                            <div class="col-md-9 panel panel-primary">${npt.getChucVu()}</div>
+                            <div class="col-md-3 panel panel-primary">Học vị</div>
+                            <div class="col-md-9 panel panel-primary">${npt.getHocVi()}</div>
+                            <div class="col-md-3 panel panel-primary">Phụ trách xã</div>
+                            <div class="col-md-9 panel panel-primary">${npt.getDiaPhuong().getTenDP()}</div>
+                        </c:forEach>
                     </c:if>
+                    <c:if test="${dptc != null}">
+                        <div class="col-md-3 panel panel-primary"> ${dptc.getTieuChi().getTenTC()}</div>
+                        <div class="col-md-12 panel panel-primary"><p>${dptc.getNoiDung()}</p></div>
+                            </c:if>
                 </div>
 
             </div>
