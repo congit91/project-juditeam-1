@@ -6,6 +6,7 @@
 package controller.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -81,21 +82,31 @@ public class SearchServlet extends HttpServlet {
         String tenDP = request.getParameter("diaPhuong");
         String hotenNPT = request.getParameter("nguoiPhuTrach");
         String tenTC = request.getParameter("tieuChi");
-        String[] arrNpt = hotenNPT.split("-");
-        int maNPT = Integer.parseInt(arrNpt[0]);
-
-        DiaPhuong dp = DP_SERVICE.getDiaPhuongByTenDP(tenDP);
-        TieuChi tc = TC_SERVICE.getTCByName(tenTC);
-        DiaPhuong_TieuChi dptc = DPTC_SERVICE.getDPTCByDPTC(dp.getMaDP(), tc.getMaTC());
-        NguoiPhuTrach npt = NPT_SERVICE.findNPTByDP(maNPT, dp.getMaDP());
+        DiaPhuong dp = null;
+        TieuChi tc;
+        NguoiPhuTrach npt;
+        List<NguoiPhuTrach> nptList = null;
+        List<DiaPhuong> dpList = new ArrayList<>();
+        if (!hotenNPT.equals("")) {            
+            if (!tenDP.equals("")) {
+                dp = DP_SERVICE.getDiaPhuongByTenDP(tenDP);
+            } else {
+                nptList = NPT_SERVICE.getNPTListByName(hotenNPT);
+            }
+        } else {
+            npt = null;
+        }
+        if (!tenDP.equals("") && hotenNPT.equals("")) {
+            dp = DP_SERVICE.getDiaPhuongByTenDP(tenDP);
+        }
+        tc = TC_SERVICE.getTCByName(tenTC);
+        DiaPhuong_TieuChi dptc = null;
+        if (dp != null) {
+            dptc = DPTC_SERVICE.getDPTCByDPTC(dp.getMaDP(), tc.getMaTC());
+        }
         request.setAttribute("dptc", dptc);
-        request.setAttribute("npt", npt);
-        List<DiaPhuong> dpListNC = DP_SERVICE.getDiaPhuongAll();
-        List<TieuChi> tcListNC = TC_SERVICE.getTCList();
-        List<NguoiPhuTrach> nptListNC = NPT_SERVICE.getNPTList();
-        request.setAttribute(util.Constants.DP_LIST, dpListNC);
-        request.setAttribute(util.Constants.TC_LIST, tcListNC);
-        request.setAttribute(util.Constants.NPT_LIST, nptListNC);
+        request.setAttribute("dp", dp);
+        request.setAttribute("nptList", nptList);
         request.setAttribute(util.Constants.PAGE, "search-nc-dp");
         request.removeAttribute(util.Constants.MSG_RESULT);
         request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
