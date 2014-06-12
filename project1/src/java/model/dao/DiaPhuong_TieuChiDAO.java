@@ -236,7 +236,23 @@ public class DiaPhuong_TieuChiDAO implements DPTCDAOService {
 
     @Override
     public List<DiaPhuong_TieuChi> getDPTCByTC(int maTC) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<DiaPhuong_TieuChi> dpList = new ArrayList<>();
+        try {
+            Connection conn = ConnectionFactory.getConnection();
+            String sql = "select * from tbl_dptc where maTC = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, maTC);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                DiaPhuong_TieuChi dptc = new DiaPhuong_TieuChi();
+                dptc.setDiaPhuong(DiaPhuongDAO.getInstance().getDiaPhuongByID(rs.getInt("maDP")));
+                dptc.setNoiDung(rs.getString("noiDung"));
+                dpList.add(dptc);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return dpList;
     }
 
 }
