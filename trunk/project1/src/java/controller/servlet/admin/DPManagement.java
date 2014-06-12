@@ -22,6 +22,7 @@ import model.dao.service.TieuChiDAOService;
 import model.entities.DiaPhuong;
 import model.entities.DiaPhuong_TieuChi;
 import model.entities.NguoiPhuTrach;
+import model.entities.TaiKhoan;
 import model.entities.TieuChi;
 
 /**
@@ -47,18 +48,20 @@ public class DPManagement extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String p = request.getParameter("p");
-        switch (p) {
-            case "manage-diaphuong":
-                List<DiaPhuong> dpListEditTT = DP_SERVICE.getDiaPhuongAll();
-                request.setAttribute(util.Constants.DP_LIST, dpListEditTT);
-                List<TieuChi> tcListDP = TC_SERVICE.getTCList();
-                List<NguoiPhuTrach> nptListDP = NPT_SERVICE.getNPTList();
-                request.setAttribute(util.Constants.TC_LIST, tcListDP);
-                request.setAttribute(util.Constants.NPT_LIST, nptListDP);
-                request.setAttribute(util.Constants.PAGE, "manage-diaphuong");
-                request.removeAttribute(util.Constants.MSG_RESULT);
-                request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
-                break;
+        if (p != null) {
+            switch (p) {
+                case "manage-diaphuong":
+                    List<DiaPhuong> dpListEditTT = DP_SERVICE.getDiaPhuongAll();
+                    request.setAttribute(util.Constants.DP_LIST, dpListEditTT);
+                    List<TieuChi> tcListDP = TC_SERVICE.getTCList();
+                    List<NguoiPhuTrach> nptListDP = NPT_SERVICE.getNPTList();
+                    request.setAttribute(util.Constants.TC_LIST, tcListDP);
+                    request.setAttribute(util.Constants.NPT_LIST, nptListDP);
+                    request.setAttribute(util.Constants.PAGE, "manage-diaphuong");
+                    request.removeAttribute(util.Constants.MSG_RESULT);
+                    request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+                    break;
+            }
         }
     }
 
@@ -73,7 +76,27 @@ public class DPManagement extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        addInfo(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String submit = request.getParameter("submit");
+        switch (submit) {
+            case "Thêm thông tin":
+                addInfo(request, response);
+                break;
+            case "Tìm kiếm":
+                search(request, response);
+                break;
+        }
+    }
+
+    private void search(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String tenDP = request.getParameter("tenDP");
+        List<DiaPhuong> dpList = DP_SERVICE.fintDiaPhuongByTen(tenDP);
+        request.setAttribute(util.Constants.DP_LIST, dpList);
+        request.setAttribute(util.Constants.PAGE, "manage-diaphuong");
+        request.removeAttribute(util.Constants.MSG_RESULT);
+        request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
     }
 
     private void addInfo(HttpServletRequest request, HttpServletResponse response)
@@ -98,11 +121,18 @@ public class DPManagement extends HttpServlet {
             if (DPTC_SERVICE.checkCreate(dp.getMaDP(), tc.getMaTC())) {
                 DiaPhuong_TieuChi dp_tc = DPTC_SERVICE.getDPTCByDPTC(dp.getMaDP(), tc.getMaTC());
                 DiaPhuong_TieuChi dptc = new DiaPhuong_TieuChi(dp_tc.getMaDPTC(), dp, tc, noiDung);
-                DPTC_SERVICE.update(dptc);
-
+                if (DPTC_SERVICE.update(dptc)) {
+                    request.setAttribute("msgResult", "Tiêu chí này đã có và bạn đã sửa thành công!");
+                } else {
+                    request.setAttribute("msgResult", "Tiêu chí này đã có và bạn đã sửa thất bại!");
+                }
             } else {
                 DiaPhuong_TieuChi dptc = new DiaPhuong_TieuChi(1, dp, tc, noiDung);
-                DPTC_SERVICE.create(dptc);
+                if (DPTC_SERVICE.create(dptc)) {
+                    request.setAttribute("msgResult", "Thêm thông tin thành công!");
+                } else {
+                    request.setAttribute("msgResult", "Có lỗi xảy ra, thêm thông tin thất bại!");
+                }
             }
         }
         List<DiaPhuong> dpListEditTT = DP_SERVICE.getDiaPhuongAll();
