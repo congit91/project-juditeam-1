@@ -144,7 +144,7 @@ public class DPManagement extends HttpServlet {
         TieuChi tc = TieuChiDAO.getInstance().getTCByName(tenTC);
         DiaPhuong dp = DP_SERVICE.getDiaPhuongByTenDP(tenDP);
         if (maNPT > 0) {
-            NPT_SERVICE.updateNPT_DP(maNPT, dp.getMaDP());
+            //NPT_SERVICE.updateNPT_DP(maNPT, dp.getMaDP());
         }
         if (!tenTC.isEmpty() && !noiDung.isEmpty()) {
             if (DPTC_SERVICE.checkCreate(dp.getMaDP(), tc.getMaTC())) {
