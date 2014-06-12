@@ -55,6 +55,33 @@ public class DiaPhuongDAO implements DiaPhuongDAOService {
         }
         return dpList;
     }
+    
+    @Override
+    public List<DiaPhuong> fintDiaPhuongByTen(String tenDP) {
+        List<DiaPhuong> dpList = new ArrayList<>();
+        try {
+            Connection conn = ConnectionFactory.getConnection();
+            String sql = "select * from tbl_diaphuong where tenDP like '" + "%" + tenDP + "%" + "'";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                DiaPhuong dp = new DiaPhuong();
+                dp.setMaDP(rs.getInt("maDP"));
+                dp.setTenDP(rs.getString("tenDP"));
+                dp.setSDT(rs.getString("SDT"));
+                dp.setNoiNhan(rs.getString("noiNhan"));
+                dp.setDienTich(rs.getFloat("dienTich"));
+                dp.setSoDan(rs.getFloat("soDan"));
+                dp.setActive(rs.getInt("isActive"));
+                dp.setTcList(DiaPhuong_TieuChiDAO.getInstance().getTCByDP(rs.getInt("maDP")));
+                dp.setNptList(NguoiPhuTrachDAO.getInstance().findNguoiPhuTrachByDP(rs.getInt("maDP")));
+                dpList.add(dp);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return dpList;
+    }
 
     @Override
     public DiaPhuong getDiaPhuongByTenDP(String tenDP) {
