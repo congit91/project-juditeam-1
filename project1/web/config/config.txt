@@ -1,0 +1,6 @@
+Database name:db_websitentm
+user:root
+password:123456
+Email send:king.vandalism@gmail.com
+password email:congtrinh
+Email received:king.vandalism1@gmail.com

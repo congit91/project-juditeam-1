@@ -3,8 +3,12 @@
     Created on : Jun 3, 2014, 7:25:02 AM
     Author     : Welcomes
 --%>
+<%@page import="model.dao.ConnectionFactory"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    util.DataFile.loadFile();
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,8 +16,8 @@
         <title>Home</title>
         <link href="css/bootstrap-theme.css" rel="stylesheet"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <link href="css/bootstrap.css"rel="stylesheet"/>
-        <link href="css/blog.css"rel="stylesheet"/>
+        <link href="css/bootstrap.css" rel="stylesheet"/>
+        <link href="css/blog.css" rel="stylesheet"/>
         <style>
             body{
 
@@ -88,16 +92,16 @@
                 <c:if test="${p == 'search-nc-vb'}">
                     <%@include file="module/search-nc-vb.jsp" %>
                 </c:if>
-                
-                
+
+
                 <c:if test="${p == 'search-cb-dp'}">
                     <%@include file="module/search-cb-dp.jsp" %>
                 </c:if>
                 <c:if test="${p == 'search-nc-dp'}">
                     <%@include file="module/search-nc-dp.jsp" %>
                 </c:if>
-                
-                
+
+
                 <c:if test="${p == 'contact'}">
                     <%@include file="module/contact.jsp" %>
                 </c:if>
