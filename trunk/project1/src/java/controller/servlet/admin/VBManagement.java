@@ -69,7 +69,20 @@ public class VBManagement extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String submit = request.getParameter("submit");
+        switch (submit) {
+            case "Sửa":
+//                editUser(request, response);
+//                break;
+            case "Thêm mới":
+                addNew(request, response);
+                break;
+//            case "Tìm kiếm":
+//                search(request, response);
+//                break;
+        }
     }
 
     private void addNew(HttpServletRequest request, HttpServletResponse response)
