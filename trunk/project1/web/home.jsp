@@ -53,6 +53,10 @@
                             <div class="item">
                                 <img src="images/slideshow/3.png" data-src="holder.js/1170x200/auto/#777:#555/text:First slide" alt="Nông Mới Thôn">
                             </div>
+                             <div class="item">
+                                <img src="images/slideshow/4.png" data-src="holder.js/1170x200/auto/#777:#555/text:First slide" alt="Nông Mới Thôn">
+                            </div>
+
 
 
                         </div>
