@@ -53,26 +53,26 @@
                 <div class="col-md-3" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Nơi ban hành</div>
                 <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Ngày ban hành</div>
                 <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Nơi nhận</div>
+                <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Lựa chọn</div>
             </div>
-            <c:forEach items="${tkList}" var="tkList">
+            <c:forEach items="${vbList}" var="vbList">
                 <div class="panel panel-title">
-                    <div class="col-md-1" style="text-transform: inherit;padding:5px">${tkList.getMaTK()}</div>
-                    <div class="col-md-1" style="text-transform: inherit;padding:5px" >${tkList.getTenTK()}</div>
-                    <div class="col-md-3" style="text-transform: inherit;padding:5px">${tkList.getHoTen()}</div>
-                    <div class="col-md-3" style="text-transform: inherit;padding:5px">${tkList.getEmail()}</div>
-                    <div class="col-md-2" style="text-transform: inherit;padding:5px">${tkList.getSDT()}</div>
+                    <div class="col-md-1" style="text-transform: inherit;padding:5px">${vbList.getMaVB()}</div>
+                    <div class="col-md-1" style="text-transform: inherit;padding:5px" >${vbList.getTenVB()}</div>
+                    <div class="col-md-3" style="text-transform: inherit;padding:5px">${vbList.getLoaiVB()}</div>
+                    <div class="col-md-3" style="text-transform: inherit;padding:5px">${vbList.getNoiBanHanh()}</div>
+                    <div class="col-md-2" style="text-transform: inherit;padding:5px">${vbList.getNgayBanHanh()}</div>
+                    <div class="col-md-2" style="text-transform: inherit;padding:5px">${vbList.getNoiNhan()}</div>
                     <div class="col-md-2" style="text-transform: inherit;padding:5px">
-                        <!-- Công mi sửa chổ này nghe-->
-
                         <!--Edit-->
                         <div class="col-md-6">
-                            <a href="/project1/umanage?do=edit&id=${tkList.getMaTK()}" class="btn btn-primary btn-sm" >
+                            <a href="/project1/vbmanage?do=edit&id=${vbList.getMaVB()}" class="btn btn-primary btn-sm" >
                                 <span class="glyphicon glyphicon-wrench"></span>
                             </a>
                         </div>
                         <!--Delete-->
                         <div class="col-md-6">
-                            <a href="/project1/umanage?do=del&id=${tkList.getMaTK()}" onclick="return confirm('Bạn thực sự muốn xóa: ${tkList.getTenTK()}?')" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-trash"></span></a>
+                            <a href="/project1/vbmanage?do=del&id=${vbList.getMaVB()}" onclick="return confirm('Bạn thực sự muốn xóa: ${vbList.getTenVB()}?')" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-trash"></span></a>
                         </div>
                     </div>
                 </div>                               

@@ -60,7 +60,7 @@
                                 QUẢN LÝ VĂN BẢN
                             </div>
                             <div class="panel-body">
-                                <a href="/project1/?p=manage-document"><img class="img-rounded" src="./images/admin/vanban.png" alt="" width="40%"/></a>
+                                <a href="/project1/vbmanage?p=manage-document"><img class="img-rounded" src="./images/admin/vanban.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
