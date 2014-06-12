@@ -20,15 +20,15 @@ import java.sql.SQLException;
 public class ConnectionFactory {
 
     private static Connection connection;
-    private static final String DB_NAME = "db_websitentm";
-    private static final String USER = "root";
-    private static final String PWD = "123456";
+//    private static final String DB_NAME = "db_websitentm";
+//    private static final String USER = "root";
+//    private static final String PWD = "123456";
     private static final String DRIVER = "com.mysql.jdbc.Driver";
 
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         Class.forName(DRIVER);
         if (connection == null) {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+DB_NAME+"", USER, PWD);
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + util.DataFile.db_name + "", util.DataFile.user, util.DataFile.pass);
         }
         return connection;
     }
