@@ -53,7 +53,7 @@
                     &nbsp;
                     <img width="100%" height="" src="images/left/hethong-tt.jpg" alt=""/>
                     &nbsp;
-                    <img width="100%" height="" src="images/left/tb-moithau" alt=""/>
+                    <img width="100%" height="" src="images/left/tb-moithau.jpg" alt=""/>
                     &nbsp;
                     <img width="100%" height="" src="images/left/tttd.jpg" alt=""/>
                 </div>
