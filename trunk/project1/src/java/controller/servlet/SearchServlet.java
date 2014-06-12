@@ -88,7 +88,6 @@ public class SearchServlet extends HttpServlet {
         DiaPhuong_TieuChi dptc = null;
         List<NguoiPhuTrach> nptList = null;
         List<DiaPhuong_TieuChi> tcList = null;
-        List<DiaPhuong> dpList = new ArrayList<>();
         if (!hotenNPT.equals("")) {
             if (!tenDP.equals("")) {
                 dp = DP_SERVICE.getDiaPhuongByTenDP(tenDP);
@@ -109,11 +108,16 @@ public class SearchServlet extends HttpServlet {
                 }
             }
         }
-
+        List<DiaPhuong_TieuChi> dptcAllList = null;
+        if(tenDP.equals("") && hotenNPT.equals("") && !tenTC.equals("")){
+            TieuChi tc1 = TC_SERVICE.getTCByName(tenTC);
+            dptcAllList = DPTC_SERVICE.getDPTCByTC(tc1.getMaTC());
+        }
         request.setAttribute("dptc", dptc);
         request.setAttribute("dp", dp);
         request.setAttribute("nptList", nptList);
         request.setAttribute("tcList", tcList);
+        request.setAttribute("dptcAllList", dptcAllList);
         request.setAttribute(util.Constants.PAGE, "search-nc-dp");
         request.removeAttribute(util.Constants.MSG_RESULT);
         request.getRequestDispatcher(util.Constants.URL_HOME).forward(request, response);
