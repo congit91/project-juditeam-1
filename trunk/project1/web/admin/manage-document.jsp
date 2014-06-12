@@ -22,7 +22,7 @@
                 </a>               
                 <div class="row">
                     <div class="col-lg-5 col-lg-push-6">
-                        <form action="/project1/umanage?do=search" method="post">
+                        <form action="/project1/vbmanage?do=search" method="post">
                             <div class="col-md-11">
 
                                 <div class="input-group">
@@ -34,7 +34,7 @@
 
                                     </div><!-- /btn-group -->
 
-                                    <input type="text" name="userName" class="form-control" placeholder="Nhập tên tài khoản muốn tìm...">
+                                    <input type="text" name="tenVB" class="form-control" placeholder="Nhập tên văn bản muốn tìm...">
 
                                 </div><!-- /input-group -->
                             </div><!-- /input-group -->
@@ -64,7 +64,7 @@
                     <div class="col-md-2" style="text-transform: inherit;padding:5px">${vbList.getNoiBanHanh()}</div>
                     <div class="col-md-2" style="text-transform: inherit;padding:5px">${vbList.getNgayBanHanh()}</div>
                     <div class="col-md-3" style="text-transform: inherit;padding:5px">
-                            ${vbList.getNoiDung()}                            
+                            ${vbList.getNoiDung()} 
                     </div>
                     <div class="col-md-1" style="text-transform: inherit;padding:5px">
                         <!--Edit-->
