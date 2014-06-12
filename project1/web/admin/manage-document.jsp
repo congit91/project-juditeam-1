@@ -69,13 +69,13 @@
                     <div class="col-md-1" style="text-transform: inherit;padding:5px">
                         <!--Edit-->
                         <div class="col-md-6">
-                            <a href="/project1/vbmanage?do=edit&id=${vbList.getMaVB()}" class="btn btn-primary btn-sm" >
+                            <a href="/project1/vbmanage?p=edit&id=${vbList.getMaVB()}" class="btn btn-primary btn-sm" >
                                 <span class="glyphicon glyphicon-wrench"></span>
                             </a>
                         </div>
                         <!--Delete-->
                         <div class="col-md-6">
-                            <a href="/project1/vbmanage?do=del&id=${vbList.getMaVB()}" onclick="return confirm('Bạn thực sự muốn xóa: ${vbList.getTenVB()}?')" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-trash"></span></a>
+                            <a href="/project1/vbmanage?p=del&id=${vbList.getMaVB()}" onclick="return confirm('Bạn thực sự muốn xóa: ${vbList.getTenVB()}?')" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-trash"></span></a>
                         </div>
                     </div>
                 </div>                               
