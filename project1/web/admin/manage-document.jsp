@@ -17,7 +17,7 @@
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel-heading">
-                <a href="/project1/umanage?do=add" class="btn btn-primary btn-sm" >
+                <a href="/project1/vbmanage?p=add" class="btn btn-primary btn-sm" >
                     Tạo mới tài khoản
                 </a>               
                 <div class="row">
@@ -52,8 +52,9 @@
                 <div class="col-md-1" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Loai VB</div>
                 <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Nơi ban hành</div>
                 <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Ngày ban hành</div>
-                <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Nơi nhận</div>
-                <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Lựa chọn</div>
+                <div class="col-md-3" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Nội dung</div>
+                <div class="col-md-1" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Lựa chọn</div>
+
             </div>
             <c:forEach items="${vbList}" var="vbList">
                 <div class="panel panel-title">
@@ -62,8 +63,10 @@
                     <div class="col-md-1" style="text-transform: inherit;padding:5px">${vbList.getLoaiVB()}</div>
                     <div class="col-md-2" style="text-transform: inherit;padding:5px">${vbList.getNoiBanHanh()}</div>
                     <div class="col-md-2" style="text-transform: inherit;padding:5px">${vbList.getNgayBanHanh()}</div>
-                    <div class="col-md-2" style="text-transform: inherit;padding:5px">${vbList.getNoiNhan()}</div>
-                    <div class="col-md-2" style="text-transform: inherit;padding:5px">
+                    <div class="col-md-3" style="text-transform: inherit;padding:5px">
+                            ${vbList.getNoiDung()}                            
+                    </div>
+                    <div class="col-md-1" style="text-transform: inherit;padding:5px">
                         <!--Edit-->
                         <div class="col-md-6">
                             <a href="/project1/vbmanage?do=edit&id=${vbList.getMaVB()}" class="btn btn-primary btn-sm" >
