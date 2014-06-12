@@ -141,7 +141,6 @@ public class DPManagement extends HttpServlet {
         request.setAttribute(util.Constants.TC_LIST, tcListDP);
         request.setAttribute(util.Constants.NPT_LIST, nptListDP);
         request.setAttribute(util.Constants.PAGE, "manage-diaphuong");
-        request.removeAttribute(util.Constants.MSG_RESULT);
         request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
     }
 
