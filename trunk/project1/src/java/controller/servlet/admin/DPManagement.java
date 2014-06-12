@@ -22,7 +22,6 @@ import model.dao.service.TieuChiDAOService;
 import model.entities.DiaPhuong;
 import model.entities.DiaPhuong_TieuChi;
 import model.entities.NguoiPhuTrach;
-import model.entities.TaiKhoan;
 import model.entities.TieuChi;
 
 /**
