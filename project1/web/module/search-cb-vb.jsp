@@ -113,7 +113,7 @@
                                             </div>
 
                                             <div class="col-md-2 col-md-offset-10">
-                                                <a href="/project1/search?type=vbnc&maVB=${vbList.getMaVB()}" class="panel panel-success" style="background:#28a4c9;padding: 2px">Xem thêm...</a>
+                                                <a href="/project1/search?type=vbcb&maVB=${vbList.getMaVB()}" class="panel panel-success" style="background:#28a4c9;padding: 2px">Xem thêm...</a>
                                             </div>
 
                                         </c:if>
