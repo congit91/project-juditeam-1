@@ -96,6 +96,7 @@
 
                 </div>
                 <div class="col-md-1">
+                    <!--cHO NAY NE CON-->
                     <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#1myModal">
                         Thêm thông tin địa phương
                     </button>
@@ -173,6 +174,7 @@
                             </div>
                         </div>
                     </div>
+                     <!--kET THUC NE CON-->                                   
 
                 </div>
 
