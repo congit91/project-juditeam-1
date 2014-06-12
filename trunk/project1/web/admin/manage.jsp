@@ -34,7 +34,7 @@
                                 QUẢN LÝ USER
                             </div>
                             <div class="panel-body">
-                                <a href="/project1/umanage?p=manage-user"><img class="img-rounded" src="./images/admin/user.png" alt="" width="40%"/></a>
+                                <a href="/project1/umanage?p=manage-user"><img class="img-thumbnail" src="./images/admin/user.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                                 QUẢN LÝ ĐỊA PHƯƠNG
                             </div>
                             <div class="panel-body">
-                                <a href="/project1/dpmanage?p=manage-diaphuong"><img class="img-rounded" src="./images/admin/diaphuong.png" alt="" width="40%"/></a>
+                                <a href="/project1/dpmanage?p=manage-diaphuong"><img class="img-thumbnail" src="./images/admin/diaphuong.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                                 QUẢN LÝ VĂN BẢN
                             </div>
                             <div class="panel-body">
-                                <a href="/project1/vbmanage?p=manage-document"><img class="img-rounded" src="./images/admin/vanban.png" alt="" width="40%"/></a>
+                                <a href="/project1/vbmanage?p=manage-document"><img class="img-thumbnail" src="./images/admin/vanban.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                                 CHỨC NĂNG ĐANG XÂY DỰNG
                             </div>
                             <div class="panel-body">
-                                <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
+                                <a href="#"><img class="img-thumbnail" src="./images/admin/12.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                                 CHỨC NĂNG ĐANG XÂY DỰNG
                             </div>
                             <div class="panel-body">
-                                <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
+                                <a href="#"><img class="img-thumbnail" src="./images/admin/12.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                                 CHỨC NĂNG ĐANG XÂY DỰNG
                             </div>
                             <div class="panel-body">
-                                <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
+                                <a href="#"><img class="img-thumbnail" src="./images/admin/12.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
                                 CHỨC NĂNG ĐANG XÂY DỰNG
                             </div>
                             <div class="panel-body">
-                                <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
+                                <a href="#"><img class="img-thumbnail" src="./images/admin/12.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
                                 CHỨC NĂNG ĐANG XÂY DỰNG
                             </div>
                             <div class="panel-body">
-                                <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
+                                <a href="#"><img class="img-thumbnail" src="./images/admin/12.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                                 CHỨC NĂNG ĐANG XÂY DỰNG
                             </div>
                             <div class="panel-body">
-                                <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
+                                <a href="#"><img class="img-thumbnail" src="./images/admin/12.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
