@@ -126,9 +126,11 @@ public class UserManagement extends HttpServlet {
         if (TK_SERVICE.updateTaiKhoan(tk)) {
             List<TaiKhoan> tkList = TK_SERVICE.getTaiKhoanAll();
             request.setAttribute(util.Constants.TK_LIST, tkList);
+            request.setAttribute("msgResult", "Bạn đã sửa thông tin tài khoản thành công");
             request.setAttribute(util.Constants.PAGE, "manage-user");
             request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
         } else {
+            request.setAttribute("msgResult", "Sửa thông tin tài khoản thất bại");
             request.setAttribute(util.Constants.PAGE, "adduser");
             request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
         }
@@ -149,12 +151,20 @@ public class UserManagement extends HttpServlet {
         String sdt = request.getParameter("SDT");
         int trangThaiHD = 1;
         TaiKhoan tk = new TaiKhoan(1, tenTK, matkhau, hoTen, email, sdt, trangThaiHD);
-        if (TK_SERVICE.createTaiKhoan(tk)) {
-            List<TaiKhoan> tkList = TK_SERVICE.getTaiKhoanAll();
-            request.setAttribute(util.Constants.TK_LIST, tkList);
-            request.setAttribute(util.Constants.PAGE, "manage-user");
-            request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+        if (!TK_SERVICE.checkTaiKhoan(tenTK)) {
+            if (TK_SERVICE.createTaiKhoan(tk)) {
+                List<TaiKhoan> tkList = TK_SERVICE.getTaiKhoanAll();
+                request.setAttribute(util.Constants.TK_LIST, tkList);
+                request.setAttribute(util.Constants.PAGE, "manage-user");
+                request.setAttribute("msgResult", "Bạn đã thêm tài khoản thành công");
+                request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+            } else {
+                request.setAttribute("msgResult", "Có lỗi xảy ra, thêm tài khoản thất bại!");
+                request.setAttribute(util.Constants.PAGE, "adduser");
+                request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+            }
         } else {
+            request.setAttribute("msgResult", "Tên đăng nhập đã tồn tại!");
             request.setAttribute(util.Constants.PAGE, "adduser");
             request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
         }
