@@ -37,7 +37,7 @@
                                                     <label class="label label-primary" style="padding: 5px;font-size:13px">Mã ĐP</label>
                                                 </div>
                                                 <div class="col-sm-10" >
-                                                    <input type="text" name="maDP" value=""  class="form-control" id="inputEmail3">
+                                                    <input type="text" name="maDP" value="" disabled class="form-control" id="inputEmail3">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -231,85 +231,12 @@
                         <div class="col-md-6">
                             <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#2myModal">
                                 <span class="glyphicon glyphicon-wrench"></span>
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="2myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="col-lg-12">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                <h3><span class="glyphic on glyphicon-user"></span>Sửa thông tin địa phương</h3>
-                                            </div>
-                                            <div class="panel-body">
-                                                <form class="form-horizontal" role="form" action="/project1/dpmanage" method="post">
-                                                    <!-- TÊN XÃ -->
-
-                                                    <div class="form-group">
-                                                        <div class="col-sm-2" >
-                                                            <label class="label label-primary" style="padding: 5px;font-size:13px">Mã ĐP</label>
-                                                        </div>
-                                                        <div class="col-sm-10" >
-                                                            <input type="text" name="maDP" value="${dpList.getMaDP()}"  class="form-control" id="inputEmail3">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-2" >
-                                                            <label class="label label-primary" style="padding: 5px;font-size:13px">Tên xã</label>
-                                                        </div>
-                                                        <div class="col-sm-10" >
-                                                            <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-2" >
-                                                            <label class="label label-primary" style="padding: 5px;font-size:13px">Số điện thoại</label>
-                                                        </div>
-                                                        <div class="col-sm-10" >
-                                                            <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-2" >
-                                                            <label class="label label-primary" style="padding: 5px;font-size:13px">Nơi nhận</label>
-                                                        </div>
-                                                        <div class="col-sm-10" >
-                                                            <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-2" >
-                                                            <label class="label label-primary" style="padding: 5px;font-size:13px">Diện tích</label>
-                                                        </div>
-                                                        <div class="col-sm-10" >
-                                                            <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-2" >
-                                                            <label class="label label-primary" style="padding: 5px;font-size:13px">Số dân</label>
-                                                        </div>
-                                                        <div class="col-sm-10" >
-                                                            <input type="text" name="maTK" value=""  class="form-control" id="inputEmail3">
-                                                        </div>
-                                                    </div>                                     
-                                                    <div class="form-group">
-                                                        <div class="col-sm-6 col-sm-offset-6" >
-                                                            <input type="submit" value="Submit"name="submit" class="btn btn-primary"/>
-                                                            &nbsp;
-                                                            <button type="reset" class="btn btn-warning">Clear</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </button> 
                         </div>
 
 
                         <div class="col-md-6">
-                            <a href="/project1/umanage?do=del&id=${tkList.getMaTK()}" onclick="return confirm('Bạn thực sự muốn xóa: ${tkList.getTenTK()}?')" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-trash"></span></a>
+                            <a href="/project1/dpmanage?p=del&id=${dpList.getMaDP()}" onclick="return confirm('Bạn thực sự muốn xóa: ${dpList.getTenDP()}?')" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-trash"></span></a>
                         </div>
                     </div>
 

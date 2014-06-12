@@ -85,7 +85,7 @@
                     <c:if test="${dp != null && dptcList == null}">
                         <div class="col-md-3 panel panel-primary">Tên địa phương: </div>
                         <div class="col-md-12 panel panel-primary"><p>${dp.getTenDP()}</p></div>
-                                <c:forEach items="${dp.getNptList()}" var="npt">
+                        <c:forEach items="${dp.getNptList()}" var="npt">
                             <div class="col-md-3 panel panel-primary">Mã người phụ trách</div>
                             <div class="col-md-9 panel panel-primary">${npt.getMaNPT()}</div>
                             <div class="col-md-3 panel panel-primary">Họ tên</div>
@@ -97,11 +97,11 @@
                         </c:forEach>
                         <c:forEach items="${tcList}" var="tcList">
                             <div class="col-md-3 panel panel-primary"> ${tcList.getTieuChi().getTenTC()}</div>
-                        <div class="col-md-12 panel panel-primary"><p>${tcList.getNoiDung()}</p></div>
-                        </c:forEach>
-                    </c:if>
-                    <c:if test="${nptList != null}">
-                        <c:forEach items="${nptList}" var="npt">
+                            <div class="col-md-12 panel panel-primary"><p>${tcList.getNoiDung()}</p></div>
+                         </c:forEach>
+                     </c:if>
+                            <c:if test="${nptList != null}">
+                                <c:forEach items="${nptList}" var="npt">
                             <div class="col-md-3 panel panel-primary">Mã người phụ trách</div>
                             <div class="col-md-9 panel panel-primary">${npt.getMaNPT()}</div>
                             <div class="col-md-3 panel panel-primary">Họ tên</div>

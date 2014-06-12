@@ -3,12 +3,8 @@
     Created on : Jun 3, 2014, 7:25:02 AM
     Author     : Welcomes
 --%>
-<%@page import="model.dao.ConnectionFactory"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    util.DataFile.loadFile();
-%>
 <!DOCTYPE html>
 <html>
     <head>
