@@ -60,7 +60,7 @@
                                 QUẢN LÝ VĂN BẢN
                             </div>
                             <div class="panel-body">
-                                <a href="#"><img class="img-rounded" src="./images/admin/vanban.png" alt="" width="40%"/></a>
+                                <a href="/project1/?p=manage-document"><img class="img-rounded" src="./images/admin/vanban.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
@@ -70,10 +70,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" style="background:black;color:white">
                                 <span class="glyphicon glyphicon-user"></span>
-                                QUẢN LÝ TIÊU CHÍ
+                                CHỨC NĂNG ĐANG XÂY DỰNG
                             </div>
                             <div class="panel-body">
-                                <a href="#"><img class="img-rounded" src="./images/admin/tieuchi.png" alt="" width="40%"/></a>
+                                <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" style="background:black;color:white">
                                 <span class="glyphicon glyphicon-user"></span>
-                                QUẢN LÝ GI DAY 
+                                CHỨC NĂNG ĐANG XÂY DỰNG
                             </div>
                             <div class="panel-body">
                                 <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
@@ -98,7 +98,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" style="background:black;color:white">
                                 <span class="glyphicon glyphicon-user"></span>
-                                QUẢN LÝ GI DAY 
+                                CHỨC NĂNG ĐANG XÂY DỰNG
                             </div>
                             <div class="panel-body">
                                 <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
@@ -111,7 +111,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" style="background:black;color:white">
                                 <span class="glyphicon glyphicon-user"></span>
-                                QUẢN LÝ GI DAY 
+                                CHỨC NĂNG ĐANG XÂY DỰNG
                             </div>
                             <div class="panel-body">
                                 <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
@@ -124,7 +124,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" style="background:black;color:white">
                                 <span class="glyphicon glyphicon-user"></span>
-                                QUẢN LÝ GI DAY 
+                                CHỨC NĂNG ĐANG XÂY DỰNG
                             </div>
                             <div class="panel-body">
                                 <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
@@ -137,7 +137,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" style="background:black;color:white">
                                 <span class="glyphicon glyphicon-user"></span>
-                                QUẢN LÝ GI DAY 
+                                CHỨC NĂNG ĐANG XÂY DỰNG
                             </div>
                             <div class="panel-body">
                                 <a href="#"><img class="img-rounded" src="./images/admin/12.png" alt="" width="40%"/></a>
