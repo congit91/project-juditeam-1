@@ -23,6 +23,7 @@ import model.entities.VanBan;
 public class VBManagement extends HttpServlet {
 
     private final VanBanDAOService VB_SERVICE = VanBanDAO.getInstance();
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -34,15 +35,26 @@ public class VBManagement extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String p = request.getParameter("p");
-        switch (p) {
-            case "manage-document":
-                List<VanBan> vbList = VB_SERVICE.getVanBanAll();
-                request.setAttribute("vbList", vbList);
-                request.setAttribute(util.Constants.PAGE, "manage-document");
-                request.removeAttribute(util.Constants.MSG_RESULT);
-                request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
-                break;
+        if (p != null) {
+            switch (p) {
+                case "manage-document":
+                    List<VanBan> vbList = VB_SERVICE.getVanBanAll();
+                    request.setAttribute("vbList", vbList);
+                    request.setAttribute(util.Constants.PAGE, "manage-document");
+                    request.removeAttribute(util.Constants.MSG_RESULT);
+                    request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+                    break;
+            }
+        }
+        String action = request.getParameter("do");
+        if (action != null) {
+            switch (action) {
+                case "add":
+                    
+            }
         }
     }
 
@@ -60,6 +72,53 @@ public class VBManagement extends HttpServlet {
 
     }
 
+    private void addNew(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String tenVB = request.getParameter("tenVB");
+        String loaiVB = request.getParameter("loaiVB");
+        String noiBanHanh = request.getParameter("noiBanHanh");
+        String ngay = request.getParameter("ngayBanHanh");
+        String noiNhan = request.getParameter("noiNhan");
+        String noiDung = request.getParameter("noiDung");
+        String[] date = ngay.split("/");
+        java.sql.Date ngayBanHanh = util.Support.convertToDate(date[0], date[1], date[2]);
+        VanBan vb = new VanBan(1, tenVB, loaiVB, noiBanHanh, ngayBanHanh, noiNhan, noiDung, 1);
+        if (VB_SERVICE.createVanBan(vb)) {
+            request.setAttribute("msgResult", "Bạn vừa tạo mới một văn bản thành công!");
+        }else{
+            request.setAttribute("msgResult", "Tạo mới văn bản thất bại!");
+        }
+        List<VanBan> vbList = VB_SERVICE.getVanBanAll();
+        request.setAttribute("vbList", vbList);
+        request.setAttribute(util.Constants.PAGE, "manage-document");
+        request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+    }
+
+    private void updateVB(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String tenVB = request.getParameter("tenVB");
+        String loaiVB = request.getParameter("loaiVB");
+        String noiBanHanh = request.getParameter("noiBanHanh");
+        String ngay = request.getParameter("ngayBanHanh");
+        String noiNhan = request.getParameter("noiNhan");
+        String noiDung = request.getParameter("noiDung");
+        String[] date = ngay.split("/");
+        java.sql.Date ngayBanHanh = util.Support.convertToDate(date[0], date[1], date[2]);
+        VanBan vb = new VanBan(1, tenVB, loaiVB, noiBanHanh, ngayBanHanh, noiNhan, noiDung, 1);
+        if (VB_SERVICE.updateVanBan(vb)) {
+            request.setAttribute("msgResult", "Bạn vừa sửa văn bản thành công!");
+        }else{
+            request.setAttribute("msgResult", "Sửa văn bản thất bại!");
+        }
+        List<VanBan> vbList = VB_SERVICE.getVanBanAll();
+        request.setAttribute("vbList", vbList);
+        request.setAttribute(util.Constants.PAGE, "manage-document");
+        request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+    }
     /**
      * Returns a short description of the servlet.
      *
