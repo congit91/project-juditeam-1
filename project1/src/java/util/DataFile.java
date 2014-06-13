@@ -7,6 +7,7 @@ package util;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,10 +25,11 @@ public class DataFile {
     public static String passEmailSend = "congtrinh";
     public static String emailReceive = "king.vandalism1@gmail.com";
 
-    public static void loadFile(){
+    public static void loadFile() {
         FileInputStream fstream = null;
         try {
-            fstream = new FileInputStream("config/config.txt");
+            fstream = new FileInputStream(util.Constants.STORAGE_PATH + util.Constants.DATA_FILE);
+
             // Get the object of DataInputStream
             DataInputStream in = new DataInputStream(fstream);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
