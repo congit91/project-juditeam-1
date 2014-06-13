@@ -6,6 +6,7 @@
 package controller.servlet;
 
 import java.io.IOException;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,14 +15,29 @@ import javax.servlet.http.HttpSession;
 import model.dao.TaiKhoanDAO;
 import model.dao.service.TaiKhoanDAOService;
 import model.entities.TaiKhoan;
+import util.DataFile;
 
 /**
  *
  * @author Admin
  */
 public class Authentication extends HttpServlet {
-    
+
     TaiKhoanDAOService TK_SERVICE = TaiKhoanDAO.getInstance();
+
+    @Override
+    public void init() throws ServletException {
+        super.init(); //To change body of generated methods, choose Tools | Templates.
+        ServletContext context = getServletContext();
+        boolean isLoaded = false;
+        if (context.getAttribute("loaded") != null) {
+            isLoaded = (boolean) context.getAttribute("loaded");
+        }
+        if (!isLoaded) {
+            DataFile.loadFile();
+            context.setAttribute("loaded", true);
+        }
+    }
 
     /**
      * Handles the HTTP <code>GET</code> method.

@@ -40,7 +40,7 @@ public class Constants {
     
     public static final String TK = "tk";
     
-    public static final String STORAGE_PATH = "config/";
+    public static final String STORAGE_PATH = "project1/config/";
     public static final String SEPERATOR = ":";
     public static final String DATA_FILE = "config.txt";
 }
