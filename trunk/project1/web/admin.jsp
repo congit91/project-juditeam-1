@@ -33,6 +33,12 @@
                 <c:if test="${p == 'adduser'}">
                     <%@include file="admin/nav-admin.jsp" %>
                     <%@include file="admin/adduser.jsp" %>
+
+                </c:if>
+                <c:if test="${p == 'adddp'}">
+                    <%@include file="admin/nav-admin.jsp" %>    
+                    <%@include file="admin/update_diaphuong.jsp" %>
+
                 </c:if>
                 <c:if test="${p == 'adddoc'}">
                     <%@include file="admin/nav-admin.jsp" %>
@@ -45,6 +51,8 @@
                 <c:if test="${p == 'manage-diaphuong'}">
                     <%@include file="admin/nav-admin.jsp" %>
                     <%@include file="admin/manage-diaphuong.jsp" %>
+
+
                 </c:if>
                 <c:if test="${p == 'manage-document'}">
                     <%@include file="admin/nav-admin.jsp" %>
