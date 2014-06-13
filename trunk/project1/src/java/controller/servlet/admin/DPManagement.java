@@ -50,7 +50,7 @@ public class DPManagement extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String p = request.getParameter("p");
-        
+
         if (p != null) {
             switch (p) {
                 case "manage-diaphuong":
@@ -64,7 +64,7 @@ public class DPManagement extends HttpServlet {
                     request.removeAttribute(util.Constants.MSG_RESULT);
                     request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
                     break;
-                     case "edit":
+                case "edit":
                     int maDP = Integer.parseInt(request.getParameter("id"));
                     DiaPhuong dp = DP_SERVICE.getDiaPhuongByID(maDP);
                     request.setAttribute(util.Constants.PAGE, "adddp");
@@ -100,7 +100,7 @@ public class DPManagement extends HttpServlet {
             case "Thêm mới":
                 addNew(request, response);
                 break;
-                 case "Sửa":
+            case "Sửa":
                 editNew(request, response);
                 break;
             case "Tìm kiếm":
@@ -142,10 +142,11 @@ public class DPManagement extends HttpServlet {
         request.setAttribute(util.Constants.PAGE, "manage-diaphuong");
         request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
     }
- private void editNew(HttpServletRequest request, HttpServletResponse response)
+
+    private void editNew(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String maDP = request.getParameter("id");
-     int ma = Integer.valueOf(maDP);
+        int ma = Integer.valueOf(maDP);
         String tenDP = request.getParameter("tenDP");
         String SDT = request.getParameter("SDT");
         String noiNhan = request.getParameter("noiNhan");
@@ -153,13 +154,13 @@ public class DPManagement extends HttpServlet {
         float soDan = Float.parseFloat(request.getParameter("soDan"));
 
         DiaPhuong dp = new DiaPhuong(ma, tenDP, SDT, noiNhan, dienTich, soDan, 1);
-       
-            if (DP_SERVICE.updateDiaPhuong(dp)) {
-                request.setAttribute(util.Constants.MSG_RESULT, "Bạn đã Sửa địa phương thành công!");
-            } else {
-                request.setAttribute(util.Constants.MSG_RESULT, "Có lỗi, Sửa địa phương thất bại!");
-            }
-       
+
+        if (DP_SERVICE.updateDiaPhuong(dp)) {
+            request.setAttribute(util.Constants.MSG_RESULT, "Bạn đã Sửa địa phương thành công!");
+        } else {
+            request.setAttribute(util.Constants.MSG_RESULT, "Có lỗi, Sửa địa phương thất bại!");
+        }
+
         List<DiaPhuong> dpList = DP_SERVICE.getDiaPhuongAll();
         request.setAttribute(util.Constants.DP_LIST, dpList);
         request.setAttribute(util.Constants.PAGE, "manage-diaphuong");
