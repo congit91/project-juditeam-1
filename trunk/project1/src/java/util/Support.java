@@ -37,15 +37,15 @@ public class Support {
                 new javax.mail.Authenticator() {
                     @Override
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(util.Constants.FROM_EMAIL, util.Constants.PASSWORD_EMAIL);
+                        return new PasswordAuthentication(DataFile.emailSend, DataFile.passEmailSend);
                     }
                 });
 
         try {
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(util.Constants.FROM_EMAIL));
+            message.setFrom(new InternetAddress(DataFile.emailSend));
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(util.Constants.TO_EMAIL));
+                    InternetAddress.parse(DataFile.emailReceive));
             String subject = "Phản hồi từ người dùng.";
             message.setSubject(subject);
             String contents = "Họ và tên: " + fullName
@@ -58,7 +58,7 @@ public class Support {
 
         } catch (MessagingException e) {
             throw new RuntimeException(e);
-        }        
+        }
     }
     /**
      * Convert three args day month year to type java.sql.Date
