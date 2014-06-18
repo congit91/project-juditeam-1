@@ -46,43 +46,43 @@
                 </div><!-- /.row -->
             </div>
 
-            <div class="panel panel-default">
-                <div class="col-md-1" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Mã</div>
-                <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Tên VB</div>
-                <div class="col-md-1" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Loai VB</div>
-                <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Nơi ban hành</div>
-                <div class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Ngày ban hành</div>
-                <div class="col-md-3" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Nội dung</div>
-                <div class="col-md-1" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Lựa chọn</div>
-
-            </div>
+            <table>
+                <tr>
+                    <td class="col-md-1" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Mã</td>
+                    <td class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Tên VB</td>
+                <td class="col-md-1" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Loai VB</td>
+                <td class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Nơi ban hành</td>
+                <td class="col-md-2" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Ngày ban hành</td>
+                <td class="col-md-3" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Nội dung</td>
+                <td class="col-md-1" style="background: #428bca;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Lựa chọn</td>
+                </tr>
             <c:forEach items="${vbList}" var="vbList">
-                <div class="panel panel-title">
-                    <div class="col-md-1" style="text-transform: inherit;padding:5px">${vbList.getMaVB()}</div>
-                    <div class="col-md-2" style="text-transform: inherit;padding:5px" >${vbList.getTenVB()}</div>
-                    <div class="col-md-1" style="text-transform: inherit;padding:5px">${vbList.getLoaiVB()}</div>
-                    <div class="col-md-2" style="text-transform: inherit;padding:5px">${vbList.getNoiBanHanh()}</div>
-                    <div class="col-md-2" style="text-transform: inherit;padding:5px">${vbList.getNgayBanHanh()}</div>
-                    <div class="col-md-3" style="text-transform: inherit;padding:5px">
-                            ${vbList.getNoiDung()} 
+                <tr>
+                    <td class="col-md-1" style="text-transform: inherit;padding:5px">${vbList.getMaVB()}</td>
+                <td class="col-md-2" style="text-transform: inherit;padding:5px" >${vbList.getTenVB()}</td>
+                <td class="col-md-1" style="text-transform: inherit;padding:5px">${vbList.getLoaiVB()}</td>
+                <td class="col-md-2" style="text-transform: inherit;padding:5px">${vbList.getNoiBanHanh()}</td>
+                <td class="col-md-2" style="text-transform: inherit;padding:5px">${vbList.getNgayBanHanh()}</td>
+                <td class="col-md-3" style="text-transform: inherit;padding:5px">
+                    ${vbList.getNoiDung()} 
+                </td>
+                <td class="col-md-1" style="text-transform: inherit;padding:5px">
+                    <!--Edit-->
+                    <div class="col-md-6">
+                        <a href="/project1/vbmanage?p=edit&id=${vbList.getMaVB()}" class="btn btn-primary btn-sm" >
+                            <span class="glyphicon glyphicon-wrench"></span>
+                        </a>
                     </div>
-                    <div class="col-md-1" style="text-transform: inherit;padding:5px">
-                        <!--Edit-->
-                        <div class="col-md-6">
-                            <a href="/project1/vbmanage?p=edit&id=${vbList.getMaVB()}" class="btn btn-primary btn-sm" >
-                                <span class="glyphicon glyphicon-wrench"></span>
-                            </a>
-                        </div>
-                        <!--Delete-->
-                        <div class="col-md-6">
-                            <a href="/project1/vbmanage?p=del&id=${vbList.getMaVB()}" onclick="return confirm('Bạn thực sự muốn xóa: ${vbList.getTenVB()}?')" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-trash"></span></a>
-                        </div>
+                    <!--Delete-->
+                    <div class="col-md-6">
+                        <a href="/project1/vbmanage?p=del&id=${vbList.getMaVB()}" onclick="return confirm('Bạn thực sự muốn xóa: ${vbList.getTenVB()}?')" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-trash"></span></a>
                     </div>
-                </div>                               
-            </c:forEach>                             
+                </td>
+            </tr>                               
+        </c:forEach>                             
 
-        </div>
-        <script src="../js/bootstrap.js" type="text/javascript"></script>
-        <script src="../js/jquery-1.11.1.min.js" type="text/javascript"></script>
-    </body>
+            </table>
+    <script src="../js/bootstrap.js" type="text/javascript"></script>
+    <script src="../js/jquery-1.11.1.min.js" type="text/javascript"></script>
+</body>
 </html>
