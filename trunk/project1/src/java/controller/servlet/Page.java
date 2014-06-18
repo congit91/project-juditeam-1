@@ -38,7 +38,6 @@ public class Page extends HttpServlet {
         if (!isLoaded) {
             DataFile.loadFile(absolutePath);
             context.setAttribute("loaded", true);
-            System.out.println(DataFile.db_name);
         }
     }
 
