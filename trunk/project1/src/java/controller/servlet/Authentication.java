@@ -28,14 +28,17 @@ public class Authentication extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init(); //To change body of generated methods, choose Tools | Templates.
+        String realPath = getServletContext().getRealPath("/");
+        String absolutePath = realPath.replace("build\\web", "");
         ServletContext context = getServletContext();
         boolean isLoaded = false;
         if (context.getAttribute("loaded") != null) {
             isLoaded = (boolean) context.getAttribute("loaded");
         }
         if (!isLoaded) {
-            DataFile.loadFile(context);
+            DataFile.loadFile(absolutePath);
             context.setAttribute("loaded", true);
+            System.out.println(DataFile.db_name);
         }
     }
 
