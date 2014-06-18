@@ -5,16 +5,10 @@
  */
 package util;
 
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.ServletContext;
+import java.io.InputStream;
+import java.util.Properties;
 
 /**
  *
@@ -29,52 +23,32 @@ public class DataFile {
     public static String passEmailSend = "congtrinh";
     public static String emailReceive = "king.vandalism1@gmail.com";
 
-    public static void loadFile(ServletContext ctx) {
-        try {
-            FileInputStream fstream = null;
-            String propPath = ctx.getResource(util.Constants.STORAGE_PATH +  util.Constants.DATA_FILE).toString();
-            System.out.println(propPath);
-            try {
-                fstream = new FileInputStream(propPath);
-                
-                // Get the object of DataInputStream
-                DataInputStream in = new DataInputStream(fstream);
-                BufferedReader br = new BufferedReader(new InputStreamReader(in));
-                //Read File Line By Line
-                String st;
-                int i = 0;
-                while ((st = br.readLine()) != null) {
-                    String[] str = st.split(Constants.SEPERATOR);
-                    ++i;
-                    if (i == 1) {
-                        db_name = str[1];
-                    }
-                    if (i == 2) {
-                        user = str[1];
-                    }
-                    if (i == 3) {
-                        pass = str[1];
-                    }
-                    if (i == 4) {
-                        emailSend = str[1];
-                    }
-                    if (i == 5) {
-                        passEmailSend = str[1];
-                    }
-                    if (i == 6) {
-                        emailReceive = str[1];
-                    }
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
+    public static void loadFile(String absolutePath) {
+        Properties prop = new Properties();
+        InputStream input = null;
+        try {input = new FileInputStream(absolutePath + "web\\config\\config.properties");
+
+            // load a properties file
+            prop.load(input);
+
+            // get the property value and print it out
+            db_name = prop.getProperty("dbName");
+            user = prop.getProperty("dbuser");
+            pass = prop.getProperty("dbpassword");
+            emailReceive = prop.getProperty("emailReceive");
+            emailSend = prop.getProperty("emailSend");
+            passEmailSend = prop.getProperty("passemail");
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (input != null) {
                 try {
-                    fstream.close();
-                } catch (Exception ex) {
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(DataFile.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

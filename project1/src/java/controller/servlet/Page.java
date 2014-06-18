@@ -13,13 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.dao.DiaPhuongDAO;
-import model.dao.NguoiPhuTrachDAO;
-import model.dao.TaiKhoanDAO;
-import model.dao.TieuChiDAO;
 import model.dao.service.DiaPhuongDAOService;
-import model.dao.service.NguoiPhuTrachDAOService;
-import model.dao.service.TaiKhoanDAOService;
-import model.dao.service.TieuChiDAOService;
 import model.entities.DiaPhuong;
 import util.DataFile;
 
@@ -29,26 +23,25 @@ import util.DataFile;
  */
 public class Page extends HttpServlet {
 
-    private final TaiKhoanDAOService TK_SERVICE = TaiKhoanDAO.getInstance();
     private final DiaPhuongDAOService DP_SERVICE = DiaPhuongDAO.getInstance();
-    private final TieuChiDAOService TC_SERVICE = TieuChiDAO.getInstance();
-    private final NguoiPhuTrachDAOService NPT_SERVICE = NguoiPhuTrachDAO.getInstance();
 
     @Override
     public void init() throws ServletException {
         super.init(); //To change body of generated methods, choose Tools | Templates.
+        String realPath = getServletContext().getRealPath("/");
+        String absolutePath = realPath.replace("build\\web", "");
         ServletContext context = getServletContext();
         boolean isLoaded = false;
         if (context.getAttribute("loaded") != null) {
             isLoaded = (boolean) context.getAttribute("loaded");
         }
         if (!isLoaded) {
-            DataFile.loadFile(context);
+            DataFile.loadFile(absolutePath);
             context.setAttribute("loaded", true);
+            System.out.println(DataFile.db_name);
         }
     }
 
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
