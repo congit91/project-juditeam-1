@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Contact extends HttpServlet {
 
-
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -29,7 +28,7 @@ public class Contact extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
     /**
@@ -51,8 +50,11 @@ public class Contact extends HttpServlet {
         String email = request.getParameter("email");
         String title = request.getParameter("title");
         String content = request.getParameter("content");
-//        util.Support.sendFeedBackMail(email, fullName, title, content);
-        response.getWriter().print("Bạn đã gửi phản hồi thành công! Cảm ơn!");
+        if (util.Support.sendFeedBackMail(email, fullName, title, content)) {
+            response.getWriter().print("Bạn đã gửi phản hồi thành công! Cảm ơn!");
+        } else {
+            response.getWriter().print("Có lỗi xảy ra, kiểm tra lại kết nối Internet của bạn! Tks!");
+        }
     }
 
     /**
