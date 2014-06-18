@@ -34,7 +34,7 @@ public class Authentication extends HttpServlet {
             isLoaded = (boolean) context.getAttribute("loaded");
         }
         if (!isLoaded) {
-            DataFile.loadFile();
+            DataFile.loadFile(context);
             context.setAttribute("loaded", true);
         }
     }
