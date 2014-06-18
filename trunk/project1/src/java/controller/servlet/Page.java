@@ -43,7 +43,7 @@ public class Page extends HttpServlet {
             isLoaded = (boolean) context.getAttribute("loaded");
         }
         if (!isLoaded) {
-            DataFile.loadFile();
+            DataFile.loadFile(context);
             context.setAttribute("loaded", true);
         }
     }
