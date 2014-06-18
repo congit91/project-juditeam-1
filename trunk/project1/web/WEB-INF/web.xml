@@ -16,6 +16,10 @@
         <servlet-class>controller.servlet.Page</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>Contact</servlet-name>
+        <servlet-class>controller.servlet.Contact</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>Authentication</servlet-name>
         <servlet-class>controller.servlet.Authentication</servlet-class>
     </servlet>
@@ -38,6 +42,10 @@
     <servlet-mapping>
         <servlet-name>Page</servlet-name>
         <url-pattern>/Page</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Contact</servlet-name>
+        <url-pattern>/contact</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Authentication</servlet-name>
