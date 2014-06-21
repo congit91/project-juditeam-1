@@ -122,21 +122,21 @@
                                                     </select>
                                                 </div>
                                             </div>
-<!--                                            Người phụ trách
-                                            <div class="form-group">
-                                                <div class="col-sm-3" >
-                                                    <label class="label label-info" style="padding: 5px;font-size:13px">Người phụ trách</label>
-                                                </div>
-                                                <div class="col-sm-9" >
-                                                    <select class="form-control" name="nguoiPhuTrach">
-                                                        <c:forEach items="${nptList}" var="npt">
-                                                            <c:if test="${npt.getDiaPhuong().getMaDP() < 1}">
-                                                                <option value="${npt.getMaNPT()}-${npt.getHoTen()}">${npt.getMaNPT()}-${npt.getHoTen()}</option>
-                                                            </c:if>
-                                                        </c:forEach>
-                                                    </select>
-                                                </div>
-                                            </div>-->
+                                            <!--                                            Người phụ trách
+                                                                                        <div class="form-group">
+                                                                                            <div class="col-sm-3" >
+                                                                                                <label class="label label-info" style="padding: 5px;font-size:13px">Người phụ trách</label>
+                                                                                            </div>
+                                                                                            <div class="col-sm-9" >
+                                                                                                <select class="form-control" name="nguoiPhuTrach">
+                                            <c:forEach items="${nptList}" var="npt">
+                                                <c:if test="${npt.getDiaPhuong().getMaDP() < 1}">
+                                                    <option value="${npt.getMaNPT()}-${npt.getHoTen()}">${npt.getMaNPT()}-${npt.getHoTen()}</option>
+                                                </c:if>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>-->
                                             <!--Tiêu chí-->
                                             <div class="form-group">
                                                 <div class="col-sm-3" >
@@ -174,13 +174,13 @@
                             </div>
                         </div>
                     </div>
-                     <!--kET THUC NE CON-->                                   
+                    <!--kET THUC NE CON-->                                   
 
                 </div>
 
 
                 <div class="row">
-                     <div class="col-lg-5 col-lg-push-4">
+                    <div class="col-lg-5 col-lg-push-4">
                         <form action="/project1/dpmanage?do=search" method="post">
                             <div class="col-md-11">
 
@@ -228,14 +228,25 @@
                     <div class="col-md-1" style="text-transform: inherit;padding:5px">${dpList.getSoDan()}</div>
                     <div class="col-md-2" style="text-transform: inherit;padding:5px">
 
-                        <div class="col-md-6">
-                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#2myModal">
-                                <span class="glyphicon glyphicon-wrench"></span>
-                            </button> 
+                        <div class="col-md-3">
+                            <a href="/project1/dpmanage?p=edit&id=${dpList.getMaDP()}" class="btn btn-primary btn-sm" >
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
                         </div>
 
-
-                        <div class="col-md-6">
+                        <div class="col-md-3">
+                            <c:if test="${dpList.getActive() == 0}">
+                                <a href="/project1/dpmanage?p=restore&id=${dpList.getMaDP()}" class="btn btn-primary btn-sm" >
+                                    <span class="glyphicon glyphicon-unchecked"></span>
+                                </a>
+                            </c:if>
+                            <c:if test="${dpList.getActive() == 1}">
+                                <a href="/project1/dpmanage?p=remove&id=${dpList.getMaDP()}" onclick="return confirm('Bạn thực sự địa phương ${dpList.getTenDP()} ngừng hoạt động?')" class="btn btn-primary btn-sm" >
+                                    <span class="glyphicon glyphicon-check"></span>
+                                </a>
+                            </c:if>
+                        </div>
+                        <div class="col-md-3">
                             <a href="/project1/dpmanage?p=del&id=${dpList.getMaDP()}" onclick="return confirm('Bạn thực sự muốn xóa: ${dpList.getTenDP()}?')" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-trash"></span></a>
                         </div>
                     </div>

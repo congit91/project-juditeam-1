@@ -78,6 +78,8 @@ public interface DiaPhuongDAOService {
      * @return true if delete The dp's status successful. false if failed!
      */
     public boolean deleteDiaPhuong(int maDP);
+    public boolean deleteDiaPhuongInNPT(int maDP);
+    public boolean deleteDiaPhuongInTC(int maDP);
 
     public List<DiaPhuong> fintDiaPhuongByTen(String tenDP);
 }

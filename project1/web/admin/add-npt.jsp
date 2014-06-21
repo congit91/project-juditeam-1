@@ -28,7 +28,7 @@
                             <h3><span class="glyphicon glyphicon-user"></span>${npt.getMaNPT() > 0 ? 'Thay đổi thông tin NPT' : 'Thêm người phụ trách'}</h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal" role="form" action="/project1/umanage?id=${npt.getMaNPT()}" method="post">
+                            <form class="form-horizontal" role="form" action="/project1/nptmanage?id=${npt.getMaNPT()}" method="post">
                                 <!-- /.UserName -->
                                 <div class="form-group">                                    
                                     <div class="col-sm-12" >
@@ -78,8 +78,13 @@
                                 <div class="form-group">
                                     <div class="col-sm-12" >
                                         <select class="form-control" name="diaPhuong">
+                                            <c:if test="${npt.getDiaPhuong().getMaDP() > 0}">
+                                                <option value="${npt.getDiaPhuong().getTenDP()}">${npt.getDiaPhuong().getTenDP()}</option>
+                                            </c:if>
                                             <c:forEach items="${dpList}" var="dp">
-                                                <option value="${dp.getTenDP()}">${dp.getTenDP()}</option>
+                                                <c:if test="${dp.getNptList().size()<1}">
+                                                    <option value="${dp.getTenDP()}">${dp.getTenDP()}</option>
+                                                </c:if>
                                             </c:forEach>
                                         </select>
                                     </div>

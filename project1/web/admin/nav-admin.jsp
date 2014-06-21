@@ -33,8 +33,10 @@
                                 <li><a href="/project1/umanage?p=manage-user">Quản lý tài khoản</a></li>
                                 <li class="divider"></li>
                                 <li><a href="/project1/dpmanage?p=manage-diaphuong">Quản lý địa phương</a></li>
-                                 <li class="divider"></li>
-                                 <li><a href="/project1/vbmanage?p=manage-document">Quản lý văn bản</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/project1/vbmanage?p=manage-document">Quản lý văn bản</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/project1/nptmanage?p=manage-npt">QL người phụ trách</a></li>
                             </ul>
                         </li>
                         <li><a href="/project1/Page?p=about">Thống kê</a></li>

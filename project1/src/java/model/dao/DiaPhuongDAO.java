@@ -227,6 +227,36 @@ public class DiaPhuongDAO implements DiaPhuongDAOService {
         }
         return isCheck;
     }
+    @Override
+    public boolean deleteDiaPhuongInNPT(int maDP) {
+        boolean isCheck = false;
+        try {
+            Connection conn = ConnectionFactory.getConnection();
+            String sql = "delete from tbl_nguoiphutrach where maDP = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, maDP);
+            pstmt.executeUpdate();
+            isCheck = true;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return isCheck;
+    }
+    @Override
+    public boolean deleteDiaPhuongInTC(int maDP) {
+        boolean isCheck = false;
+        try {
+            Connection conn = ConnectionFactory.getConnection();
+            String sql = "delete from tbl_dptc where maDP = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, maDP);
+            pstmt.executeUpdate();
+            isCheck = true;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return isCheck;
+    }
 
     @Override
     public boolean checkNewDP(String tenDP) {

@@ -8,6 +8,7 @@
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/umanage</url-pattern>
         <url-pattern>/dpmanage</url-pattern>
+        <url-pattern>/nptmanage</url-pattern>
         <url-pattern>/vbmanage</url-pattern>
         <url-pattern>/admin/*</url-pattern>
     </filter-mapping>
