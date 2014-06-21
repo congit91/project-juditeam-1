@@ -7,7 +7,6 @@ package controller.servlet.admin;
 
 import java.io.IOException;
 import java.util.List;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,8 +23,6 @@ import model.entities.DiaPhuong;
 import model.entities.DiaPhuong_TieuChi;
 import model.entities.NguoiPhuTrach;
 import model.entities.TieuChi;
-import model.entities.VanBan;
-import util.DataFile;
 
 /**
  *
@@ -71,6 +68,12 @@ public class DPManagement extends HttpServlet {
                     request.setAttribute("dp", dp);
                     request.removeAttribute(util.Constants.MSG_RESULT);
                     request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+                    break;
+                case "restore":
+                    doRestore(request, response);
+                    break;
+                case "remove":
+                    doRemove(request, response);
                     break;
                 case "del":
                     doDel(request, response);
@@ -216,10 +219,39 @@ public class DPManagement extends HttpServlet {
     private void doDel(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int maDP = Integer.parseInt(request.getParameter("id"));
-        if (DP_SERVICE.deleteDiaPhuong(maDP)) {
+        if (DP_SERVICE.deleteDiaPhuongInNPT(maDP) && DP_SERVICE.deleteDiaPhuongInTC(maDP)
+                && DP_SERVICE.deleteDiaPhuong(maDP)) {
             request.setAttribute("msgResult", "Xóa địa phương thành công!");
         } else {
             request.setAttribute("msgResult", "Xóa địa phương thất bại!");
+        }
+        List<DiaPhuong> dpList = DP_SERVICE.getDiaPhuongAll();
+        request.setAttribute(util.Constants.DP_LIST, dpList);
+        request.setAttribute(util.Constants.PAGE, "manage-diaphuong");
+        request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+    }
+
+    private void doRestore(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int maDP = Integer.parseInt(request.getParameter("id"));
+        if (DP_SERVICE.restoreDiaPhuong(maDP)) {
+            request.setAttribute("msgResult", "Địa phương đã hoạt động trở lại!");
+        } else {
+            request.setAttribute("msgResult", "Có lỗi, thử lại...!");
+        }
+        List<DiaPhuong> dpList = DP_SERVICE.getDiaPhuongAll();
+        request.setAttribute(util.Constants.DP_LIST, dpList);
+        request.setAttribute(util.Constants.PAGE, "manage-diaphuong");
+        request.getRequestDispatcher(util.Constants.URL_ADMIN).forward(request, response);
+    }
+
+    private void doRemove(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int maDP = Integer.parseInt(request.getParameter("id"));
+        if (DP_SERVICE.removeDiaPhuong(maDP)) {
+            request.setAttribute("msgResult", "Địa phương đã ngừng hoạt động!");
+        } else {
+            request.setAttribute("msgResult", "Có lỗi, thử lại...!");
         }
         List<DiaPhuong> dpList = DP_SERVICE.getDiaPhuongAll();
         request.setAttribute(util.Constants.DP_LIST, dpList);

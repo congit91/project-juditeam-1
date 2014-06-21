@@ -17,7 +17,7 @@
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel panel-heading">
-                <a href="/project1/nptmanage?do=add" class="btn btn-primary btn-sm" >
+                <a href="/project1/nptmanage?p=add" class="btn btn-primary btn-sm" >
                     Thêm mới người phụ trách
                 </a>               
                 <div class="row">
@@ -70,13 +70,13 @@
                     <td  class="col-md-1" style="text-transform: inherit;padding:5px">${npt.getDiaPhuong().getTenDP()}</td>
                     <td  class="col-md-1" style="text-transform: inherit;padding:5px">
                         <div class="col-md-6">
-                            <a href="/project1/nptmanage?id=${npt.getMaNPT()}" class="btn btn-primary btn-sm" >
+                            <a href="/project1/nptmanage?p=edit&id=${npt.getMaNPT()}" class="btn btn-primary btn-sm" >
                                 <span class="glyphicon glyphicon-wrench"></span>
                             </a>
                         </div>
                         <!--Delete-->
                         <div class="col-md-6">
-                            <a href="/project1/nptmanage?id=${npt.getMaNPT()}" onclick="return confirm('Bạn thực sự muốn xóa: ${npt.getHoTen()}?')" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-trash"></span></a>
+                            <a href="/project1/nptmanage?p=del&id=${npt.getMaNPT()}" onclick="return confirm('Bạn thực sự muốn xóa: ${npt.getHoTen()}?')" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-trash"></span></a>
                         </div>
                     </td>
                 </tr>

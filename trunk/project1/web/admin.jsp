@@ -44,6 +44,10 @@
                     <%@include file="admin/nav-admin.jsp" %>
                     <%@include file="admin/adddocu.jsp" %>
                 </c:if>
+                <c:if test="${p == 'add-npt'}">
+                    <%@include file="admin/nav-admin.jsp" %>
+                    <%@include file="admin/add-npt.jsp" %>
+                </c:if>
                 <c:if test="${p == 'manage-user'}">
                     <%@include file="admin/nav-admin.jsp" %>
                     <%@include file="admin/manage-users.jsp" %>
