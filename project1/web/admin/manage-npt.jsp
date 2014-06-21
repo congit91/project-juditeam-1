@@ -13,12 +13,12 @@
         <link href="../css/bootstrap.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <div class="alert alert-danger" style="text-align: center"><b>QUẢN LÝ TÀI KHOẢN NGƯỜI SỬ DỤNG </b></div>
+        <div class="alert alert-danger" style="text-align: center"><b>QUẢN LÝ NGƯỜI PHỤ TRÁCH </b></div>
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel panel-heading">
                 <a href="/project1/umanage?do=add" class="btn btn-primary btn-sm" >
-                    Tạo mới tài khoản
+                    Tạo mới
                 </a>               
                 <div class="row">
                     <div class="col-lg-5 col-lg-push-6">
@@ -48,20 +48,26 @@
              </div>
             <table class="col-md-12 table-hover">
                 <tr >
-                    <td class="col-md-1"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Mã TK</td>
-                    <td class="col-md-2"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Tên TK</td>
-                    <td class="col-md-3"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Họ Tên</td>
-                    <td class="col-md-3"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Email</td>
-                    <td class="col-md-2"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Điện Thoại</td>
+                    <td class="col-md-1"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Mã NPT</td>
+                    <td class="col-md-2"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Họ Tên</td>
+                    <td class="col-md-1"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Năm sinh</td>
+                    <td class="col-md-2"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Quê quán</td>
+                    <td class="col-md-1"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Chức vị</td>
+                    <td class="col-md-1"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">SĐT</td>
+                    <td class="col-md-2"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Email</td>
+                    <td class="col-md-1"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Địa phương</td>
                     <td class="col-md-1"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Lựa chọn</td>
                 </tr>
                 <c:forEach items="${tkList}" var="tkList">
                 <tr style="border-bottom:#428bca solid thin">
-                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">${tkList.getMaTK()}</td>
-                    <td  class="col-md-2" style="text-transform: inherit;padding:5px">${tkList.getTenTK()}</td>
-                    <td  class="col-md-3" style="text-transform: inherit;padding:5px">${tkList.getHoTen()}</td>
-                    <td  class="col-md-3" style="text-transform: inherit;padding:5px">${tkList.getEmail()}</td>
-                    <td  class="col-md-2" style="text-transform: inherit;padding:5px">${tkList.getSDT()}</td>
+                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">a</td>
+                    <td  class="col-md-2" style="text-transform: inherit;padding:5px">b</td>
+                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">c</td>
+                    <td  class="col-md-2" style="text-transform: inherit;padding:5px">d</td>
+                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">e</td>
+                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">f</td>
+                    <td  class="col-md-2" style="text-transform: inherit;padding:5px">g</td>
+                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">h</td>
                     <td  class="col-md-1" style="text-transform: inherit;padding:5px">
                         <div class="col-md-6">
                             <a href="/project1/umanage?do=edit&id=${tkList.getMaTK()}" class="btn btn-primary btn-sm" >
