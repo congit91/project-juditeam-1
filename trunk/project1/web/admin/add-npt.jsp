@@ -3,8 +3,6 @@
     Created on : Jun 3, 2014, 6:45:51 AM
     Author     : Welcomes
 --%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,56 +25,68 @@
                 <div class="col-lg-4 col-md-offset-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3><span class="glyphicon glyphicon-user"></span>${vb.getMaVB() > 0 ? 'Thay đổi thông tin văn bản' : 'Thêm mới văn bản'}</h3>
+                            <h3><span class="glyphicon glyphicon-user"></span>${npt.getMaNPT() > 0 ? 'Thay đổi thông tin NPT' : 'Thêm người phụ trách'}</h3>
                         </div>
                         <div class="panel-body">
-                            <form class="form-horizontal" role="form" action="/project1/vbmanage?id=${vb.getMaVB()}" method="post">
-                                <!-- /.Mã VB -->
+                            <form class="form-horizontal" role="form" action="/project1/umanage?id=${npt.getMaNPT()}" method="post">
+                                <!-- /.UserName -->
                                 <div class="form-group">                                    
                                     <div class="col-sm-12" >
-                                        <input type="text" name="maVB" value="${vb.getMaVB()}" disabled class="form-control" id="inputEmail3" placeholder="Mã văn bản">
+                                        <input type="text" name="maNPT" value="${npt.getMaNPT()}" disabled class="form-control" id="inputEmail3">
                                     </div>
                                 </div>
-                                <!-- /.tên VB -->
-                                <div class="form-group">
-                                    <div class="col-sm-12" >
-                                        <input type="text" name="tenVB" value="${vb.getTenVB()}" class="form-control" id="inputEmail3" placeholder="Tên văn bản">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-12" >
-                                        <input type="text" name="loaiVB" value="${vb.getLoaiVB()}" class="form-control" id="inputEmail3" placeholder="Loại văn bản">
-                                    </div>
-                                </div>
-                                <!-- /.Password -->
+                                <!-- /.UserName -->
                                 <div class="form-group">
 
                                     <div class="col-sm-12" >
-                                        <input type="text" name="noiBanHanh" value="${vb.getNoiBanHanh()}" class="form-control" id="inputEmail3" placeholder="Nơi ban hành">
+                                        <input type="text" name="hoTen" value="${npt.getHoTen()}" class="form-control" id="inputEmail3" placeholder="Tên NPT">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12" >
+                                        <input type="text" name="namSinh" value="${npt.getNamSinh()}" class="form-control" id="inputEmail3" placeholder="dd-MM-yyyy">
                                     </div>
                                 </div>
                                 <!-- /.FullName -->
                                 <div class="form-group">
                                     <div class="col-sm-12" >
-                                        <input type="text" name="ngayBanHanh" value="${vb.getNgayBanHanh()}" class="form-control" id="inputEmail3" placeholder="Ngày ban hành">
+                                        <input type="text" name="queQuan" value="${npt.getQueQuan()}" class="form-control" id="inputEmail3" placeholder="Quê quán">
                                     </div>
                                 </div>
-                                <!-- /.Email -->
                                 <div class="form-group">
-
                                     <div class="col-sm-12" >
-                                        <input type="text" name="noiNhan" value="${vb.getNoiNhan()}" class="form-control" id="inputEmail3" placeholder="Nơi nhận">
+                                        <input type="text" name="hocVi" value="${npt.getHocVi()}" class="form-control" id="inputEmail3" placeholder="Học vị">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12" >
+                                        <input type="text" name="chucVu" value="${npt.getChucVu()}" class="form-control" id="inputEmail3" placeholder="Chức vụ">
                                     </div>
                                 </div>
                                 <!-- /.Phone -->
                                 <div class="form-group">
                                     <div class="col-sm-12" >
-                                        <textarea name="noiDung" class="col-md-12 form-control" style="margin-top: 5px" rows="4" id="inputEmail3" placeholder="Nội dung" >${vb.getNoiDung()}</textarea>
+                                        <input type="text" name="SDT" value="${npt.getSDT()}" class="form-control" id="inputEmail3" placeholder="Số điện thoại">
+                                    </div>
+                                </div>
+                                <!-- /.Email -->
+                                <div class="form-group">
+                                    <div class="col-sm-12" >
+                                        <input type="email" name="email" value="${npt.getEmail()}" class="form-control" id="inputEmail3" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12" >
-                                        <input type="submit" ${vb.getMaVB() > 0 ? 'value="Sửa"' : 'value="Thêm mới"'} name="submit" class="btn btn-success"/>
+                                        <select class="form-control" name="diaPhuong">
+                                            <c:forEach items="${dpList}" var="dp">
+                                                <option value="${dp.getTenDP()}">${dp.getTenDP()}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12" >
+                                        <input type="submit" ${npt.getMaNPT() > 0 ? 'value="Sửa"' : 'value="Thêm mới"'} name="submit" class="btn btn-success"/>
                                         &nbsp;
                                         <button type="reset" class="btn btn-warning">Clear</button>
                                     </div>

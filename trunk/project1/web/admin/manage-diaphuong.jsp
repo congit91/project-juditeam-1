@@ -122,7 +122,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <!--Người phụ trách-->
+<!--                                            Người phụ trách
                                             <div class="form-group">
                                                 <div class="col-sm-3" >
                                                     <label class="label label-info" style="padding: 5px;font-size:13px">Người phụ trách</label>
@@ -136,7 +136,7 @@
                                                         </c:forEach>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div>-->
                                             <!--Tiêu chí-->
                                             <div class="form-group">
                                                 <div class="col-sm-3" >

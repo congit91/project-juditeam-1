@@ -17,12 +17,12 @@
         <div class="panel panel-default">
             <!-- Default panel contents -->
             <div class="panel panel-heading">
-                <a href="/project1/umanage?do=add" class="btn btn-primary btn-sm" >
-                    Tạo mới
+                <a href="/project1/nptmanage?do=add" class="btn btn-primary btn-sm" >
+                    Thêm mới người phụ trách
                 </a>               
                 <div class="row">
                     <div class="col-lg-5 col-lg-push-6">
-                        <form action="/project1/umanage?do=search" method="post">
+                        <form action="/project1/nptmanage?do=search" method="post">
                             <div class="col-md-11">
 
                                 <div class="input-group">
@@ -34,7 +34,7 @@
 
                                     </div><!-- /btn-group -->
 
-                                    <input type="text" name="userName" class="form-control" placeholder="Nhập tên tài khoản muốn tìm...">
+                                    <input type="text" name="hoTen" class="form-control" placeholder="Nhập tên người phụ trách muốn tìm...">
 
                                 </div><!-- /input-group -->
                             </div><!-- /input-group -->
@@ -52,31 +52,31 @@
                     <td class="col-md-2"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Họ Tên</td>
                     <td class="col-md-1"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Năm sinh</td>
                     <td class="col-md-2"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Quê quán</td>
-                    <td class="col-md-1"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Chức vị</td>
+                    <td class="col-md-1"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Chức vụ</td>
                     <td class="col-md-1"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">SĐT</td>
                     <td class="col-md-2"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Email</td>
                     <td class="col-md-1"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Địa phương</td>
                     <td class="col-md-1"style="background: #3e8f3e;padding:5px;font-weight:bold;text-transform: uppercase;color:#ffffff">Lựa chọn</td>
                 </tr>
-                <c:forEach items="${tkList}" var="tkList">
+                <c:forEach items="${nptList}" var="npt">
                 <tr style="border-bottom:#428bca solid thin">
-                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">a</td>
-                    <td  class="col-md-2" style="text-transform: inherit;padding:5px">b</td>
-                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">c</td>
-                    <td  class="col-md-2" style="text-transform: inherit;padding:5px">d</td>
-                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">e</td>
-                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">f</td>
-                    <td  class="col-md-2" style="text-transform: inherit;padding:5px">g</td>
-                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">h</td>
+                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">${npt.getMaNPT()}</td>
+                    <td  class="col-md-2" style="text-transform: inherit;padding:5px">${npt.getHoTen()}</td>
+                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">${npt.getNamSinh()}</td>
+                    <td  class="col-md-2" style="text-transform: inherit;padding:5px">${npt.getQueQuan()}</td>
+                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">${npt.getChucVu()}</td>
+                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">${npt.getSDT()}</td>
+                    <td  class="col-md-2" style="text-transform: inherit;padding:5px">${npt.getEmail()}</td>
+                    <td  class="col-md-1" style="text-transform: inherit;padding:5px">${npt.getDiaPhuong().getTenDP()}</td>
                     <td  class="col-md-1" style="text-transform: inherit;padding:5px">
                         <div class="col-md-6">
-                            <a href="/project1/umanage?do=edit&id=${tkList.getMaTK()}" class="btn btn-primary btn-sm" >
+                            <a href="/project1/nptmanage?id=${npt.getMaNPT()}" class="btn btn-primary btn-sm" >
                                 <span class="glyphicon glyphicon-wrench"></span>
                             </a>
                         </div>
                         <!--Delete-->
                         <div class="col-md-6">
-                            <a href="/project1/umanage?do=del&id=${tkList.getMaTK()}" onclick="return confirm('Bạn thực sự muốn xóa: ${tkList.getTenTK()}?')" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-trash"></span></a>
+                            <a href="/project1/nptmanage?id=${npt.getMaNPT()}" onclick="return confirm('Bạn thực sự muốn xóa: ${npt.getHoTen()}?')" class="btn btn-primary btn-sm" role="button"><span class="glyphicon glyphicon-trash"></span></a>
                         </div>
                     </td>
                 </tr>

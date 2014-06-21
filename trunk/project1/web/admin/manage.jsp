@@ -70,10 +70,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" style="background:black;color:white">
                                 <span class="glyphicon glyphicon-user"></span>
-                                CHỨC NĂNG ĐANG XÂY DỰNG
+                                QUẢN LÝ NGƯỜI PHỤ TRÁCH
                             </div>
                             <div class="panel-body">
-                                <a href="#"><img class="img-thumbnail" src="./images/admin/12.png" alt="" width="40%"/></a>
+                                <a href="/project1/nptmanage?p=manage-npt"><img class="img-thumbnail" src="./images/admin/12.png" alt="" width="40%"/></a>
                             </div>
                         </div>
                     </div>
