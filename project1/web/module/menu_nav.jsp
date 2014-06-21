@@ -32,13 +32,9 @@
 
                             <li class="active"><a href="/project1/home.jsp">Trang chủ</a></li>
                             <li><a href="/project1/Page?p=about">Giới thiệu</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tìm kiếm <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/project1/Page?p=search-cb-vb">Tìm kiếm văn bản</a></li>
-                                    <li class="divider"></li>
-                                     <li><a href="/project1/Page?p=search-cb-dp">Tìm kiếm địa phương</a></li>
-                                    </ul>
+                            <li>
+                                <a href="/project1/Page?p=search-cb-vb" >Tìm kiếm <b class=""></b></a>
+                                
                             </li>
                             <li><a href="/project1/Page?p=contact">Liên Hệ</a></li>
                         </ul>
