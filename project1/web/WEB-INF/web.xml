@@ -39,6 +39,10 @@
         <servlet-name>VBManagement</servlet-name>
         <servlet-class>controller.servlet.admin.VBManagement</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NPTManagement</servlet-name>
+        <servlet-class>controller.servlet.admin.NPTManagement</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Page</servlet-name>
         <url-pattern>/Page</url-pattern>
@@ -66,6 +70,10 @@
     <servlet-mapping>
         <servlet-name>VBManagement</servlet-name>
         <url-pattern>/vbmanage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NPTManagement</servlet-name>
+        <url-pattern>/nptmanage</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
